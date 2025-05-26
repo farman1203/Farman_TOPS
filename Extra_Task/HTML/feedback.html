@@ -1,0 +1,101 @@
+<html>
+<head>
+	<title> Feedback form </title>
+	<style>
+	  body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #3498db, #9b59b6);
+      color: #333;
+    }
+	
+	.rating {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .rating input {
+      margin: 0 10px;
+    }
+
+form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+	 form textarea {
+      grid-column: span 2;
+      height: 100px;
+      resize: none;
+    }
+	  input, textarea {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+	.container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 10px;
+      color: #3498db;
+    }
+
+    p {
+      text-align: center;
+    }
+	    .submit-btn {
+      grid-column: span 2;
+      text-align: center;
+    }
+
+    .submit-btn button {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn button:hover {
+      background: #2980b9;
+    }
+
+	</style>
+</head>
+<body>
+	
+	 <div class="container">
+    <h1>Feedback Form</h1>
+    <p>Please write your feedback below:</p>
+	
+	<div class="rating">
+      <label><input type="radio" name="rating" value="Bad"> Bad</label>
+      <label><input type="radio" name="rating" value="Average"> Average</label>
+      <label><input type="radio" name="rating" value="Good"> Good</label>
+    <br><br>
+	 <form>
+      <input type="text" placeholder="Full Name*" required>
+      <input type="email" placeholder="Email*" required>
+      <input type="number" placeholder="Age*" required>
+      <input type="tel" placeholder="Phone*" required>
+      <textarea placeholder="Write your message here" required></textarea>
+
+ <div class="submit-btn">
+        <button type="submit">Submit</button>
+      </div>
+	</div>
+	</div>
+</body>
+</html>
