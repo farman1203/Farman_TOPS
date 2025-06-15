@@ -31,9 +31,9 @@ background-color:rgb(40, 99, 90);
 </div>	
 <div style="width:33.33%;float:right"><br>
 <form method="post">
-	Name:<br><input type="text" Name="Name"><br><br>
-	E-mail:<br><input type="email" Name="email"><br><br>
-	Message:<br><textarea Name="Message" rows="5" col="50"></textarea><br><br>
+	Name:<br><input type="text" Name="Name" required pattern="[a-zA-Z]+" title="Add Alpha"><br><br>
+	E-mail:<br><input type="email" Name="email" required><br><br>
+	Message:<br><textarea Name="Message" rows="5" col="50" required pattern="[a-zA-Z]{8,20}"></textarea><br><br>
 	<button> Send Message  </button>
 	
 	</form>

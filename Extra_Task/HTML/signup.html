@@ -34,10 +34,10 @@ background-color: black;
 
 	<form method="post" align="center">
 	<h1> Sign-up Form </h1>
-		First Name:<br> <input type="text" name="fname"><br><br>
-		Last Name:<br> <input type="text" name="lname"><br><br>
-		E-mail:<br> <input type="text" name="email"><br><br>
-		Password:<br><input type="Password" name="Password"><br><br>
+		First Name:<br> <input type="text" name="fname" required><br><br>
+		Last Name:<br> <input type="text" name="lname" required><br><br>
+		E-mail:<br> <input type="text" name="email" required><br><br>
+		Password:<br><input type="Password" name="Password" required minlength="5" maxlength="12" title="Min lenght 5"><br><br>
 		<button>submit</button>
 		<button>Reset</button><br><br>
 		 Already have account<a href="form.html"> Login </a>
