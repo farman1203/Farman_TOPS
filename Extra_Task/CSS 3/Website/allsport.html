@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          *{
+	box-sizing:border-box;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.row{
+	display:flex;
+	flex-wrap: nowrap;
+}
+[class*="col-"]{
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+	.col-1 {width: 8.33%;}
+	.col-2 {width: 16.66%;}
+	.col-3 {width: 25%;}
+	.col-4 {width: 33.33%;}
+	.col-5 {width: 41.66%;}
+	.col-6 {width: 50%;}
+	.col-7 {width: 58.33%;}
+	.col-8 {width: 66.66%;}
+	.col-9 {width: 75%;}
+	.col-10 {width: 83.33%;}
+	.col-11 {width: 91.66%;}
+	.col-12 {width: 100%;}
+}
+
+.header{
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 50px;
+    font-size: 16px;
+    padding-top: 1px;
+}
+.navbar{
+    background-image: url(image/nivialogo.jpg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 100px;
+    background-color: rgb(255, 255, 255);
+    height: 60px;
+    font-size: 13px;
+    font-weight: 15px;
+    padding-top: 22px;
+    margin:2px 0px 2px 30px;
+    text-indent: 50px;  
+}
+.navbar a{
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+    padding-left: 20px;
+    text-align: center;
+}   
+.navbar a:hover{
+    color: brown;
+}
+.icon{
+    margin-left: 900px;
+    margin-top: -18px;
+    cursor: pointer;
+}
+.icon i:hover{
+    font-size: 19px;
+    color: brown;
+}
+
+
+.nav{
+    margin-left: 125px;
+
+}
+aside{
+    position: sticky;
+    top: 0;
+}
+
+.main{
+    margin: 50px 0px;
+   
+     
+}
+
+.sh{
+   display: flex;
+}
+
+.sh h3{
+    margin-top:500px;
+}
+
+.cate{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+.cate span{
+    margin-right: 20px;
+}
+.scr{
+    height: 300px;
+    overflow-x: auto;
+}
+.size{
+    display: flex;
+    justify-content:space-between;
+    font-weight: 400;
+    margin-left: 20px;
+}
+.size span{
+    margin-right: 20px;
+
+}
+    </style>
+</head>
+<body>
+     <div class="row">
+        <div class="col-12 header">
+                <p>Get 15% Off on purchases above ₹2500 or Get 30% Off on purchases above ₹5000</p>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-12 navbar">
+            
+                <a href="" class="nav">ALL SPORT</a>
+                <a href="">APPAREL</a>
+                <a href="">FOOTEWARE</a>
+                <a href="">FITNESS</a>
+                <a href="">MUSCLE SUPPORT</a>
+                <a href="">ACCESSORIES</a>
+                <a href="" style="color: red;">OFFER</a>
+                <a href="">CLUBS</a>
+
+                <div class="icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-bag-shopping"></i>
+                </div>
+        </div>
+        </div>
+
+        <h3>All Sport</h3>
+
+        <aside>
+       <div class="row">
+            <div class="col-3">
+                    <h1 style="text-align: center;">Category</h1>
+                    <hr>
+                    
+                        <div class="scr">
+                            <p class="cate">All Sport<span>(555)</span> </p>
+                            <p class="cate">All Sport<span>(555)</span> </p>
+                            <p class="cate">All Sport<span>(555)</span> </p>
+                            <p class="cate">All Sport<span>(555)</span> </p>
+                            <p class="cate">All Sport<span>(555)</span> </p>
+                            <p class="cate">All Sport<span>(555)</span> </p>
+                            <p class="cate">All Sport<span>(555)</span> </p>
+                            <p class="cate">All Sport<span>(555)</span> </p>
+                            <p class="cate">All Sport<span>(555)</span> </p>
+                            <p class="cate">All Sport<span>(555)</span> </p>
+                            
+                        </div>
+                         <h1 style="text-align: center;">Size</h1>
+                         <hr>
+                        <div class="scr">
+                            
+                            <p class="size"><span><input type="checkbox" name="n1">1</span> <span>(19)</span></p>
+                            <p class="size"><span><input type="checkbox" name="n1">1</span> <span>(19)</span></p>
+                            <p class="size"><span><input type="checkbox" name="n1">1</span> <span>(19)</span></p>
+                            <p class="size"><span><input type="checkbox" name="n1">1</span> <span>(19)</span></p>
+                            <p class="size"><span><input type="checkbox" name="n1">1</span> <span>(19)</span></p>
+                            <p class="size"><span><input type="checkbox" name="n1">1</span> <span>(19)</span></p>
+                            <p class="size"><span><input type="checkbox" name="n1">1</span> <span>(19)</span></p>
+                            <p class="size"><span><input type="checkbox" name="n1">1</span> <span>(19)</span></p>
+                            <p class="size"><span><input type="checkbox" name="n1">1</span> <span>(19)</span></p>
+                            <p class="size"><span><input type="checkbox" name="n1">1</span> <span>(19)</span></p>
+                            <p class="size"><span><input type="checkbox" name="n1">1</span> <span>(19)</span></p>
+                            <p class="size"><span><input type="checkbox" name="n1">1</span> <span>(19)</span></p>
+                            
+                        </div>
+                          
+
+            </div>
+            
+       
+            <div class="col-9 main">
+                
+                <p>Showing 1 - 168 of 556 products</p>
+
+            <div class="sh">
+                <img src="image/s1.jpeg" alt="" width="100%">
+                <h3>Safari Men's Football Shoes</h3>
+                <p>₹ 1,499</p>
+            </div>
+             <div class="sh">
+                <img src="image/s1.jpeg" alt="">
+                <h3>Safari Men's Football Shoes</h3>
+                <p style="color: red;">₹ 1,499</p>
+            </div>
+             <div class="sh">
+                <img src="image/s1.jpeg" alt="">
+                <h3>Safari Men's Football Shoes</h3>
+                <p>₹ 1,499</p>
+            </div> 
+
+            </div>
+
+ </div>
+
+
+</body>
+</html>

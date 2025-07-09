@@ -1,0 +1,221 @@
+   *{
+	box-sizing:border-box;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.row{
+	display:flex;
+	flex-wrap: nowrap;
+}
+[class*="col-"]{
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+	.col-1 {width: 8.33%;}
+	.col-2 {width: 16.66%;}
+	.col-3 {width: 25%;}
+	.col-4 {width: 33.33%;}
+	.col-5 {width: 41.66%;}
+	.col-6 {width: 50%;}
+	.col-7 {width: 58.33%;}
+	.col-8 {width: 66.66%;}
+	.col-9 {width: 75%;}
+	.col-10 {width: 83.33%;}
+	.col-11 {width: 91.66%;}
+	.col-12 {width: 100%;}
+}
+
+.header{
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 50px;
+    font-size: 16px;
+    padding-top: 1px;
+}
+.navbar{
+    background-image: url(image/nivialogo.jpg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 100px;
+    background-color: rgb(255, 255, 255);
+    height: 60px;
+    font-size: 13px;
+    font-weight: 15px;
+    padding-top: 22px;
+    margin:2px 0px 2px 30px;
+    text-indent: 50px;  
+}
+.navbar a{
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+    padding-left: 20px;
+    text-align: center;
+}   
+.navbar a:hover{
+    color: brown;
+}
+.icon{
+    margin-left: 900px;
+    margin-top: -18px;
+    cursor: pointer;
+}
+.icon i:hover{
+    font-size: 19px;
+    color: brown;
+}
+
+
+.nav{
+    margin-left: 125px;
+
+}
+.img{
+    margin-left: 10px;
+    height: 70px;
+    width: 25%;
+    margin-top: 20px;
+    
+}
+.sport{
+    display: flex;
+    margin-left: 10px;
+    height: 300px;
+    
+    margin-top: 50px;
+}
+.sport img{
+    margin-right: 20px;
+    background-image: linear-gradient(rgb(0, 0, 0, 0.6)),;
+}
+.text{
+    display: flex;
+    margin-left: 10px;
+    margin-top: -65px;
+    color: white;
+    padding-right: 20px;
+}
+.text h1{
+    margin-left:60px;
+    text-align: center;
+    border-bottom: 2px solid red;
+}
+.main{
+    margin-top: 150px;
+    margin-left: 30px;
+    
+}
+.main img{
+    margin-top: -30px;
+    
+     
+    
+}
+.main img:hover{
+    transform: scaleX(-1);
+}
+.ck{
+    margin-top: 60px;
+    margin-right: 40px;
+    margin-left: 40px;
+    margin-bottom: 100px;
+}
+.midle{
+    background-color: black;
+    margin-bottom: 20px;
+    display: flex;
+    text-align: justify;
+    color: white;
+}
+.midle button{
+    margin-top: 300px;
+    height: 50px;
+    width: 200px;
+    margin-left: -100px;
+    
+}
+.midle img{
+    margin-right: -100px;
+    margin-left: 170px;
+   
+}
+.team{
+    padding: 20px;
+    margin-left: 180px;
+    margin-right: 20px;
+}
+.team p{
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 300px;
+    letter-spacing: 3px;
+}
+.team img{
+    border: solid 1px rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-right: 20px;
+    width: 10%;
+    margin-top: 40px;
+    box-shadow: 8px 8px 20px rgb(156, 149, 149);
+}
+.team img:hover{
+    box-shadow: 2px 2px 20px red;
+    
+}
+.vd{
+    display: flex;
+}
+.vd video{
+    margin:2px;
+}
+.insta{
+    text-align: center;
+    margin-top: 80px;
+    font-weight: 900;
+}
+.footer{
+    background-color: black;
+    color: white;
+    margin-bottom: -10px;
+    
+}
+.footer i{
+    font-size: 30px;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+ul li{
+    list-style-type: none;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    cursor: pointer;
+}
+.footer1{
+    background-color: black;
+    height: auto;
+    margin-top: -10px;
+}
+.footer1 img{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.footer1 span{
+    color: white;
+    margin-left: 800px;
+    margin-top: -55px;
+}
+.wp{
+    position:fixed;
+    bottom: 15px;
+    right: 15px;
+
+}
+
+
