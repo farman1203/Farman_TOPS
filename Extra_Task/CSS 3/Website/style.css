@@ -34,14 +34,16 @@ body{
     background-color: black;
     color: white;
     text-align: center;
-    height: 50px;
-    font-size: 16px;
+    height: 40px;
+    font-size: 12px;
     padding-top: 1px;
 }
 .navbar{
     background-image: url(image/nivialogo.jpg);
     background-repeat: no-repeat;
     background-position: top left;
+    position: sticky;
+    top: 0;
     background-size: 100px;
     background-color: rgb(255, 255, 255);
     height: 60px;
@@ -55,6 +57,7 @@ body{
     text-decoration: none;
     color: black;
     font-size: 13px;
+    font-weight: 700;
     padding-left: 20px;
     text-align: center;
 }   
@@ -67,7 +70,7 @@ body{
     cursor: pointer;
 }
 .icon i:hover{
-    font-size: 19px;
+    font-size: 15px;
     color: brown;
 }
 
@@ -87,11 +90,12 @@ body{
     display: flex;
     margin-left: 10px;
     height: 300px;
-    
     margin-top: 50px;
 }
 .sport img{
     margin-right: 20px;
+    height: 300px;
+    width: 230px;
     background-image: linear-gradient(rgb(0, 0, 0, 0.6)),;
 }
 .text{
@@ -113,9 +117,9 @@ body{
 }
 .main img{
     margin-top: -30px;
-    
-     
-    
+}
+.main h1 h3 p{
+    text-align: center
 }
 .main img:hover{
     transform: scaleX(-1);
@@ -130,20 +134,25 @@ body{
     background-color: black;
     margin-bottom: 20px;
     display: flex;
-    text-align: justify;
     color: white;
 }
+.new{
+    margin-left: 50px;
+}
 .midle button{
-    margin-top: 300px;
-    height: 50px;
-    width: 200px;
-    margin-left: -100px;
+    margin-top: 200px;
+    height: 40px;
+    width: 150px;
+    margin-left: -150px;
     
 }
-.midle img{
-    margin-right: -100px;
-    margin-left: 170px;
-   
+.na{
+    margin-left: 0px;
+}
+.na img{
+    padding: 10px 10px;
+    margin-left: 150px;
+    width: 50%;
 }
 .team{
     padding: 20px;
@@ -165,8 +174,7 @@ body{
     box-shadow: 8px 8px 20px rgb(156, 149, 149);
 }
 .team img:hover{
-    box-shadow: 2px 2px 20px red;
-    
+    box-shadow: 2px 2px 20px rgb(14, 0, 0);
 }
 .vd{
     display: flex;
@@ -216,6 +224,49 @@ ul li{
     bottom: 15px;
     right: 15px;
 
+}
+
+
+                                /* footeball css */
+
+.f1{
+    margin: 30px 10px 20px 80px;
+    display: flex;
+}
+.f1 img{
+    border: solid 0px rgb(224, 221, 221);
+    border-radius: 5px;
+    margin-left: 25px;
+    box-shadow: 8px 8px 18px;
+    width: 110px;
+}
+.f1 p{
+    text-align: center;
+}
+.l1{
+    float: left;
+    width: 33%;
+    padding: 15px 15px;
+}
+.lnch{
+    width: 20%;
+    float: left;
+    padding: 15px 15px;
+}
+.lnch img:hover{
+    transform: scaleX(-1);
+}
+.OFFICIAL{
+    padding: 20px 20px;
+}
+.blogs{
+    margin: 5px 5px 30px 5px;
+}
+.blogs p{
+    background-color: rgb(209, 207, 206);
+    margin-top: -3px;
+    padding: 10px 10px;
+    color: rgb(104, 104, 104);
 }
 
 
