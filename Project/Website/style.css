@@ -226,6 +226,42 @@ ul li{
 
 }
 
+.ashover{
+    position: absolute;
+    top:40px;
+    left: 40px;
+    background-color: white;
+    width: 94%;
+    visibility: hidden;
+    display: flex;
+}
+.all_sport_hover{
+    width: 10%;
+    display: flex;
+    padding-left: 10px;
+}
+.all_sport_hover p{
+    text-align: center;
+}
+.all_sport_hover ul li{
+    color: black;
+    padding: 0px;
+
+}
+.allhover:hover .ashover{
+        visibility: visible;
+}
+.all_sport_hover img{
+    width: 60px;
+    margin-left: 45px;    
+}
+.club{
+    width: 95%;
+    height: auto;
+    display: flex;
+}
+
+
 
                                 /* footeball css */
 
