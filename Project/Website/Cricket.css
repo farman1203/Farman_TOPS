@@ -89,6 +89,10 @@ body{
     box-shadow: 8px 8px 18px;
     width: 110px;
 }
+.f1 img:hover{
+    transform: scale(1.1);
+    transition-duration: 1.5s;
+}
 .f1 p{
     text-align: center;
 }

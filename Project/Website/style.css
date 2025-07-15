@@ -63,14 +63,17 @@ body{
 }   
 .navbar a:hover{
     color: brown;
+    text-decoration: underline;
 }
 .icon{
-    margin-left: 900px;
+    margin-left: 950px;
     margin-top: -18px;
+    padding: -10px -20px;
+    transition-duration: 1s;
     cursor: pointer;
 }
 .icon i:hover{
-    font-size: 15px;
+    transform: scale(1.2);
     color: brown;
 }
 
@@ -275,6 +278,10 @@ ul li{
     margin-left: 25px;
     box-shadow: 8px 8px 18px;
     width: 110px;
+}
+.f1 img:hover{
+    transform: scale(1.1);
+    transition-duration: 1.5s;
 }
 .f1 p{
     text-align: center;
