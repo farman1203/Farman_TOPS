@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--
+JavaScript is a lightweight, interpreted programming language.
+
+It is complimentary to and integrated with Java. 
+JavaScript is very easy to implement because it is integrated with HTML. 
+
+It is open and cross-platform.
+
+Every modern web browser For example Chrome, Mozilla Firefox , Safari supports Javascript.
+
+Javascript helps you create really 
+beautiful and crazy fast and dynamic websites. 
+
+JavaScript usage has now extended to 
+
+mobile app development, 
+desktop app development, 
+and game development. -->
+
+<body>
+    <script>
+        // basic javascript code
+        document.write("<h1> Hi i am JavaScript </h1>");
+
+        // two string concanate
+        document.write("  Hi i am" + " javascript");
+        document.write(5 + 5);
+
+        var a, b, c;
+        a = 5;
+        b = 5;
+        c = a + b;
+        document.write("The sum of a & b are: " + c);   
+    </script>
+
+    <h1 id='test'>Hello i am HTML</h1>
+    <script>
+        //    html manipulation
+
+        document.getElementById('test').innerHTML = "Hello i am javascript";
+
+    </script>
+    <h1 id='demo' style="background-color: red;color: yellow;">
+        Hello i am css
+    </h1>
+    <script>
+        //    CSS manipulation
+
+        document.getElementById('demo').style.backgroundColor = "blue";
+        document.getElementById('demo').style.color = "red";
+
+    </script>
+  
+    <script>
+        //    dynamic manipulation
+
+        var age = 16;
+        if (age > 18) {
+            document.write("eligible");
+        }
+        else {
+            document.write("Not eligible");
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>
