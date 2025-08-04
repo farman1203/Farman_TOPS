@@ -313,3 +313,32 @@ ul li{
 }
 
 
+@media  (max-width:600px) {
+    .row{
+        flex-direction: column;
+    }
+    .sport{
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        padding: 20px;
+    }
+    .text{
+        align-items: center;
+        flex-direction: column;
+        height: auto;
+    }
+    .navbar{
+        flex-direction: column;
+        height: auto;
+    }
+    .team img{
+        height: auto;
+        flex-direction: column;
+        width: 60%;
+        align-items: center;
+    }
+    video{
+        flex-direction: column;
+    }
+}
