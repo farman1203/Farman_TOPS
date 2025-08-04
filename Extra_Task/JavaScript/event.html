@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="test1">hi am html</h1>
+    <button onclick="change()">Click</button>
+    <button onmouseover="change()">Click Mouse Hover</button>
+    <button onmouseout="change()">Click Mouse Out</button>
+    <button ondblclick="change()">Double Click</button>
+
+    <script>
+        function change() {
+            document.getElementById("test1").innerHTML = "hi am i javascript";
+        }
+    </script>
+    <br><br> <br>
+    <input type="text" id="event" onfocus="change1()" onblur="change2()">
+    <br> <br>
+    uppercase:<input type="text" id="event1" onkeypress="upper()"> <br>
+    lowercase:<input type="text" id="event2" onkeypress="upper()">
+
+    <script>
+        function change1() {
+            document.getElementById("event").style.backgroundColor = "red";
+            document.getElementById("event").style.color = "white";
+
+        }
+        function change2() {
+            document.getElementById("event").style.backgroundColor = "green";
+        }
+
+        function upper() {
+            document.getElementById("event1").style.textTransform = "uppercase";
+            document.getElementById("event2").style.textTransform = "lowercase";
+        }
+    </script>
+
+
+</body>
+
+</html>
