@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: linear-gradient(90deg,rgb(181, 86, 86), rgb(61, 156, 61), rgb(60, 60, 160));
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            text-align: center;
+            height: 50vh;
+            width: 50vw;
+            margin: 100px 275px;
+            padding: 25px;
+            background:rgb(164, 164, 164,0.5) ;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form name="myfrm" action="" method="post" onsubmit="return validation1()">
+            <h1>FORM</h1>
+            First Name:<input type="text" name="fname" id="fname"> <br><br>
+            Last Name:<input type="text" name="lname" id="lname"> <br><br>
+            <p id="req" ></p>
+            <input type="submit" name="submit">
+        </form>
+    </div>
+    <script>
+        function validation1(){
+           var fname=document.forms['myfrm']['fname'].value;
+           if(fname=="")
+           {
+            alert('first name is required');
+            return false;
+           }
+           var lname=document.forms['myfrm']['lname'].value;
+           if(lname=="")
+           {
+            document.getElementById('req').innerHTML="Last name is required";
+            return false;
+           }
+        }
+        
+    </script>
+</body>
+</html>

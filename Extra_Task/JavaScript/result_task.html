@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-   
+
     <style>
-        div{
+        div {
             border-radius: 15px;
             text-align: center;
             width: 50%;
@@ -16,69 +17,67 @@
         }
     </style>
 </head>
+
 <body>
-     <div>
-  <h2>Marks </h2><br>
-  <form method="post"> 
-   
-	   English:<input type="number"  id="english" placeholder="Enter English Marks" name="english" required min="0" max="100"> <br><br><br>
-	   Hindi:<input type="number" id="hindi" placeholder="Enter hindi Marks" name="hindi" required min="0" max="100"><br><br><br>
-	   Gujarati:<input type="number"id="gujarati" placeholder="Enter gujarati Marks" name="gujarati" required min="0" max="100"><br><br><br>
-	   <button class="btn btn-primary" onclick="return result()" >Submit</button>
-   
-  </form>
-		<h1 id="test1" onshow="event()">Total is:</h1>
-		<h1 id="test2">Percentage is:</h1>
-		<h1 id="test3">Grade is: </h1>
-  </div>
+    <div>
+        <h2>Marks </h2><br>
+        <form method="post">
 
-  <script>
-        function event()
-        {
-            document.getElementById('test1').style.color="red";
+            English:<input type="number" id="english" placeholder="Enter English Marks" name="english" required min="0"
+                max="100"> <br><br><br>
+            Hindi:<input type="number" id="hindi" placeholder="Enter hindi Marks" name="hindi" required min="0"
+                max="100"><br><br><br>
+            Gujarati:<input type="number" id="gujarati" placeholder="Enter gujarati Marks" name="gujarati" required
+                min="0" max="100"><br><br><br>
+            <button class="btn btn-primary" onclick="return result()">Submit</button>
+
+        </form>
+        <h1 id="test1" onchange="event()">Total is:</h1>
+        <h1 id="test2">Percentage is:</h1>
+        <h1 id="test3">Grade is: </h1>
+    </div>
+
+    <script>
+        function event() {
+            document.getElementById('test1').style.color = "red";
         }
-        function result(){
-            var english=document.getElementById('english').value;
-            var hindi=document.getElementById('hindi').value;
-            var gujarati=document.getElementById('gujarati').value;
+        function result() {
+            var english = document.getElementById('english').value;
+            var hindi = document.getElementById('hindi').value;
+            var gujarati = document.getElementById('gujarati').value;
 
 
-            var total=+english+ +hindi+ +gujarati;
-            document.getElementById('test1').innerHTML="Total is:" +total;
-            
-            var per=(total*100)/300;
-            document.getElementById('test2').innerHTML="Percentage is:"+per;
+            var total = +english + +hindi + +gujarati;
+            document.getElementById('test1').innerHTML = "Total is:" + total;
 
-        if(per>90)
-        {
-            document.getElementById('test3').innerHTML="Grade is: O"; 
+            var per = (total * 100) / 300;
+            document.getElementById('test2').innerHTML = "Percentage is:" + per;
+
+            if (per > 90) {
+                document.getElementById('test3').innerHTML = "Grade is: O";
+            }
+            else if (per > 80) {
+                document.getElementById('test3').innerHTML = "Grade is: A++";
+            }
+            else if (per > 70) {
+                document.getElementById('test3').innerHTML = "Grade is: A";
+            }
+            else if (per > 60) {
+                document.getElementById('test3').innerHTML = "Grade is: B";
+            }
+            else if (per > 50) {
+                document.getElementById('test3').innerHTML = "Grade is: C";
+            }
+            else if (per > 40) {
+                document.getElementById('test3').innerHTML = "Grade is: Pass";
+            }
+            else {
+                document.getElementById('test3').innerHTML = "Grade is: fail";
+            }
+            return false;
         }
-        else if(per>80)
-        {
-            document.getElementById('test3').innerHTML="Grade is: A++"; 
-        }
-        else if(per>70)
-        {
-            document.getElementById('test3').innerHTML="Grade is: A"; 
-        }
-        else if(per>60)
-        {
-            document.getElementById('test3').innerHTML="Grade is: B"; 
-        }
-        else if(per>50)
-        {
-            document.getElementById('test3').innerHTML="Grade is: C"; 
-        }
-        else if(per>40)
-        {
-            document.getElementById('test3').innerHTML="Grade is: Pass"; 
-        }
-        else{
-            document.getElementById('test3').innerHTML="Grade is: fail";
-        }
-        return false;
-        }
-        
-  </script>
+
+    </script>
 </body>
+
 </html>

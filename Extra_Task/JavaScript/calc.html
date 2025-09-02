@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background-color: rgb(0, 0, 0);
+            justify-content: center;
+            display: flex;
+            width: 30%;
+            margin: 50px 395px;
+            border-radius: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 20px 7px rgb(98, 94, 94);
+        }
+
+        h1 {
+            color: rgb(255, 255, 255);
+        }
+
+        .box {
+            margin: 15px;
+            text-align: center;
+        }
+
+        .box button {
+            padding: 15px;
+            margin: 10px 20px;
+            background-color: rgb(238, 165, 63);
+            border-radius: 5px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1 id="num"></h1>
+            <button id="one" onclick="calc()">1</button>
+            <button id="two">2</button>
+            <button id="three">3</button> <br>
+            <button id="four">4</button>
+            <button id="five">5</button>
+            <button id="six">6</button><br>
+            <button id="seven">7</button>
+            <button id="eight">8</button>
+            <button id="nine">9</button><br>
+            <button id="zero">0</button>
+            <button id="equal">=</button>
+            <button id="plus">+</button><br>
+            <button id="minus">-</button>
+            <button id="mul">*</button>
+            <button id="div">/</button>
+        </div>
+
+    </div>
+
+    <script>
+        function calc() {
+            var one = document.getElementById('one').innerHTML;
+         
+            var total = +one;
+            if (total > 0) {
+                document.getElementById('num').innerHTML = +total;
+            }
+        }
+    </script>
+</body>
+
+</html>

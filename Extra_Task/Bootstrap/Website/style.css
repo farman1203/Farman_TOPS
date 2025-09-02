@@ -1,0 +1,214 @@
+    *{
+        box-sizing: border-box;
+    }
+
+    .row {
+        display: flex;
+        
+    }
+
+    ul li {
+        padding-left: 30px;
+    }
+
+    header {
+        background-color: #023b6d;  
+    }
+
+    body {
+        font-family: sans-serif;
+    }
+
+    .img {
+        border-radius: 35px;
+        transition-duration: 0.5s;
+        transform: rotate(-2deg);
+    }
+
+    .img:hover {
+        transform: rotate(0deg) scale(1.02);
+    }
+
+    .side {
+        font-size: 3.5rem;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        color: #1f2f31;
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color:color-mix(in srgb, #363f40, transparent 20%);
+        margin-bottom: 2.5rem;
+    }
+
+    .bi-award {
+        font-size: 50px;
+        color: rgb(46, 175, 205);
+    }
+
+    .bi-geo-alt {
+        font-size: 45px;
+        color: rgb(46, 175, 205);
+    }
+
+    .bi-people {
+        font-size: 50px;
+        color: rgb(46, 175, 205);
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .action-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: #363f40;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+
+    .action-link:hover {
+        transform: translateX(5px);
+        color: #099aa7;
+    }
+
+    .action-link i {
+        color: #099aa7;
+    }
+
+    .section-heading {
+        font-size: 3rem;
+        font-weight: 400;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+        background: linear-gradient(135deg, #1f2f31, #099aa7);
+        background-clip: text;
+        color: transparent;
+    }
+
+    .image-card {
+        overflow: hidden;
+        border-radius: 1rem;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .image-card img {
+        transition: transform 0.4s ease-in-out;
+        width: 100%;
+    }
+
+    .image-card:hover img {
+        transform: scale(1.1);
+    }
+
+    .patient {
+        text-align: center;
+        border: 2px solid rgb(205, 198, 198);
+        border-radius: 5px;
+        padding: 10px;
+        display: flex;
+        border-left: 5px solid #099aa7;
+    }
+
+    .bi-heart-pulse-fill {
+        left: 20px;
+        color: #099aa7;
+        font-size: 35px;
+        position: relative;
+        top: 20px;
+    }
+
+
+    .right {
+        display: flex;
+        gap: 1rem;
+        margin: 10px 0px 0px 5px;
+    }
+
+    .right p {
+        font-size: 1.05rem;
+        color:
+            color-mix(in srgb, #363f40, transparent 20%);
+        font-weight: 400;
+    }
+
+    .right i {
+        color: #099aa7;
+        font-size: 1.30rem;
+    }
+
+    .icons {
+        display: flex;
+        gap: 15px;
+    }
+
+    .set {
+        flex-direction: column;
+    }
+
+    .metrix {
+        display: flex;
+        gap: 2.7rem;
+    }
+
+    .mt h2 {
+        font-size: 30px;
+        text-align: center;
+        color: #099aa7;
+    }
+
+    .botom {
+        border: 1px solid #099aa7;
+        padding: 10px;
+    }
+
+    .botom i {
+        color: #099aa7;
+        gap: 1.1rem;
+    }
+
+    .department-description {
+        font-size: 18px;
+        line-height: 1.8;
+        color: color-mix(in srgb, #363f40, transparent 25%);
+        margin-bottom: 32px;
+    }
+    .card-set {
+        transition: all 0.4s ease;
+        width: 25vw;
+        border: none;
+        margin: 30px;
+    }
+
+    .shdw {
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+    }
+    .shdw:hover{
+          box-shadow: 0 20px 50px color-mix(in srgb, #5ac2cc, transparent 70%);
+        transform: translateY(-8px);
+    }
+    .card-set:hover {
+        box-shadow: 0 20px 50px color-mix(in srgb, #5ac2cc, transparent 70%);
+        transform: translateY(-8px);
+    }
+    .hvr:hover{
+        box-shadow: 0px 0px 20px 2px #b3b1b1;
+    }
+ 
+    
+    @media (max-width:600px) {
+        .row{
+            flex-direction: column;
+        }
+        .card-set{
+            width: 100%;
+        }
+        
+    }

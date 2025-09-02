@@ -48,29 +48,33 @@ body{
     background-color: rgb(255, 255, 255);
     height: 60px;
     font-size: 13px;
+    display: flex;
     font-weight: 15px;
-    padding-top: 22px;
-    margin:2px 0px 2px 30px;
-    text-indent: 50px;  
+    margin:2px 0px 2px 5px;
+     justify-content: space-between;
 }
 .navbar a{
     text-decoration: none;
     color: black;
+    padding: 10px 20px;
     font-size: 13px;
+    margin-top: 10px;
     font-weight: 700;
-    padding-left: 20px;
-    text-align: center;
 }   
 .navbar a:hover{
     color: brown;
     text-decoration: underline;
 }
-.icon{
-    margin-left: 950px;
-    margin-top: -18px;
-    padding: -10px -20px;
+
+.icon{ 
     transition-duration: 1s;
     cursor: pointer;
+    font-size: 18px;
+    padding: 18px ;
+    margin-left: 50px;
+}
+.icon i{
+    padding-right: 10px;
 }
 .icon i:hover{
     transform: scale(1.2);
@@ -186,7 +190,7 @@ body{
     margin:2px;
 }
 .insta{
-    text-align: center;
+   
     margin-top: 80px;
     font-weight: 900;
 }
@@ -216,6 +220,7 @@ ul li{
 .footer1 img{
     margin-left: 20px;
     margin-top: 10px;
+    
 }
 .footer1 span{
     color: white;
@@ -263,6 +268,15 @@ ul li{
     height: auto;
     display: flex;
 }
+.hamburger {
+  display: none;
+  font-size: 26px;
+  color: black;
+  margin-top: 25px;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 20px;
+}
 
 
 
@@ -278,10 +292,11 @@ ul li{
     margin-left: 25px;
     box-shadow: 8px 8px 18px;
     width: 110px;
+    transition-duration: 1.5s;
 }
 .f1 img:hover{
     transform: scale(1.1);
-    transition-duration: 1.5s;
+    
 }
 .f1 p{
     text-align: center;
@@ -317,6 +332,14 @@ ul li{
     .row{
         flex-direction: column;
     }
+    .header{
+        height: 100px;
+        padding: 10px;
+        font-size: 18px;
+    }
+    .ashover{
+        display: none;
+    }
     .sport{
         flex-direction: column;
         height: auto;
@@ -331,14 +354,54 @@ ul li{
     .navbar{
         flex-direction: column;
         height: auto;
+        
     }
     .team img{
-        height: auto;
+        height: 200px;
         flex-direction: column;
-        width: 60%;
+        width: 50%;
         align-items: center;
+    }
+    ul li{
+        text-align: center;
+    }
+    .footer i{
+        height: 50px;
     }
     video{
         flex-direction: column;
+        height: 300px;
+        width: 50%;
     }
+    .hamburger {
+    display: block;
+  }
+  .navbar{
+    display: none;
+    text-align: center;
+  }
+  .link {
+    display: none;
+    width: 100%;
+  }
+
+  .navbar.active {
+    display: block;
+  }
+  .navbar {
+    background-image: none;
+  }
+
+  .navbar a {
+    display: block;
+    text-align: left;
+  }
+
+  .navbar a {
+    display: block;
+    margin: 10px 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+    
 }
