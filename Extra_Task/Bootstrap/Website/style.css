@@ -1,10 +1,10 @@
-    *{
+    * {
         box-sizing: border-box;
     }
 
     .row {
         display: flex;
-        
+
     }
 
     ul li {
@@ -12,7 +12,7 @@
     }
 
     header {
-        background-color: #023b6d;  
+        background-color: #023b6d;
     }
 
     body {
@@ -40,7 +40,7 @@
     .hero-description {
         font-size: 1.2rem;
         line-height: 1.7;
-        color:color-mix(in srgb, #363f40, transparent 20%);
+        color: color-mix(in srgb, #363f40, transparent 20%);
         margin-bottom: 2.5rem;
     }
 
@@ -179,6 +179,7 @@
         color: color-mix(in srgb, #363f40, transparent 25%);
         margin-bottom: 32px;
     }
+
     .card-set {
         transition: all 0.4s ease;
         width: 25vw;
@@ -190,25 +191,84 @@
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
         transition: all 0.3s ease;
     }
-    .shdw:hover{
-          box-shadow: 0 20px 50px color-mix(in srgb, #5ac2cc, transparent 70%);
-        transform: translateY(-8px);
-    }
-    .card-set:hover {
+
+    .shdw:hover {
         box-shadow: 0 20px 50px color-mix(in srgb, #5ac2cc, transparent 70%);
         transform: translateY(-8px);
     }
-    .hvr:hover{
+
+    .card-set:hover {
+        box-shadow: 0 20px 50px color-mix(in srgb, #5ac2cc, transparent 30%);
+        transform: translateY(-8px);
+    }
+
+    .hvr:hover {
         box-shadow: 0px 0px 20px 2px #b3b1b1;
     }
- 
-    
+
     @media (max-width:600px) {
-        .row{
-            flex-direction: column;
-        }
-        .card-set{
+        .card-set {
             width: 100%;
         }
-        
+
     }
+
+    /* about page css */
+    .mision-icon {
+        margin: 18px 179px;
+        background-color: #099aa7;
+        transition: transform 0.3s ease;
+        border-radius: 49px;
+        width: 69px;
+        height: 66px;
+        justify-content: center;
+        display: flex;
+    }
+
+    .mision {
+        border: none;
+    }
+
+    .mision:hover .mision-icon {
+        transform: translateY(-5px) scale(1.05);
+    }
+    .special{
+        height: 140px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+    .special:hover{
+        transform: translateY(-8px);
+        box-shadow: -1px 0px 20px 0px #099aa7;
+        border: 1px solid #099aa7;
+    }
+    .card-img{
+        height: 70px;
+    }
+    .card-img img{
+     max-height: 50px;
+    max-width: 100%;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    filter: grayscale(100%);
+    }
+    .card-img:hover img{
+        opacity: 1;
+        filter: grayscale(0%);
+    }
+
+    /* departmet css */
+    .department-item {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.department-icon{
+    width: 33px;
+    
+}
