@@ -99,7 +99,7 @@ function reg_form(str) {
     }
 
     
-      // Photo
+      // resume
     if(str.resume.value=="")
     {
          document.getElementById('msg1').innerHTML = "Please upload your resume";
@@ -114,6 +114,7 @@ function reg_form(str) {
         return false;
     }
 
+}
     function check(file){
         var filename=file.value;
         var ext=filename.substring(filename.lastIndexOf('.')+1);
@@ -142,4 +143,3 @@ function reg_form(str) {
             document.getElementById('submit').disabled=true;
         }
     }
-}

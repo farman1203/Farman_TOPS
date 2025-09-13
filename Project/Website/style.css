@@ -105,18 +105,7 @@ body{
     width: 230px;
     background-image: linear-gradient(rgb(0, 0, 0, 0.6)),;
 }
-.text{
-    display: flex;
-    margin-left: 10px;
-    margin-top: -65px;
-    color: white;
-    padding-right: 20px;
-}
-.text h1{
-    margin-left:60px;
-    text-align: center;
-    border-bottom: 2px solid red;
-}
+
 .main{
     margin-top: 150px;
     margin-left: 30px;
@@ -153,13 +142,8 @@ body{
     margin-left: -150px;
     
 }
-.na{
-    margin-left: 0px;
-}
 .na img{
-    padding: 10px 10px;
-    margin-left: 150px;
-    width: 50%;
+   padding: 10px;
 }
 .team{
     padding: 20px;
@@ -280,6 +264,7 @@ ul li{
 
 
 
+
                                 /* footeball css */
 
 .f1{
@@ -336,6 +321,9 @@ ul li{
         height: 100px;
         padding: 10px;
         font-size: 18px;
+    }
+    .text{
+        margin-top: 60px;
     }
     .ashover{
         display: none;
