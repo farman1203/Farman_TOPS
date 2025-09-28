@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Feedback Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    form div {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.7rem;
+      background: #4facfe;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00c6ff;
+    }
+
+    .message {
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h1>Feedback Form</h1>
+    <form id="feedbackForm" novalidate>
+      <div>
+        <label for="name">Attendee Name</label>
+        <input type="text" id="name" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+      </div>
+      <div>
+        <label for="event">Event Attended</label>
+        <select id="event" required>
+          <option value="">-- Select Event --</option>
+          <option>Webinar</option>
+          <option>Workshop</option>
+          <option>Meetup</option>
+        </select>
+      </div>
+      <div>
+        <label for="rating">Rating</label>
+        <select id="rating" required>
+          <option value="">-- Rate 1-5 --</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div>
+        <label for="comments">Comments</label>
+        <textarea id="comments" rows="4" required></textarea>
+      </div>
+      <button type="submit">Submit</button>
+      <div class="message" id="formMessage"></div>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("feedbackForm");
+      const msgEl = document.getElementById("formMessage");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const event = document.getElementById("event").value;
+        const rating = document.getElementById("rating").value;
+        const comments = document.getElementById("comments").value.trim();
+
+        // Validation
+        if (name.length < 3) { msgEl.textContent = "Name must be at least 3 characters"; msgEl.style.color = "red"; return; }
+        if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+          msgEl.textContent = "Invalid email format";
+          msgEl.style.color = "red";
+          return;
+        }
+
+        if (!event) { msgEl.textContent = "Please select an event"; msgEl.style.color = "red"; return; }
+        if (!rating) { msgEl.textContent = "Please select a rating"; msgEl.style.color = "red"; return; }
+        if (comments.length < 5) { msgEl.textContent = "Comments must be at least 5 characters"; msgEl.style.color = "red"; return; }
+
+        // Save
+        let feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
+        feedbacks.push({ name, email, event, rating, comments });
+        localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
+
+        msgEl.textContent = "Feedback submitted! Redirecting...";
+        msgEl.style.color = "green";
+
+        setTimeout(() => { window.location.href = "view.html"; }, 1200);
+      });
+    });
+  </script>
+
+  
+</body>
+
+</html>

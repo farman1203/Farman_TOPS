@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Feedback</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f1f1f1; margin: 0; padding: 0; }
+    header { background: #4facfe; color: white; padding: 1rem; text-align: center; }
+    main { padding: 1rem; max-width: 900px; margin: auto; }
+    input { width: 100%; padding: 0.6rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 6px; }
+    table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; }
+    th, td { border: 1px solid #ddd; padding: 0.8rem; text-align: left; }
+    th { background: #4facfe; color: white; }
+    button { background: red; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; }
+    button:hover { background: darkred; }
+    a { display: inline-block; margin-top: 1rem; color: #4facfe; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Feedback List</h1>
+  </header>
+  <main>
+    <input type="text" id="searchBox" placeholder="Search by name or event...">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th><th>Email</th><th>Event</th><th>Rating</th><th>Comments</th><th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="feedbackTableBody"></tbody>
+    </table>
+    <a href="index.html">⬅ Back to Form</a>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      function getFeedbacks() {
+        return JSON.parse(localStorage.getItem("feedbacks")) || [];
+      }
+      function renderTable(filter = "") {
+        const tbody = document.getElementById("feedbackTableBody");
+        tbody.innerHTML = "";
+        const feedbacks = getFeedbacks().filter(f =>
+          f.name.toLowerCase().includes(filter.toLowerCase()) ||
+          f.event.toLowerCase().includes(filter.toLowerCase())
+        );
+        if (feedbacks.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6">No feedback found</td></tr>';
+          return;
+        }
+        feedbacks.forEach((f, i) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${f.name}</td>
+            <td>${f.email}</td>
+            <td>${f.event}</td>
+            <td>${f.rating}</td>
+            <td>${f.comments}</td>
+            <td><button onclick="deleteFeedback(${i})">Delete</button></td>
+          `;
+          tbody.appendChild(row);
+        });
+      }
+      window.deleteFeedback = function(index) {
+        let feedbacks = getFeedbacks();
+        feedbacks.splice(index, 1);
+        localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
+        renderTable();
+      }
+      document.getElementById("searchBox").addEventListener("input", e => {
+        renderTable(e.target.value);
+      });
+      renderTable();
+    });
+  </script>
+</body>
+</html>
