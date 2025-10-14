@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Strength Checker (DOM)</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input { padding: 8px; font-size: 16px; width: 250px; }
+    #strength { margin-top: 10px; font-weight: bold; }
+    .weak { color: red; }
+    .good { color: orange; }
+    .strong { color: green; }
+  </style>
+</head>
+<body>
+
+  <h2>🔐 Password Strength Checker</h2>
+  <!-- Input box -->
+  <input type="password" id="password" placeholder="Enter password">
+  
+  <!-- DOM me update hone wala message -->
+  <p id="strength"></p>
+
+  <script>
+    // DOM elements select karna
+    const passField = document.getElementById("password");
+    const strengthMsg = document.getElementById("strength");
+
+    // Event listener (jab input change hoga)
+    passField.addEventListener("input", function () {
+      const pass = passField.value;
+
+      // Regular Expressions
+      const hasLetters = /[a-zA-Z]/.test(pass);
+      const hasNumbers = /[0-9]/.test(pass);
+      const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(pass);
+
+      // Conditions
+      if (pass.length < 6) {
+        strengthMsg.innerText = "Weak Password 😟";   // DOM change
+        strengthMsg.className = "weak";               // CSS apply
+      } 
+      else if (pass.length >= 6 && hasLetters && hasNumbers && !hasSpecial) {
+        strengthMsg.innerText = "Good Password 🙂";
+        strengthMsg.className = "good";
+      } 
+      else if (pass.length >= 8 && hasLetters && hasNumbers && hasSpecial) {
+        strengthMsg.innerText = "Strong Password 💪";
+        strengthMsg.className = "strong";
+      } 
+      else {
+        strengthMsg.innerText = "Weak Password 😟";
+        strengthMsg.className = "weak";
+      }
+    });
+  </script>
+
+</body>
+</html>

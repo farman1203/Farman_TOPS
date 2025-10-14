@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="hi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Simple Card Logo Detect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background: #f3f6fb;
+            color: #111;
+        }
+
+        .box {
+            max-width: 420px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 18px;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .preview {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .number {
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+
+        .logo img {
+            width: 80px;
+            height: auto;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+      
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>Simple Card Logo Detect</h3>
+
+        <div class="preview">
+
+            <div class="logo" id="logo">Unknown</div>
+        </div>
+
+
+        <input id="cardInput" oninput="result()" type="text" placeholder="Please Enter Number" maxlength="23" />
+
+      
+    </div>
+
+    <script>
+         function result() {
+            var value = document.getElementById("cardInput").value;
+            var digits = value.slice(10);
+
+
+
+            // logo badlo
+            var logoDiv = document.getElementById("logo");
+            if (digits==1122) {
+                logoDiv.innerHTML = `<svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg" width="92" height="40" aria-hidden="true">
+      <rect rx="8" width="240" height="80" fill="#102a43"/>
+      <g transform="translate(18,12)">
+        <text x="0" y="40" font-family="Verdana, Arial" font-weight="700" font-size="36" fill="#ffffff">VISA</text>
+      </g>
+    </svg>`;
+            }
+            else if (digits==4455) {
+                logoDiv.innerHTML = ` <svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg" width="92" height="40" aria-hidden="true">
+      <rect rx="8" width="240" height="80" fill="#081226"/>
+      <g transform="translate(20,14)">
+        <circle cx="30" cy="26" r="20" fill="#ff5a00"/>
+        <circle cx="60" cy="26" r="20" fill="#ffcc00" opacity="0.95"/>
+        <text x="95" y="34" font-family="Verdana, Arial" font-size="18" fill="#fff">Mastercard</text>
+      </g>
+    </svg>`;
+            }
+            else if (digits==5566) {
+                logoDiv.innerHTML = `<svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg" width="92" height="40" aria-hidden="true">
+      <rect rx="8" width="240" height="80" fill="#081226"/>
+      <g transform="translate(18,12)">
+        <!-- stylized RuPay mark -->
+        <rect x="0" y="6" width="36" height="24" rx="4" fill="#2dd4bf"></rect>
+        <path d="M46 10 h8 v16 h-8 z M58 10 h8 v16 h-8 z" fill="#06b6d4"></path>
+        <text x="80" y="34" font-family="Verdana, Arial" font-size="18" fill="#fff">RuPay</text>
+      </g>
+    </svg>`;
+            }
+            else {
+                logoDiv.innerText = "Unknown";
+            }
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!--
+
+OOPS
+
+{
+	variables  // data members
+	
+	functions  // members functions
+}
+
+
+Object-oriented Programming treats data as a crucial element in program 
+development and doesn't allow it to flow freely around the system.
+
+It ties data more securely to the function that operates on it and protects it 
+from accidental modification from an outside function. 
+
+OOP breaks down a problem into several entities called objects and 
+builds data and functions around these objects. 
+
+
+Object-oriented programming has several advantages over procedural programming:
+
+OOP is faster and easier to execute
+OOP provides a clear structure for the programs
+OOP provide securities 
+OOP code DRY "Don't Repeat Yourself", and makes the code easier to maintain, modify and debug
+OOP makes it possible to create full reusable applications with less code and 
+shorter development time
+
+
+There are certain features or mechanisms which make a 
+Language Object-Oriented like:
+
+OOPs Concept in JavaScript
+
+Classes  => { block }
+Object   => access of block properties we create object of class
+Encapsulation
+Abstraction	
+Inheritance	
+Polymorphism
+
+-->
+<script>
+
+    
+    class abc{
+        sum(){
+            var a=10;
+            var b=10;
+            var sum=a+b;
+            document.write(sum +"<br>");
+        }
+        multi(){
+            var a=10;
+            var b=20;
+            var multi=a*b;
+            document.write(multi );
+        }
+    }
+    var obj=new abc;
+   setTimeout(obj.sum,1000);
+   setTimeout(obj.multi,2000);
+</script>
+</body>
+</html>
