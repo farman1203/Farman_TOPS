@@ -21,8 +21,64 @@ Multi-Level Inheritance.
 Hierarchical Inheritance.
 Multiple Inheritance. // not possible by class keywords
 Hybrid Inheritance. -->
+    <script>
+        //Single Inheritance
 
-    
+        /*
+        class abc
+        {
+            sum()
+            {
+                var a=10;
+                var b=20;
+                var sum;
+                sum=a+b;
+                document.write(sum + "<br>");
+            }
+        }
+        class xyz extends abc
+        {
+            multi()
+            {
+                var a=20;
+                var b=20;
+                var multi;
+                multi=a*b;
+                document.write(multi);
+            }
+        }
+        var obj=new xyz;
+        obj.sum();
+        obj.multi();
+        */
+
+        class abc{
+            constructor(a,b){
+                this.a=a;
+                this.b=b;
+            }
+            sum(){
+               var sum;
+               sum=this.a+this.b;
+               document.writeln(sum)
+                
+            }
+        }
+        class xyz extends abc{
+            constructor (a,b){
+                super(a,b);
+            }
+             multi(){
+                    var multi;
+                    multi=this.a*this.b;
+                    document.write(multi);  
+                }
+        }
+       var obj =new xyz(5,10);
+        obj.sum();
+        obj.multi();
+    </script>
+
 </body>
 
 </html>
