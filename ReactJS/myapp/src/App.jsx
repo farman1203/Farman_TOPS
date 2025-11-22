@@ -1,34 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+import Card from './card'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+ const companies = [
+  {
+    id: 1,
+    logo: "data:image/jpeg;base64,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",
+    name: "Google",
+    tag: "Full Time"
+  },
+  {
+    id: 2,
+    logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAACfCAMAAABX0UX9AAAApVBMVEX/////ugD4UQx+ugAAo/R0tQD/+/n4PwD5/f///fkAnPMAoPT/uAD/tQD+5d7r8974SgD6l3qv03f8s5/E3pxLtvb/yEt3xfj/03dxcXHq6uqioqKOjo6AgIDJycnT09Oqqqrz8/Pf39++vr6Xl5eFhYWnp6e1tbV5eXlsbGzk5OSSkpKcnJz+7unx9+j3KwD6kHBpsQD9zsDZ6r6R0fn/3JH/xDie1Ba2AAAD3klEQVR4nO3c2ZLTRgBG4SYBQ1gSQsLS2mXJkmyJfXn/R6MXyXZRVIXhByYene9iENZS1pluSfbFGIP/qz8lL5fDvPpLcp0FFJvXdxVvluM8uaN4+8d1NhBs7v4mePz3cpwnvyvukI985Lsq8knIJyGfhHwS8knIJyGfhHwS8knIJyGfhHwS8knIJyGfhHwS8knIJyGfhHwS8knIJyGfhHwS8knIJyGfhHwS8knIJyGfhHwS8knIJyGfhHwS8knIJyGfhHwS8knIJyGfhHwS8knIJyGfhHwS8knIJyGfhHwS8knIJyGfhHwS8kk2rx8LVv8nwMw/knfLYd7/K7nOAgAAAMB/ufdU8mE5zsdnik+X+qnj3v0HgvvPl+O8eKh4dLn5bgsenOW7JSAf+ch3ZeSTkE9CPgn5JOSTkE9CPgn5JOSTkE9CPgn5JOSTkE9CPgn5JOSTkE9CPgn5JOSTkE9CPgn5JOSTkE9CPgn5JOSTkE9CPgn5JOSTkE9CPgn5JOSTkE9CPgn5JOSTkE9CPgn5JOSTkE9CPgn5JOSTkE9CPgn5JOSTkE9CPgn5JOST/Lh8X3Prpv8JMAAAcFPV2/q638Iv1PSH43Ld9+5nb0vheJ21Vn5TlyMbpuNyP/gzH/f99x+usWm5db+IZqu/tUuQ5cNxsuX54P9RzjyNQy9RfgWXxOVbzrQcYj5FGo9Q27XkG9t8XhzzMHbKKQzHpNrlaRiIVW/6fGf8tXGXT/OF0a+e5nFatHnW+52K1O3jtqimIUsnswLZWM63isQ2lc9X7BP3s7RD2uW2cYu7cRqm1k1q91K1s53f2C1X/S7uOdqsmuzg9mpa17QtTOp6+j1uviwzwxiWKluH0VfYxLfM/HBq9wd/d0n9+s2Q+5f6kDSMRrcm7Fe4n4chvLK6yZu5IH64maE1p3xVfK3uyjmSv6nGubpz/93YUNTnrG2cpUUYinO+ZEX54lDxp3/Kl2dnm8SL4zjfVxp78A2Lee0y9+swq1eYz7T+nH2kU76hO9sk5svjHHeXPdcrya0dez9CmzhO3Xp/sVtjvtJdvQ7+kvZN+ebhVro7h9+HfH6qdrY2V5i8QZ25TZm8/q4Q7q6nfN1860jLY77zW4eJ3wv4dKu/dbhK7vOGb3PKVy8PLskx3/mDy2Ef7rytH7LxwSX54sFlFU99cz531vHk92Z5bC78Y/MQH5vnjyVbayf32BzCdXZXudVhjPnH5jY8NhszzV+3pHbIzQqE76jMoQsXsMZfvrZp/NDWj1kVpmtfzdvW7qVu/qBWdtlYLctp1jZxsVluOUWabn7+uz/5DBZhMdA81HiDAAAAAElFTkSuQmCC",
+    name: "Microsoft",
+    tag: "Part Time"
+  },
+  {
+    id: 3,
+    logo: "https://static.vecteezy.com/system/resources/previews/014/018/561/non_2x/amazon-logo-on-transparent-background-free-vector.jpg",
+    name: "Amazon",
+    tag: "Internship"
+  },
+  {
+    id: 4,
+    logo: "https://www.pngplay.com/wp-content/uploads/13/Tesla-Logo-PNG-HD-Quality.png",
+    name: "Tesla",
+    tag: "Contract"
+  },
+  {
+    id: 5,
+    logo: "https://pngimg.com/uploads/meta/meta_PNG12.png",
+    name: "Meta",
+    tag: "Remote"
+  }
+];
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      {companies.map(function(elem){
+       return <Card  logo={elem.logo} name={elem.name} tag={elem.tag}/>
+      })}
+    </div>
   )
 }
 
