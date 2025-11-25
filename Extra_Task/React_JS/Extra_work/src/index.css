@@ -1,0 +1,22 @@
+.parent{
+  margin: 10px;
+}
+.parent input{
+  padding: 10px;
+}
+
+.page1{
+  height: 600px;
+  width: 100%;
+  background-color: royalblue;
+}
+.page2{
+  height: 600px;
+  width: 100%;
+  background-color: lightgreen;
+}
+.page3{
+  height: 600px;
+  width: 100%;
+  background-color: gray;
+}

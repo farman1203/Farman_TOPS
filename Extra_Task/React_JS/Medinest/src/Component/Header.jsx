@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const Header = () => {
   return (
     <div>
-       <nav className="navbar navbar-expand-lg">
+       <nav className="navbar navbar-expand-lg ps-5 p-2">
       <a className="navbar-brand" href="#">
         <h1>Medi<span style={{color: '#099aa7'}}>Nest</span> </h1>
       </a>
