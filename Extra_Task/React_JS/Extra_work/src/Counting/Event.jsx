@@ -2,10 +2,15 @@ import React from 'react'
 
 const Event = () => {
 
-    const pageScroling = () => {
-        console.log('page is Scrolling');
-
-    }
+    const pageScroling = (elem) => {
+        if(elem>0){
+            console.log('sedha scrolling');  
+        }
+        else{
+            console.log('ulta scrolling');  
+        }
+     
+    }   
     return (
         <div className='parent'>
             <button onClick={() => {
@@ -14,7 +19,7 @@ const Event = () => {
 
             <br />
             <br />
-
+ 
             <input placeholder='Enter name
             ' onChange={function change(elem) {
                     console.log(elem.target.value);
@@ -23,9 +28,14 @@ const Event = () => {
             <br />
             <br />
             
-            <div className="page1" onWheel={pageScroling}></div>
+            <div onWheel={(elem) =>{
+              pageScroling(elem.deltaY)
+            }}>
+
+            <div className="page1" ></div>
             <div className="page2"></div>
             <div className="page3"></div>
+            </div>
         </div>
     )
 }
