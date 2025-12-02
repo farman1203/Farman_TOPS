@@ -26,27 +26,27 @@ const Category = () => {
                                             <div className="menu">
                                                 <div className="first-thumb active">
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-01.png" alt /><h4>Apartments</h4></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-01.png" alt /><h4>Apartments</h4></span>
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-02.png" alt /><h4>Food &amp; Life</h4></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-02.png" alt /><h4>Food &amp; Life</h4></span>
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-03.png" alt /><h4>Cars</h4></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-03.png" alt /><h4>Cars</h4></span>
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-04.png" alt /><h4>Shopping</h4></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-04.png" alt /><h4>Shopping</h4></span>
                                                     </div>
                                                 </div>
                                                 <div className="last-thumb">
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-05.png" alt /><h4>Traveling</h4></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-05.png" alt /><h4>Traveling</h4></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -62,7 +62,7 @@ const Category = () => {
                                                                         <div className="row">
                                                                             <div className="col-lg-6">
                                                                                 <div className="top-icon">
-                                                                                    <span className="icon"><img src="assets/images/search-icon-01.png" alt /><h4>Apartments</h4></span>
+                                                                                    <span className="icon"><img src="src/assets/images/search-icon-01.png" alt /><h4>Apartments</h4></span>
                                                                                 </div>
                                                                             </div>
                                                                             <div className="col-lg-6">
@@ -82,7 +82,7 @@ const Category = () => {
                                                                             </div>
                                                                             <div className="col-lg-3">
                                                                                 <div className="text-icon">
-                                                                                    <h4><img src="assets/images/listing-icon-heading.png" alt /> Total Listings</h4>
+                                                                                    <h4><img src="src/assets/images/listing-icon-heading.png" alt /> Total Listings</h4>
                                                                                 </div>
                                                                                 <span className="list-item">This Week: 200 Listings &amp; 150 Sales<br />This Month: 1,800 Listings &amp; 1,560 Sales<br />This Year: 16,000 Listings &amp; 14,000 Sales</span>
                                                                             </div>
@@ -115,7 +115,7 @@ const Category = () => {
                                                                         <div className="row">
                                                                             <div className="col-lg-6">
                                                                                 <div className="top-icon">
-                                                                                    <span className="icon"><img src="assets/images/search-icon-02.png" alt /><h4>Food &amp; Life</h4></span>
+                                                                                    <span className="icon"><img src="src/assets/images/search-icon-02.png" alt /><h4>Food &amp; Life</h4></span>
                                                                                 </div>
                                                                             </div>
                                                                             <div className="col-lg-6">
@@ -138,7 +138,7 @@ const Category = () => {
                                                                             </div>
                                                                             <div className="col-lg-3">
                                                                                 <div className="text-icon">
-                                                                                    <h4><img src="assets/images/listing-icon-heading.png" alt /> Total Listings</h4>
+                                                                                    <h4><img src="src/assets/images/listing-icon-heading.png" alt /> Total Listings</h4>
                                                                                 </div>
                                                                                 <span className="list-item">This Week: 124 Listings &amp; 84 Sales<br />This Month: 1,040 Listings &amp; 720 Sales<br />This Year: 10,640 Listings &amp; 9,600 Sales</span>
                                                                             </div>
@@ -171,7 +171,7 @@ const Category = () => {
                                                                         <div className="row">
                                                                             <div className="col-lg-6">
                                                                                 <div className="top-icon">
-                                                                                    <span className="icon"><img src="assets/images/search-icon-03.png" alt /><h4>Cars</h4></span>
+                                                                                    <span className="icon"><img src="src/assets/images/search-icon-03.png" alt /><h4>Cars</h4></span>
                                                                                 </div>
                                                                             </div>
                                                                             <div className="col-lg-6">
@@ -191,7 +191,7 @@ const Category = () => {
                                                                             </div>
                                                                             <div className="col-lg-3">
                                                                                 <div className="text-icon">
-                                                                                    <h4><img src="assets/images/listing-icon-heading.png" alt /> Total Listings</h4>
+                                                                                    <h4><img src="src/assets/images/listing-icon-heading.png" alt /> Total Listings</h4>
                                                                                 </div>
                                                                                 <span className="list-item">This Week: 800 Listings &amp; 400 Sales<br />This Month: 1,600 Listings &amp; 1,200 Sales<br />This Year: 14,000 Listings &amp; 12,000 Sales</span>
                                                                             </div>
@@ -224,7 +224,7 @@ const Category = () => {
                                                                         <div className="row">
                                                                             <div className="col-lg-6">
                                                                                 <div className="top-icon">
-                                                                                    <span className="icon"><img src="assets/images/search-icon-04.png" alt /><h4>Shopping</h4></span>
+                                                                                    <span className="icon"><img src="src/assets/images/search-icon-04.png" alt /><h4>Shopping</h4></span>
                                                                                 </div>
                                                                             </div>
                                                                             <div className="col-lg-6">
@@ -244,7 +244,7 @@ const Category = () => {
                                                                             </div>
                                                                             <div className="col-lg-3">
                                                                                 <div className="text-icon">
-                                                                                    <h4><img src="assets/images/listing-icon-heading.png" alt /> Total Listings</h4>
+                                                                                    <h4><img src="src/assets/images/listing-icon-heading.png" alt /> Total Listings</h4>
                                                                                 </div>
                                                                                 <span className="list-item">This Week: 150 Listings &amp; 140 Sales<br />This Month: 1,500 Listings &amp; 1,100 Sales<br />This Year: 15,000 Listings &amp; 14,000 Sales</span>
                                                                             </div>
@@ -277,7 +277,7 @@ const Category = () => {
                                                                         <div className="row">
                                                                             <div className="col-lg-6">
                                                                                 <div className="top-icon">
-                                                                                    <span className="icon"><img src="assets/images/search-icon-05.png" alt /><h4>Traveling</h4></span>
+                                                                                    <span className="icon"><img src="src/assets/images/search-icon-05.png" alt /><h4>Traveling</h4></span>
                                                                                 </div>
                                                                             </div>
                                                                             <div className="col-lg-6">
@@ -297,7 +297,7 @@ const Category = () => {
                                                                             </div>
                                                                             <div className="col-lg-3">
                                                                                 <div className="text-icon">
-                                                                                    <h4><img src="assets/images/listing-icon-heading.png" alt /> Total Listings</h4>
+                                                                                    <h4><img src="src/assets/images/listing-icon-heading.png" alt /> Total Listings</h4>
                                                                                 </div>
                                                                                 <span className="list-item">This Week: 200 Listings &amp; 120 Sales<br />This Month: 1,400 Listings &amp; 900 Sales<br />This Year: 14,000 Listings &amp; 12,000 Sales</span>
                                                                             </div>

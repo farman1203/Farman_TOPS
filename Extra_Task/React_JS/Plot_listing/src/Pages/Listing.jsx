@@ -26,25 +26,25 @@ const Listing = () => {
                                             <div className="menu">
                                                 <div className="first-thumb active">
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-01.png" alt /></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-01.png" alt /></span>
                                                         Apartments
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-02.png" alt /></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-02.png" alt /></span>
                                                         Food &amp; Life
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-03.png" alt /></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-03.png" alt /></span>
                                                         Cars
                                                     </div>
                                                 </div>
                                                 <div className="last-thumb">
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-04.png" alt /></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-04.png" alt /></span>
                                                         Traveling
                                                     </div>
                                                 </div>
@@ -62,7 +62,7 @@ const Listing = () => {
                                                                         <div className="col-lg-12">
                                                                             <div className="listing-item">
                                                                                 <div className="left-image">
-                                                                                    <a href="#"><img src="assets/images/listing-01.jpg" alt /></a>
+                                                                                    <a href="#"><img src="src/assets/images/listing-01.jpg" alt /></a>
                                                                                     <div className="hover-content">
                                                                                         <div className="main-white-button">
                                                                                             <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -74,14 +74,14 @@ const Listing = () => {
                                                                                     <h6>by: Real ESTATE Agent</h6>
                                                                                     <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $600 / month included tax</span>
                                                                                     <span className="details">Details: <em>860 sq ft</em></span>
-                                                                                    <span className="info"><img src="assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
+                                                                                    <span className="info"><img src="src/assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div className="col-lg-12">
                                                                             <div className="listing-item">
                                                                                 <div className="left-image">
-                                                                                    <a href="#"><img src="assets/images/listing-02.jpg" alt /></a>
+                                                                                    <a href="#"><img src="src/assets/images/listing-02.jpg" alt /></a>
                                                                                     <div className="hover-content">
                                                                                         <div className="main-white-button">
                                                                                             <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -91,16 +91,16 @@ const Listing = () => {
                                                                                 <div className="right-content align-self-center">
                                                                                     <a href="#"><h4>Best one in this category</h4></a>
                                                                                     <h6>by: Real ESTATE Agent</h6>
-                                                                                    <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $800 / month included tax</span>
+                                                                                    <span className="price"><div className="icon"><img src="src/assets/images/listing-icon-01.png" alt /></div> $800 / month included tax</span>
                                                                                     <span className="details">Details: <em>860 sq ft</em></span>
-                                                                                    <span className="info"><img src="assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
+                                                                                    <span className="info"><img src="src/assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div className="col-lg-12">
                                                                             <div className="listing-item">
                                                                                 <div className="left-image">
-                                                                                    <a href="#"><img src="assets/images/listing-03.jpg" alt /></a>
+                                                                                    <a href="#"><img src="src/assets/images/listing-03.jpg" alt /></a>
                                                                                     <div className="hover-content">
                                                                                         <div className="main-white-button">
                                                                                             <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -110,9 +110,9 @@ const Listing = () => {
                                                                                 <div className="right-content align-self-center">
                                                                                     <a href="#"><h4>Amazing Dj Party House</h4></a>
                                                                                     <h6>by: Real ESTATE Agent</h6>
-                                                                                    <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $950 / month included tax</span>
+                                                                                    <span className="price"><div className="icon"><img src="src/assets/images/listing-icon-01.png" alt /></div> $950 / month included tax</span>
                                                                                     <span className="details">Details: <em>860 sq ft</em></span>
-                                                                                    <span className="info"><img src="assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
+                                                                                    <span className="info"><img src="src/assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -123,7 +123,7 @@ const Listing = () => {
                                                                         <div className="col-lg-12">
                                                                             <div className="listing-item">
                                                                                 <div className="left-image">
-                                                                                    <a href="#"><img src="assets/images/listing-01.jpg" alt /></a>
+                                                                                    <a href="#"><img src="src/assets/images/listing-01.jpg" alt /></a>
                                                                                     <div className="hover-content">
                                                                                         <div className="main-white-button">
                                                                                             <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -133,16 +133,16 @@ const Listing = () => {
                                                                                 <div className="right-content align-self-center">
                                                                                     <a href="#"><h4>Sunshine Villa Condo</h4></a>
                                                                                     <h6>by: Real ESTATE Agent</h6>
-                                                                                    <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $450 / month included tax</span>
+                                                                                    <span className="price"><div className="icon"><img src="src/assets/images/listing-icon-01.png" alt /></div> $450 / month included tax</span>
                                                                                     <span className="details">Details: <em>860 sq ft</em></span>
-                                                                                    <span className="info"><img src="assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
+                                                                                    <span className="info"><img src="src/assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div className="col-lg-12">
                                                                             <div className="listing-item">
                                                                                 <div className="left-image">
-                                                                                    <a href="#"><img src="assets/images/listing-02.jpg" alt /></a>
+                                                                                    <a href="#"><img src="src/assets/images/listing-02.jpg" alt /></a>
                                                                                     <div className="hover-content">
                                                                                         <div className="main-white-button">
                                                                                             <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -152,16 +152,16 @@ const Listing = () => {
                                                                                 <div className="right-content align-self-center">
                                                                                     <a href="#"><h4>Gaming Studio Units</h4></a>
                                                                                     <h6>by: Real ESTATE Agent</h6>
-                                                                                    <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $550 / month included tax</span>
+                                                                                    <span className="price"><div className="icon"><img src="src/assets/images/listing-icon-01.png" alt /></div> $550 / month included tax</span>
                                                                                     <span className="details">Details: <em>860 sq ft</em></span>
-                                                                                    <span className="info"><img src="assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
+                                                                                    <span className="info"><img src="src/assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div className="col-lg-12">
                                                                             <div className="listing-item">
                                                                                 <div className="left-image">
-                                                                                    <a href="#"><img src="assets/images/listing-03.jpg" alt /></a>
+                                                                                    <a href="#"><img src="src/assets/images/listing-03.jpg" alt /></a>
                                                                                     <div className="hover-content">
                                                                                         <div className="main-white-button">
                                                                                             <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -171,9 +171,9 @@ const Listing = () => {
                                                                                 <div className="right-content align-self-center">
                                                                                     <a href="#"><h4>Amazing Dj Party House</h4></a>
                                                                                     <h6>by: Real ESTATE Agent</h6>
-                                                                                    <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $650 / month included tax</span>
+                                                                                    <span className="price"><div className="icon"><img src="src/assets/images/listing-icon-01.png" alt /></div> $650 / month included tax</span>
                                                                                     <span className="details">Details: <em>860 sq ft</em></span>
-                                                                                    <span className="info"><img src="assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
+                                                                                    <span className="info"><img src="src/assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -185,7 +185,7 @@ const Listing = () => {
                                                                         <div className="col-lg-12">
                                                                             <div className="listing-item">
                                                                                 <div className="left-image">
-                                                                                    <a href="#"><img src="assets/images/listing-01.jpg" alt /></a>
+                                                                                    <a href="#"><img src="src/assets/images/listing-01.jpg" alt /></a>
                                                                                     <div className="hover-content">
                                                                                         <div className="main-white-button">
                                                                                             <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -195,16 +195,16 @@ const Listing = () => {
                                                                                 <div className="right-content align-self-center">
                                                                                     <a href="#"><h4>Third Page Apartment</h4></a>
                                                                                     <h6>by: Real Estate Agent</h6>
-                                                                                    <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $600 to $950 / month included tax</span>
+                                                                                    <span className="price"><div className="icon"><img src="src/assets/images/listing-icon-01.png" alt /></div> $600 to $950 / month included tax</span>
                                                                                     <span className="details">Details: <em>860 sq ft</em></span>
-                                                                                    <span className="info"><img src="assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
+                                                                                    <span className="info"><img src="src/assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div className="col-lg-12">
                                                                             <div className="listing-item">
                                                                                 <div className="left-image">
-                                                                                    <a href="#"><img src="assets/images/listing-02.jpg" alt /></a>
+                                                                                    <a href="#"><img src="src/assets/images/listing-02.jpg" alt /></a>
                                                                                     <div className="hover-content">
                                                                                         <div className="main-white-button">
                                                                                             <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -214,9 +214,9 @@ const Listing = () => {
                                                                                 <div className="right-content align-self-center">
                                                                                     <a href="#"><h4>New Gaming Townhouse</h4></a>
                                                                                     <h6>by: Real ESTATE Agent</h6>
-                                                                                    <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $840 / month included tax</span>
+                                                                                    <span className="price"><div className="icon"><img src="src/assets/images/listing-icon-01.png" alt /></div> $840 / month included tax</span>
                                                                                     <span className="details">Details: <em>860 sq ft</em></span>
-                                                                                    <span className="info"><img src="assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
+                                                                                    <span className="info"><img src="src/assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>

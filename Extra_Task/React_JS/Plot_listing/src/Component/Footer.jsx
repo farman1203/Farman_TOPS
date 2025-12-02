@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="col-lg-4">
         <div className="about">
           <div className="logo">
-            <img src="assets/images/black-logo.png" alt="Plot Listing" />
+            <img src="src/assets/images/black-logo.png" alt="Plot Listing" />
           </div>
           <p>If you consider that <a rel="nofollow" href="https://templatemo.com/tm-564-plot-listing" target="_parent">Plot Listing template</a> is useful for your website, please <a rel="nofollow" href="https://www.paypal.me/templatemo" target="_blank">support us</a> a little via PayPal.</p>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const index = () => {
+const Index = () => {
     return (
         <div>
             <div className="main-banner">
@@ -13,7 +13,7 @@ const index = () => {
                             </div>
                         </div>
                         <div className="col-lg-12">
-                            <form id="search-form" name="gs" method="submit" role="search" action="#">
+                            <form id="search-form" name="gs" method="post" role="search" action="#">
                                 <div className="row">
                                     <div className="col-lg-3 align-self-center">
                                         <fieldset>
@@ -51,11 +51,11 @@ const index = () => {
                         </div>
                         <div className="col-lg-10 offset-lg-1">
                             <ul className="categories">
-                                <li><a href="category.html"><span className="icon"><img src="assets/images/search-icon-01.png" alt="Home" /></span> Apartments</a></li>
-                                <li><a href="listing.html"><span className="icon"><img src="assets/images/search-icon-02.png" alt="Food" /></span> Food &amp; Life</a></li>
-                                <li><a href="#"><span className="icon"><img src="assets/images/search-icon-03.png" alt="Vehicle" /></span> Cars</a></li>
-                                <li><a href="#"><span className="icon"><img src="assets/images/search-icon-04.png" alt="Shopping" /></span> Shopping</a></li>
-                                <li><a href="#"><span className="icon"><img src="assets/images/search-icon-05.png" alt="Travel" /></span> Traveling</a></li>
+                                <li><a href="category.html"><span className="icon"><img src="src/assets/images/search-icon-01.png" alt="Home" /></span> Apartments</a></li>
+                                <li><a href="listing.html"><span className="icon"><img src="src/assets/images/search-icon-02.png" alt="Food" /></span> Food &amp; Life</a></li>
+                                <li><a href="#"><span className="icon"><img src="src/assets/images/search-icon-03.png" alt="Vehicle" /></span> Cars</a></li>
+                                <li><a href="#"><span className="icon"><img src="src/assets/images/search-icon-04.png" alt="Shopping" /></span> Shopping</a></li>
+                                <li><a href="#"><span className="icon"><img src="src/assets/images/search-icon-05.png" alt="Travel" /></span> Traveling</a></li>
                             </ul>
                         </div>
                     </div>
@@ -78,31 +78,31 @@ const index = () => {
                                             <div className="menu">
                                                 <div className="first-thumb active">
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-01.png" alt /></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-01.png" alt /></span>
                                                         Apartments
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-02.png" alt /></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-02.png" alt /></span>
                                                         Food &amp; Life
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-03.png" alt /></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-03.png" alt /></span>
                                                         Cars
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-04.png" alt /></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-04.png" alt /></span>
                                                         Shopping
                                                     </div>
                                                 </div>
                                                 <div className="last-thumb">
                                                     <div className="thumb">
-                                                        <span className="icon"><img src="assets/images/search-icon-05.png" alt /></span>
+                                                        <span className="icon"><img src="src/assets/images/search-icon-05.png" alt /></span>
                                                         Traveling
                                                     </div>
                                                 </div>
@@ -123,7 +123,7 @@ const index = () => {
                                                                 </div>
                                                                 <div className="col-lg-7 align-self-center">
                                                                     <div className="right-image">
-                                                                        <img src="assets/images/tabs-image-01.jpg" alt />
+                                                                        <img src="src/assets/images/tabs-image-01.jpg" alt />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -143,7 +143,7 @@ const index = () => {
                                                                 </div>
                                                                 <div className="col-lg-7 align-self-center">
                                                                     <div className="right-image">
-                                                                        <img src="assets/images/tabs-image-02.jpg" alt="Foods on the table" />
+                                                                        <img src="src/assets/images/tabs-image-02.jpg" alt="Foods on the table" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -163,7 +163,7 @@ const index = () => {
                                                                 </div>
                                                                 <div className="col-lg-7 align-self-center">
                                                                     <div className="right-image">
-                                                                        <img src="assets/images/tabs-image-03.jpg" alt="cars in the city" />
+                                                                        <img src="src/assets/images/tabs-image-03.jpg" alt="cars in the city" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -183,7 +183,7 @@ const index = () => {
                                                                 </div>
                                                                 <div className="col-lg-7 align-self-center">
                                                                     <div className="right-image">
-                                                                        <img src="assets/images/tabs-image-04.jpg" alt="Shopping Girl" />
+                                                                        <img src="src/assets/images/tabs-image-04.jpg" alt="Shopping Girl" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -203,7 +203,7 @@ const index = () => {
                                                                 </div>
                                                                 <div className="col-lg-7 align-self-center">
                                                                     <div className="right-image">
-                                                                        <img src="assets/images/tabs-image-05.jpg" alt="Traveling Beach" />
+                                                                        <img src="src/assets/images/tabs-image-05.jpg" alt="Traveling Beach" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -235,7 +235,7 @@ const index = () => {
                                         <div className="col-lg-12">
                                             <div className="listing-item">
                                                 <div className="left-image">
-                                                    <a href="#"><img src="assets/images/listing-01.jpg" alt /></a>
+                                                    <a href="#"><img src="src/assets/images/listing-01.jpg" alt /></a>
                                                 </div>
                                                 <div className="right-content align-self-center">
                                                     <a href="#"><h4>1. First Apartment Unit</h4></a>
@@ -251,8 +251,8 @@ const index = () => {
                                                     <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $450 - $950 / month with taxes</span>
                                                     <span className="details">Details: <em>2760 sq ft</em></span>
                                                     <ul className="info">
-                                                        <li><img src="assets/images/listing-icon-02.png" alt /> 4 Bedrooms</li>
-                                                        <li><img src="assets/images/listing-icon-03.png" alt /> 4 Bathrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-02.png" alt /> 4 Bedrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-03.png" alt /> 4 Bathrooms</li>
                                                     </ul>
                                                     <div className="main-white-button">
                                                         <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -263,7 +263,7 @@ const index = () => {
                                         <div className="col-lg-12">
                                             <div className="listing-item">
                                                 <div className="left-image">
-                                                    <a href="#"><img src="assets/images/listing-02.jpg" alt /></a>
+                                                    <a href="#"><img src="src/assets/images/listing-02.jpg" alt /></a>
                                                 </div>
                                                 <div className="right-content align-self-center">
                                                     <a href="#"><h4>2. Another House of Gaming</h4></a>
@@ -279,8 +279,8 @@ const index = () => {
                                                     <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $1,400 - $3,500 / month with taxes</span>
                                                     <span className="details">Details: <em>3650 sq ft</em></span>
                                                     <ul className="info">
-                                                        <li><img src="assets/images/listing-icon-02.png" alt /> 4 Bedrooms</li>
-                                                        <li><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-02.png" alt /> 4 Bedrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-03.png" alt /> 3 Bathrooms</li>
                                                     </ul>
                                                     <div className="main-white-button">
                                                         <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -291,7 +291,7 @@ const index = () => {
                                         <div className="col-lg-12">
                                             <div className="listing-item">
                                                 <div className="left-image">
-                                                    <a href="#"><img src="assets/images/listing-03.jpg" alt /></a>
+                                                    <a href="#"><img src="src/assets/images/listing-03.jpg" alt /></a>
                                                 </div>
                                                 <div className="right-content align-self-center">
                                                     <a href="#"><h4>3. Secret Place Hidden House</h4></a>
@@ -307,8 +307,8 @@ const index = () => {
                                                     <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $1,500 - $3,600 / month with taxes</span>
                                                     <span className="details">Details: <em>5500 sq ft</em></span>
                                                     <ul className="info">
-                                                        <li><img src="assets/images/listing-icon-02.png" alt /> 4 Bedrooms</li>
-                                                        <li><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-02.png" alt /> 4 Bedrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-03.png" alt /> 3 Bathrooms</li>
                                                     </ul>
                                                     <div className="main-white-button">
                                                         <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -323,7 +323,7 @@ const index = () => {
                                         <div className="col-lg-12">
                                             <div className="listing-item">
                                                 <div className="left-image">
-                                                    <a href="#"><img src="assets/images/listing-04.jpg" alt /></a>
+                                                    <a href="#"><img src="src/assets/images/listing-04.jpg" alt /></a>
                                                 </div>
                                                 <div className="right-content align-self-center">
                                                     <a href="#"><h4>4. Sunshine Fourth Apartment</h4></a>
@@ -339,8 +339,8 @@ const index = () => {
                                                     <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $3,600 / month with taxes</span>
                                                     <span className="details">Details: <em>3660 sq ft</em></span>
                                                     <ul className="info">
-                                                        <li><img src="assets/images/listing-icon-02.png" alt /> 5 Bedrooms</li>
-                                                        <li><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-02.png" alt /> 5 Bedrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-03.png" alt /> 3 Bathrooms</li>
                                                     </ul>
                                                     <div className="main-white-button">
                                                         <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -351,7 +351,7 @@ const index = () => {
                                         <div className="col-lg-12">
                                             <div className="listing-item">
                                                 <div className="left-image">
-                                                    <a href="#"><img src="assets/images/listing-05.jpg" alt /></a>
+                                                    <a href="#"><img src="src/assets/images/listing-05.jpg" alt /></a>
                                                 </div>
                                                 <div className="right-content align-self-center">
                                                     <a href="#"><h4>5. Best House Of the Town</h4></a>
@@ -367,8 +367,8 @@ const index = () => {
                                                     <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $5,600 / month with taxes</span>
                                                     <span className="details">Details: <em>1750 sq ft</em></span>
                                                     <ul className="info">
-                                                        <li><img src="assets/images/listing-icon-02.png" alt /> 6 Bedrooms</li>
-                                                        <li><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-02.png" alt /> 6 Bedrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-03.png" alt /> 3 Bathrooms</li>
                                                     </ul>
                                                     <div className="main-white-button">
                                                         <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -379,7 +379,7 @@ const index = () => {
                                         <div className="col-lg-12">
                                             <div className="listing-item">
                                                 <div className="left-image">
-                                                    <a href="#"><img src="assets/images/listing-06.jpg" alt /></a>
+                                                    <a href="#"><img src="src/assets/images/listing-06.jpg" alt /></a>
                                                 </div>
                                                 <div className="right-content align-self-center">
                                                     <a href="#"><h4>6. Amazing Pool Party Villa</h4></a>
@@ -395,8 +395,8 @@ const index = () => {
                                                     <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $3,850 / month with taxes</span>
                                                     <span className="details">Details: <em>3660 sq ft</em></span>
                                                     <ul className="info">
-                                                        <li><img src="assets/images/listing-icon-02.png" alt /> 4 Bedrooms</li>
-                                                        <li><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-02.png" alt /> 4 Bedrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-03.png" alt /> 3 Bathrooms</li>
                                                     </ul>
                                                     <div className="main-white-button">
                                                         <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -411,7 +411,7 @@ const index = () => {
                                         <div className="col-lg-12">
                                             <div className="listing-item">
                                                 <div className="left-image">
-                                                    <a href="#"><img src="assets/images/listing-05.jpg" alt /></a>
+                                                    <a href="#"><img src="src/assets/images/listing-05.jpg" alt /></a>
                                                 </div>
                                                 <div className="right-content align-self-center">
                                                     <a href="#"><h4>7. Sunny Apartment</h4></a>
@@ -427,8 +427,8 @@ const index = () => {
                                                     <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $5,450 / month with taxes</span>
                                                     <span className="details">Details: <em>1640 sq ft</em></span>
                                                     <ul className="info">
-                                                        <li><img src="assets/images/listing-icon-02.png" alt /> 8 Bedrooms</li>
-                                                        <li><img src="assets/images/listing-icon-03.png" alt /> 5 Bathrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-02.png" alt /> 8 Bedrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-03.png" alt /> 5 Bathrooms</li>
                                                     </ul>
                                                     <div className="main-white-button">
                                                         <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -439,7 +439,7 @@ const index = () => {
                                         <div className="col-lg-12">
                                             <div className="listing-item">
                                                 <div className="left-image">
-                                                    <a href="#"><img src="assets/images/listing-02.jpg" alt /></a>
+                                                    <a href="#"><img src="src/assets/images/listing-02.jpg" alt /></a>
                                                 </div>
                                                 <div className="right-content align-self-center">
                                                     <a href="#"><h4>8. Third House of Gaming</h4></a>
@@ -455,8 +455,8 @@ const index = () => {
                                                     <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $5,520 / month with taxes</span>
                                                     <span className="details">Details: <em>1660 sq ft</em></span>
                                                     <ul className="info">
-                                                        <li><img src="assets/images/listing-icon-02.png" alt /> 5 Bedrooms</li>
-                                                        <li><img src="assets/images/listing-icon-03.png" alt /> 4 Bathrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-02.png" alt /> 5 Bedrooms</li>
+                                                        <li><img src="src/assets/images/listing-icon-03.png" alt /> 4 Bathrooms</li>
                                                     </ul>
                                                     <div className="main-white-button">
                                                         <a href="contact.html"><i className="fa fa-eye" /> Contact Now</a>
@@ -504,4 +504,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index
