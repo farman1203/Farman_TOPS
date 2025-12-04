@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Index = () => {
     return (
@@ -51,7 +52,7 @@ const Index = () => {
                         </div>
                         <div className="col-lg-10 offset-lg-1">
                             <ul className="categories">
-                                <li><a href="category.html"><span className="icon"><img src="src/assets/images/search-icon-01.png" alt="Home" /></span> Apartments</a></li>
+                                <li><Link to="/category"><span className="icon"><img src="src/assets/images/search-icon-01.png" alt="Home" /></span> Apartments</Link></li>
                                 <li><a href="listing.html"><span className="icon"><img src="src/assets/images/search-icon-02.png" alt="Food" /></span> Food &amp; Life</a></li>
                                 <li><a href="#"><span className="icon"><img src="src/assets/images/search-icon-03.png" alt="Vehicle" /></span> Cars</a></li>
                                 <li><a href="#"><span className="icon"><img src="src/assets/images/search-icon-04.png" alt="Shopping" /></span> Shopping</a></li>
