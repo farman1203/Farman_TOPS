@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './index.css'
 import Header from './Website/Component/Header'
 import Home from './Website/Pages/Home'
 import Footer from './Website/Component/Footer'
@@ -19,6 +20,7 @@ import Add_product from './Admin/Pages/Add_product'
 import Manage_product from './Admin/Pages/Manage_product'
 import Manage_contact from './Admin/Pages/Manage_contact'
 import Manage_customer from './Admin/Pages/Manage_customer'
+import Pagenotfound from './Website/Pages/Pagenotfound'
 
 const App = () => {
   return (
@@ -32,6 +34,8 @@ const App = () => {
           <Route path='/shop_single' element={<><Header /><Shop_single /><Footer /></>}></Route>
           <Route path='/login' element={<><Header /><Login /><Footer /></>}></Route>
           <Route path='/signup' element={<><Header /><Signup /><Footer /></>}></Route>
+          <Route path='*' element={<Pagenotfound /> }></Route>
+            
 
 
 
