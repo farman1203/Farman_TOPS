@@ -5,7 +5,7 @@ const UseState = () => {
  
     const [num,setnum] = useState(10);
     function Change(){
-        setnum(30)
+        setnum(num+10)
     }
 
   return (
