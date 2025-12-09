@@ -3,13 +3,15 @@ import Event from './Counting/event'
 import './index.css'
 import UseState from './Hooks/UseState'
 import Inc_Dec from './Hooks/Inc_Dec'
+import Form_handling from './Form_handling/Form_handling'
 
 const App = () => {
   return (
     <div>
         {/* <Event /> */}
         {/* <UseState /> */}
-        <Inc_Dec />
+        {/* <Inc_Dec /> */}
+        <Form_handling />
     </div>
   )
 }

@@ -2,24 +2,24 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zay Shop eCommerce </title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zay Shop eCommerce </title>
 
-  <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
-  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/templatemo.css">
-  <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
 
-  <!-- Load fonts style after rendering the layout styles -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
-   <!-- Slick -->
+    <!-- Slick -->
     <link rel="stylesheet" type="text/css" href="assets/css/slick.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
@@ -27,8 +27,8 @@
 </head>
 
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 </body>
 <!-- Start Script -->
 <script src="assets/js/jquery-1.11.0.min.js"></script>
@@ -38,113 +38,113 @@
 <script src="assets/js/custom.js"></script>
 <!-- End Script -->
 
-  <script src="assets/js/slick.min.js"></script>
-    <script>
-        $('#carousel-related-product').slick({
-            infinite: true,
-            arrows: false,
-            slidesToShow: 4,
-            slidesToScroll: 3,
-            dots: true,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 3
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 3
-                    }
-                }
-            ]
-        });
-    </script>
-    <!-- End Slider Script -->
-     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-    <script>
-        var mymap = L.map('mapid').setView([-23.013104, -43.394365, 13], 13);
-
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-            maxZoom: 18,
-            attribution: 'Zay Telmplte | Template Design by <a href="https://templatemo.com/">Templatemo</a> | Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1
-        }).addTo(mymap);
-
-        L.marker([-23.013104, -43.394365, 13]).addTo(mymap)
-            .bindPopup("<b>Zay</b> eCommerce Template<br />Location.").openPopup();
-
-        mymap.scrollWheelZoom.disable();
-        mymap.touchZoom.disable();
-    </script>
-
-    <script>
-
-        window.onload = function () {
-            
-	var error = Snap.select("#error" ),
-      hole = Snap.select("#svg-hole" ),
-      hand = Snap.select("#svg-hand" ),
-      mask = Snap.select("#svg-mask" );
-
-
-	function onSVGLoaded( ){
-    
-		function animOn(){
-			hand.animate({
-				transform: "t10,-300, r0"
-			}, 4500, mina.easeinout, animOut);
-
-			mask.animate({
-				transform: "t-10,300, r0"
-			}, 4500, mina.easeinout);
-		}
-        
-		function animOut() {
-			hand.animate({
-				transform: "t-10,-305, r0"
-			}, 4500, mina.easeinout, animOn);
-
-			mask.animate({
-				transform: "t10,305, r0"
-			}, 4500, mina.easeinout);
-		};
-    
-    function open() {
-			clearTimeout(timer);
-			hand.animate({
-				transform: "t0,-300"
-			}, 800, mina.backout, animOn);
-
-			mask.animate({
-                transform: "t0,300"
-			}, 800, mina.backout);
-            
-		}
-		timer = setTimeout(open, 1000);
-
-		hand.attr({
-			mask: mask
-		});
-	}
-  
-  onSVGLoaded();
-};
+<script src="assets/js/slick.min.js"></script>
+<script>
+    $('#carousel-related-product').slick({
+        infinite: true,
+        arrows: false,
+        slidesToShow: 4,
+        slidesToScroll: 3,
+        dots: true,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 3
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 3
+            }
+        }
+        ]
+    });
 </script>
+<!-- End Slider Script -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+<script>
+    var mymap = L.map('mapid').setView([-23.013104, -43.394365, 13], 13);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        attribution: 'Zay Telmplte | Template Design by <a href="https://templatemo.com/">Templatemo</a> | Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(mymap);
+
+    L.marker([-23.013104, -43.394365, 13]).addTo(mymap)
+        .bindPopup("<b>Zay</b> eCommerce Template<br />Location.").openPopup();
+
+    mymap.scrollWheelZoom.disable();
+    mymap.touchZoom.disable();
+</script>
+
+<script>
+
+    window.onload = function () {
+
+        var error = Snap.select("#error"),
+            hole = Snap.select("#svg-hole"),
+            hand = Snap.select("#svg-hand"),
+            mask = Snap.select("#svg-mask");
+
+
+        function onSVGLoaded() {
+
+            function animOn() {
+                hand.animate({
+                    transform: "t10,-300, r0"
+                }, 4500, mina.easeinout, animOut);
+
+                mask.animate({
+                    transform: "t-10,300, r0"
+                }, 4500, mina.easeinout);
+            }
+
+            function animOut() {
+                hand.animate({
+                    transform: "t-10,-305, r0"
+                }, 4500, mina.easeinout, animOn);
+
+                mask.animate({
+                    transform: "t10,305, r0"
+                }, 4500, mina.easeinout);
+            };
+
+            function open() {
+                clearTimeout(timer);
+                hand.animate({
+                    transform: "t0,-300"
+                }, 800, mina.backout, animOn);
+
+                mask.animate({
+                    transform: "t0,300"
+                }, 800, mina.backout);
+
+            }
+            timer = setTimeout(open, 1000);
+
+            hand.attr({
+                mask: mask
+            });
+        }
+        onSVGLoaded();
+    };
+</script>
+
 </html>
