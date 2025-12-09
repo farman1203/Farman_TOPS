@@ -14,7 +14,6 @@ function Func_Props(props) {
       </div>
     </div>
 
-
   )
 }
 

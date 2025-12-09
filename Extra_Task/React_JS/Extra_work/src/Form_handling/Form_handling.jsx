@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Form_handling = () => {
+ 
+        const [title, setTitle] = useState ('')
 
         const inputhandle = (e) => {
             e.preventDefault()
-            console.log('form submittedd...');
+            console.log('form submittedd... by' , title);
+
+            setTitle('')
         }
 
   return (
@@ -12,7 +16,10 @@ const Form_handling = () => {
         <form onSubmit={(e)=>{
             inputhandle(e)
         }}>
-            <input className='input1' placeholder='enter your name'></input>
+            <input className='input1' placeholder='enter your name' value={title} onChange={(e)=>{
+                setTitle(e.target.value)
+                
+            }}></input>
             <button>Click here</button>
         </form>
     </div>
