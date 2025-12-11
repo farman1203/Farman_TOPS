@@ -8,18 +8,14 @@ const App = () => {
 
   const [task, settask] = useState([]);
 
-
-
   const submithandler = (e) => {
-    e.preventDefault()
+    e.preventDefault()    
 
     const copytask = [...task];
-
     copytask.push({ title, detail })
     settask(copytask);
-    console.log(copytask);
 
-
+    
     setTitle('')
     setdetail('')
 
@@ -36,7 +32,8 @@ const App = () => {
 
   return (
     <div>
-      <form onSubmit={(e) => {
+      
+      <form className='lg:border-2 m-1' onSubmit={(e) => {
         submithandler(e);
       }}>
         <div className='p-5 grid'>
@@ -46,7 +43,7 @@ const App = () => {
               setTitle(e.target.value);
             }} />
 
-          <textarea name="" id="" className='m-5 p-2' placeholder='Enter note details'
+          <textarea name="" id="" className='m-5 p-2 ' placeholder='Enter note details'
             value={detail} onChange={(e) => {
               setdetail(e.target.value)
             }}></textarea>

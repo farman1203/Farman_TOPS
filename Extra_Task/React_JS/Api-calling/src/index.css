@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+*{
+  box-sizing: border-box;
+}
+
+.card{
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.card img{
+  object-fit: cover;
+}
+
