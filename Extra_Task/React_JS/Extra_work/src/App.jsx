@@ -11,9 +11,9 @@ const App = () => {
     <div>
         {/* <Event /> */}
         {/* <UseState /> */}
-        {/* <Inc_Dec /> */}
+        <Inc_Dec />
         {/* <Form_handling /> */}
-        <Localstorage />
+        {/* <Localstorage /> */}
     </div>
   )
 }

@@ -9,7 +9,6 @@ const App = () => {
   const api = async () => {
     const response = await axios.get('https://picsum.photos/v2/list')
     setData(response.data)
-
   }
 
   return (
