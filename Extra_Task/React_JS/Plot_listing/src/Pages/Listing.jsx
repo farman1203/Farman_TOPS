@@ -480,7 +480,7 @@ const Listing = () => {
                                                                                     <h6>by: Sale Agent</h6>
                                                                                     <span className="price"><div className="icon"><img src="assets/images/listing-icon-01.png" alt /></div> $550 / month included tax</span>
                                                                                     <span className="details">Details: <em>860 sq ft</em></span>
-                                                                                    <span className="info"><img src="assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
+                                                                                    <span className="info"><img src="src/assets/images/listing-icon-02.png" alt /> 2 Bedrooms<br /><img src="assets/images/listing-icon-03.png" alt /> 3 Bathrooms</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>

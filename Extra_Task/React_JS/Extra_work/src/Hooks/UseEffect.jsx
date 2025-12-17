@@ -9,9 +9,11 @@ const UseEffect = () => {
   useEffect(function () {
     console.log("incerse.....");
   }, [num1])
+
   return (
     <div>
       <h1>A value of num {num1}</h1>
+      <h1>A value of num {num2}</h1>
 
       <button onClick={() => {
         setNum(num1 + 1)
