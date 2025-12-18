@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Thankyou = () => {
     return (
@@ -31,7 +32,7 @@ const Thankyou = () => {
                                 </span>
                                 <h2 className="display-3 text-black">Thank you!</h2>
                                 <p className="lead mb-5">You order was successfuly completed.</p>
-                                <p><a href="shop.html" className="btn btn-sm btn-outline-black">Back to shop</a></p>
+                                <p><Link to="/shop" className="btn btn-sm btn-outline-black">Back to shop</Link></p>
                             </div>
                         </div>
                     </div>

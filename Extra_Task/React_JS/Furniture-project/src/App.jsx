@@ -11,6 +11,13 @@ import Services from './Pages/Services'
 import Shop from './Pages/Shop'
 import Thankyou from './Pages/Thankyou'
 import About from './Pages/About'
+import Alogin from './admin/Pages/Alogin'
+import Dashboard from './admin/Pages/Dashboard'
+import Manage_pro from './admin/Pages/Manage_pro'
+import Product from './admin/Pages/Product'
+import Order from './admin/Pages/order'
+import Users from './admin/Pages/users'
+import Categories from './admin/Pages/Categories'
 
 const App = () => {
   return (
@@ -26,6 +33,15 @@ const App = () => {
                 <Route path='/shop' element={<><Header/><Shop/><Footer/></>}></Route>
                 <Route path='/thankyou' element={<><Header/><Thankyou/><Footer/></>}></Route>
                 <Route path='/about' element={<><Header/><About/><Footer/></>}></Route>
+               
+               
+                <Route path='/alogin' element={<><Alogin/></>}></Route>
+                <Route path='/dashboard' element={<><Dashboard/></>}></Route>
+                <Route path='/manage_pro' element={<><Manage_pro/></>}></Route>
+                <Route path='/order' element={<><Order/></>}></Route>
+                <Route path='/users' element={<><Users/></>}></Route>
+                <Route path='/product' element={<><Product/></>}></Route>
+                <Route path='/categories' element={<><Categories/></>}></Route>
             </Routes>
         </BrowserRouter>
     </div>
