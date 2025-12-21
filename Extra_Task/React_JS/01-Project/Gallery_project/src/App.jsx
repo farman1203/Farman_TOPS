@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
+
 const App = () => {
 
     const [userData, setUserData] = useState([])
@@ -16,14 +17,15 @@ const App = () => {
     
     if(userData.length>0){
         printuserdata = userData.map(function(elem){
-          return <div>
+          return <div className='flex w-25 p-2 m-5'>
             <img src={elem.image} alt="" />
           </div>
         })
     }
+
   return (
     <div>
-        <button onClick={getdata}>Get Data</button>
+        <button className='text-2xl ' onClick={getdata}>Get Data</button>
 
 
         <div>
