@@ -287,7 +287,7 @@ const Index = () => {
                             <h4 className="text-primary text-uppercase" style={{ letterSpacing: 5 }}>Testimonial</h4>
                             <h1 className="display-4">Our Clients Say</h1>
                         </div>
-                        <div className="owl-carousel testimonial-carousel">
+                        <div className="owlcarousel testimonial-carousel">
                             <div className="testimonial-item">
                                 <div className="d-flex align-items-center mb-3">
                                     <img className="img-fluid" src="img/testimonial-1.jpg" alt />

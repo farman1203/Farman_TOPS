@@ -43,7 +43,7 @@
 
 
     // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
+    $(".testimonial-carousel").owlcarousel({
         autoplay: true,
         smartSpeed: 1500,
         margin: 30,
