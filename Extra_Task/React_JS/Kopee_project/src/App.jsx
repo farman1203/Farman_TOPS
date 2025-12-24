@@ -9,6 +9,7 @@ import Menu from './Website/pages/Menu'
 import Reservation from './Website/pages/Reservation'
 import Contact from './Website/pages/Contact'
 import Testimonial from './Website/pages/Testimonial'
+import Alogin from './Admin/Pages/Alogin'
 
 const App = () => {
   return (
@@ -21,7 +22,10 @@ const App = () => {
                 <Route path='/menu' element={<><Header/><Menu/><Footer/></>}></Route>
                 <Route path='/reservation' element={<><Header/><Reservation/><Footer/></>}></Route>
                 <Route path='/contact' element={<><Header/><Contact/><Footer/></>}></Route>
-                <Route path='/testimonial' element={<><Header/><Testimonial/><Footer/></>}></Route>
+                <Route path='/testimonial' element={<><Header/><Testimonial/><Footer/></>}></Route>3
+
+
+                <Route path='/alogin' element={<><Alogin/></>}></Route>
             </Routes>
       </BrowserRouter>
     </div>

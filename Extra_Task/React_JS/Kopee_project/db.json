@@ -1,0 +1,42 @@
+{
+    "reservation": [
+        {
+            "id": "01",
+            "customername": "john doe",
+            "date&time": "2025-12-25",
+            "guests": "4"
+        },
+        {
+            "id": "02",
+            "customername": "abc doe",
+            "date&time": "2025-10-25",
+            "guests": "2"
+        }
+    ],
+    "message": [
+        {
+            "id": "01",
+            "from": "Alex Wilson",
+            "date": "2025-12-25",
+            "subject": "Catering Inquiry"
+        },
+        {
+            "id": "02",
+            "from": "Alex Wilson",
+            "date": "2025-12-25",
+            "subject": "Feedback"
+        }
+    ],
+    "admin": [
+        {
+            "id": "01",
+            "emial": "admin1@coffeshop.com",
+            "password": "admin123"
+        },
+        {
+            "id": "02",
+            "emial": "admin2@coffeshop.com",
+            "password": "admin2"
+        }
+    ]
+}
