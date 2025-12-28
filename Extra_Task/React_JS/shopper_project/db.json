@@ -1,0 +1,13 @@
+{
+    "Products": [
+        {
+            "id": "1",
+            "name": "Tank Top",
+            "category": "Women",
+            "price": "50",
+            "stock": "120",
+            "status": "Active",
+            "image": "https: //via.placeholder.com/60//"
+        }
+    ]
+}

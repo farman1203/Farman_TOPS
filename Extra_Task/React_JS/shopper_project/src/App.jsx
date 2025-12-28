@@ -9,6 +9,8 @@ import Shop_single from './Website/Pages/Shop_single'
 import Cart from './Website/Pages/Cart'
 import Checkout from './Website/Pages/Checkout'
 import Contact from './Website/Pages/Contact'
+import Alogin from './Admin/component/Pages/Alogin'
+import Login from './Website/Pages/Login'
 
 const App = () => {
   return (
@@ -22,6 +24,12 @@ const App = () => {
               <Route path="/cart" element={<><Header/><Cart/><Footer/></>}></Route>
               <Route path="/checkout" element={<><Header/><Checkout/><Footer/></>}></Route>
               <Route path="/contact" element={<><Header/><Contact/><Footer/></>}></Route>
+              <Route path="/login" element={<><Header/><Login/><Footer/></>}></Route>
+
+
+              <Route path="/alogin" element={<><Header/><Alogin/><Footer/></>}></Route>
+
+
           </Routes>
       </BrowserRouter>
     </div>

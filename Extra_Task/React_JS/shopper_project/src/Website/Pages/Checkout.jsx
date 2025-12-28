@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Checkout = () => {
     return (
@@ -17,7 +18,7 @@ const Checkout = () => {
                         <div className="row mb-5">
                             <div className="col-md-12">
                                 <div className="border p-4 rounded" role="alert">
-                                    Returning customer? <a href="#">Click here</a> to login
+                                    Returning customer? <Link to="/login">Click here</Link> to login
                                 </div>
                             </div>
                         </div>

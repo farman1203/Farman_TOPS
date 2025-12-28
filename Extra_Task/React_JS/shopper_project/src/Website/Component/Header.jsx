@@ -16,13 +16,13 @@ const Header = () => {
                             </div>
                             <div className="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
                                 <div className="site-logo">
-                                    <a href="index.html" className="js-logo-clone">Shoppers</a>
+                                    <Link to="/" className="js-logo-clone">Shoppers</Link>
                                 </div>
                             </div>
                             <div className="col-6 col-md-4 order-3 order-md-3 text-right">
                                 <div className="site-top-icons">
                                     <ul>
-                                        <li><a href="#"><span className="icon icon-person" /></a></li>
+                                        <li><Link to="/login"><span className="icon icon-person" /></Link></li>
                                         <li><a href="#"><span className="icon icon-heart-o" /></a></li>
                                         <li>
                                             <Link to="/cart" className="site-cart">
@@ -51,10 +51,13 @@ const Header = () => {
                             <li><NavLink to="#">New Arrivals</NavLink></li>
                             <li><NavLink to="/contact">Contact</NavLink></li>
                         </ul>
+
+
+                        
                     </div>
                 </nav>
             </header>
-
+        
         </div>
     )
 }

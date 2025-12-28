@@ -54,7 +54,7 @@ const Shop = () => {
                                                 <h3><Link to="/shop-single">Tank Top</Link></h3>
                                                 <p className="mb-0">Finding perfect t-shirt</p>
                                                 <p className="text-primary font-weight-bold">$50</p>
-                                                <Link className='cart' to="/cart">Add To cart</Link>
+                                                <Link className='p-5 bg-red' to="/cart">Add To cart</Link>
                                             </div>
                                         </div>
                                     </div>
