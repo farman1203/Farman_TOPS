@@ -8,6 +8,42 @@
             "stock": "120",
             "status": "Active",
             "image": "https: //via.placeholder.com/60//"
+        },
+        {
+            "id": "2",
+            "name": "Corater Shoes",
+            "category": "Women",
+            "price": "50",
+            "stock": "120",
+            "status": "Active",
+            "image": "https: //via.placeholder.com/60//"
+        },
+        {
+            "id": "3",
+            "name": "Polo Shirt",
+            "category": "Women",
+            "price": "50",
+            "stock": "120",
+            "status": "Active",
+            "image": "https: //via.placeholder.com/60//"
+        }
+    ],
+    "Orders": [
+        {
+            "id": "#ORD-001",
+            "customer": "John Doe",
+            "date": "2024-12-28",
+            "total": "150",
+            "status": "Pending",
+            "items": "3"
+        },
+        {
+            "id": "#ORD-002",
+            "customer": "John Doe",
+            "date": "2024-12-28",
+            "total": "300",
+            "status": "sheteled",
+            "items": "1"
         }
     ]
 }
