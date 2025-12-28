@@ -44,6 +44,14 @@
             "total": "300",
             "status": "sheteled",
             "items": "1"
+        },
+        {
+            "id": "#ORD-003",
+            "customer": "Mike Johnson",
+            "date": "'2024-02-20",
+            "total": "95",
+            "status": "Delivered",
+            "items": "5"
         }
     ]
 }
