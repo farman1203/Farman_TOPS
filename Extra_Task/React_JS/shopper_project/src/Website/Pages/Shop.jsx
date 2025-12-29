@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios  from 'axios';
+
 
 const Shop = () => {
+
+    const [data1,setData1] = useState ([])
+
+    useEffect(()=>{
+        fetch_data1();
+    },[])
+
+    const fetch_data1 =async () => {
+        const obj =await axios.get(`http://localhost:3001/Products`);
+        setData1(obj.data)
+    }
+
+
     return (
         <div>
             <div>
@@ -45,151 +60,23 @@ const Shop = () => {
                                     </div>
                                 </div>
                                 <div className="row mb-5">
-                                    <div className="col-sm-6 col-lg-4 mb-4 " data-aos="fade-up">
-                                        <div className="block-4 text-center border abc">
-                                            <figure className="block-4-image">
-                                                <Link to="/shop-single"><img src="images/cloth_1.jpg" alt="Image placeholder" className="img-fluid" /></Link>
-                                            </figure>
-                                            <div className="block-4-text p-4">
-                                                <h3><Link to="/shop-single">Tank Top</Link></h3>
-                                                <p className="mb-0">Finding perfect t-shirt</p>
-                                                <p className="text-primary font-weight-bold">$50</p>
-                                                <Link className='p-5 bg-red' to="/cart">Add To cart</Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                                   {
+                                    data1.map((value)=>{
+                                        return  <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                                         <div className="block-4 text-center border">
                                             <figure className="block-4-image">
-                                                <Link to="/shop-single"><img src="images/shoe_1.jpg" alt="Image placeholder" className="img-fluid" /></Link>
+                                                <Link to="/shop-single"><img src={value.image} alt="Image placeholder" className="img-fluid" /></Link>
                                             </figure>
                                             <div className="block-4-text p-4">
-                                                <h3><Link to="/shop-single">Corater</Link></h3>
+                                                <h3><Link to="/shop-single">{value.name}</Link></h3>
                                                 <p className="mb-0">Finding perfect products</p>
-                                                <p className="text-primary font-weight-bold">$50</p>
+                                                <p className="text-primary font-weight-bold">${value.price}</p>
+                                                <Link to="/cart">Add To Cart</Link>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-sm-6 col-lg-4 mb-4 hover" data-aos="fade-up">
-                                        <div className="block-4 text-center border">
-                                            <figure className="block-4-image">
-                                                <Link to="/shop-single"><img src="images/cloth_2.jpg" alt="Image placeholder" className="img-fluid" /></Link>
-                                            </figure>
-                                            <div className="block-4-text p-4">
-                                                <h3><Link to="/shop-single">Polo Shirt</Link></h3>
-                                                <p className="mb-0">Finding perfect products</p>
-                                                <p className="text-primary font-weight-bold">$50</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                                        <div className="block-4 text-center border">
-                                            <figure className="block-4-image">
-                                                <a href="shop-single.html"><img src="images/cloth_3.jpg" alt="Image placeholder" className="img-fluid" /></a>
-                                            </figure>
-                                            <div className="block-4-text p-4">
-                                                <h3><a href="shop-single.html">T-Shirt Mockup</a></h3>
-                                                <p className="mb-0">Finding perfect products</p>
-                                                <p className="text-primary font-weight-bold">$50</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                                        <div className="block-4 text-center border">
-                                            <figure className="block-4-image">
-                                                <a href="shop-single.html"><img src="images/shoe_1.jpg" alt="Image placeholder" className="img-fluid" /></a>
-                                            </figure>
-                                            <div className="block-4-text p-4">
-                                                <h3><a href="shop-single.html">Corater</a></h3>
-                                                <p className="mb-0">Finding perfect products</p>
-                                                <p className="text-primary font-weight-bold">$50</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                                        <div className="block-4 text-center border">
-                                            <figure className="block-4-image">
-                                                <a href="shop-single.html"><img src="images/cloth_1.jpg" alt="Image placeholder" className="img-fluid" /></a>
-                                            </figure>
-                                            <div className="block-4-text p-4">
-                                                <h3><a href="shop-single.html">Tank Top</a></h3>
-                                                <p className="mb-0">Finding perfect t-shirt</p>
-                                                <p className="text-primary font-weight-bold">$50</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                                        <div className="block-4 text-center border">
-                                            <figure className="block-4-image">
-                                                <a href="shop-single.html"><img src="images/shoe_1.jpg" alt="Image placeholder" className="img-fluid" /></a>
-                                            </figure>
-                                            <div className="block-4-text p-4">
-                                                <h3><a href="shop-single.html">Corater</a></h3>
-                                                <p className="mb-0">Finding perfect products</p>
-                                                <p className="text-primary font-weight-bold">$50</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                                        <div className="block-4 text-center border">
-                                            <figure className="block-4-image">
-                                                <a href="shop-single.html"><img src="images/cloth_2.jpg" alt="Image placeholder" className="img-fluid" /></a>
-                                            </figure>
-                                            <div className="block-4-text p-4">
-                                                <h3><a href="shop-single.html">Polo Shirt</a></h3>
-                                                <p className="mb-0">Finding perfect products</p>
-                                                <p className="text-primary font-weight-bold">$50</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                                        <div className="block-4 text-center border">
-                                            <figure className="block-4-image">
-                                                <a href="shop-single.html"><img src="images/cloth_3.jpg" alt="Image placeholder" className="img-fluid" /></a>
-                                            </figure>
-                                            <div className="block-4-text p-4">
-                                                <h3><a href="shop-single.html">T-Shirt Mockup</a></h3>
-                                                <p className="mb-0">Finding perfect products</p>
-                                                <p className="text-primary font-weight-bold">$50</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                                        <div className="block-4 text-center border">
-                                            <figure className="block-4-image">
-                                                <a href="shop-single.html"><img src="images/shoe_1.jpg" alt="Image placeholder" className="img-fluid" /></a>
-                                            </figure>
-                                            <div className="block-4-text p-4">
-                                                <h3><a href="shop-single.html">Corater</a></h3>
-                                                <p className="mb-0">Finding perfect products</p>
-                                                <p className="text-primary font-weight-bold">$50</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                                        <div className="block-4 text-center border">
-                                            <figure className="block-4-image">
-                                                <a href="shop-single.html"><img src="images/cloth_1.jpg" alt="Image placeholder" className="img-fluid" /></a>
-                                            </figure>
-                                            <div className="block-4-text p-4">
-                                                <h3><a href="shop-single.html">Tank Top</a></h3>
-                                                <p className="mb-0">Finding perfect t-shirt</p>
-                                                <p className="text-primary font-weight-bold">$50</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                                        <div className="block-4 text-center border">
-                                            <figure className="block-4-image">
-                                                <a href="shop-single.html"><img src="images/cloth_2.jpg" alt="Image placeholder" className="img-fluid" /></a>
-                                            </figure>
-                                            <div className="block-4-text p-4">
-                                                <h3><a href="shop-single.html">Polo Shirt</a></h3>
-                                                <p className="mb-0">Finding perfect products</p>
-                                                <p className="text-primary font-weight-bold">$50</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    })
+                                   }
                                 </div>
                                 <div className="row" data-aos="fade-up">
                                     <div className="col-md-12 text-center">

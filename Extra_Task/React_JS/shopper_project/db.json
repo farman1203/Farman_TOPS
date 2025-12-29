@@ -7,25 +7,25 @@
             "price": "50",
             "stock": "120",
             "status": "Active",
-            "image": "https: //via.placeholder.com/60//"
+            "image": "images/shoe_1.jpg"
         },
         {
             "id": "2",
             "name": "Corater Shoes",
             "category": "Women",
-            "price": "50",
+            "price": "10",
             "stock": "120",
             "status": "Active",
-            "image": "https: //via.placeholder.com/60//"
+            "image": "images/shoe_1.jpg"
         },
         {
             "id": "3",
             "name": "Polo Shirt",
             "category": "Women",
-            "price": "50",
+            "price": "20",
             "stock": "120",
             "status": "Active",
-            "image": "https: //via.placeholder.com/60//"
+            "image": "images/shoe_1.jpg"
         }
     ],
     "Orders": [
@@ -52,6 +52,22 @@
             "total": "95",
             "status": "Delivered",
             "items": "5"
+        }
+    ],
+    "Users": [
+        {
+            "id": "1",
+            "name": "John Doe",
+            "email": "john@example.com",
+            "role": "Customer",
+            "orders": "12"
+        },
+        {
+            "id": "2",
+            "name": "abc",
+            "email": "abc@example.com",
+            "role": "Customer",
+            "orders": "5"
         }
     ]
 }
