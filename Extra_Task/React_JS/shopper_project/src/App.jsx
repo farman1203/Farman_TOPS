@@ -13,6 +13,7 @@ import Alogin from './Admin/Pages/Alogin'
 import Login from './Website/Pages/Login'
 import Dashboard from './Admin/Pages/Dashboard'
 import Thankyou from './Website/Pages/Thankyou'
+import Pagenote404 from './Website/Pages/Pagenote404'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
               <Route path="/contact" element={<><Header/><Contact/><Footer/></>}></Route>
               <Route path="/login" element={<><Header/><Login/><Footer/></>}></Route>
               <Route path="/thankyou" element={<><Header/><Thankyou/><Footer/></>}></Route>
+              <Route path="*" element={<><Header/><Pagenote404/><Footer/></>}></Route>
 
 
               <Route path="/alogin" element={<><Alogin/></>}></Route>
