@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { 
-  LayoutDashboard, 
-  Package, 
-  ShoppingCart, 
-  Users, 
-  FolderTree, 
-  Star, 
-  Settings, 
+import React, { useEffect, useState } from 'react';
+import {
+  LayoutDashboard,
+  Package,
+  ShoppingCart,
+  Users,
+  FolderTree,
+  Star,
+  Settings,
   LogOut,
   Search,
   Bell,
@@ -19,6 +19,7 @@ import {
   TrendingUp,
   ShoppingBag
 } from 'lucide-react';
+import axios from 'axios';
 
 // Dummy Data
 const dummyProducts = [
@@ -72,7 +73,7 @@ const Alogin = () => {
   const renderPage = () => {
     switch (currentPage) {
       case 'dashboard': return <Dashboard />;
-      case 'products': return <ProductsList />;
+      case 'products': return <ProductsList onAdd={() => setCurrentPage('add-product')} />;
       case 'add-product': return <AddProduct onBack={() => setCurrentPage('products')} />;
       case 'orders': return <OrdersList />;
       case 'users': return <UsersList />;
@@ -85,13 +86,13 @@ const Alogin = () => {
 
   return (
     <div style={styles.container}>
-      <Sidebar 
-        currentPage={currentPage} 
+      <Sidebar
+        currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         isOpen={sidebarOpen}
       />
       <div style={styles.mainContent}>
-        <TopNavbar 
+        <TopNavbar
           onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
           showProfileMenu={showProfileMenu}
           setShowProfileMenu={setShowProfileMenu}
@@ -168,7 +169,7 @@ const Sidebar = ({ currentPage, setCurrentPage, isOpen }) => {
   ];
 
   return (
-    <div style={{...styles.sidebar, width: isOpen ? '260px' : '0', overflow: 'hidden'}}>
+    <div style={{ ...styles.sidebar, width: isOpen ? '260px' : '0', overflow: 'hidden' }}>
       <div style={styles.sidebarHeader}>
         <h2 style={styles.sidebarLogo}>Shoppers</h2>
         <p style={styles.sidebarSubtitle}>Admin Dashboard</p>
@@ -201,9 +202,9 @@ const TopNavbar = ({ onToggleSidebar, showProfileMenu, setShowProfileMenu, onLog
         <button onClick={onToggleSidebar} style={styles.menuToggle}>☰</button>
         <div style={styles.searchBar}>
           <Search size={18} color="#8492a6" />
-          <input 
-            type="text" 
-            placeholder="Search..." 
+          <input
+            type="text"
+            placeholder="Search..."
             style={styles.searchInput}
           />
         </div>
@@ -214,7 +215,7 @@ const TopNavbar = ({ onToggleSidebar, showProfileMenu, setShowProfileMenu, onLog
           <span style={styles.badge}>3</span>
         </button>
         <div style={styles.profileSection}>
-          <div 
+          <div
             onClick={() => setShowProfileMenu(!showProfileMenu)}
             style={styles.profileTrigger}
           >
@@ -226,9 +227,9 @@ const TopNavbar = ({ onToggleSidebar, showProfileMenu, setShowProfileMenu, onLog
             <div style={styles.profileMenu}>
               <div style={styles.profileMenuItem}>Profile</div>
               <div style={styles.profileMenuItem}>Settings</div>
-              <div 
+              <div
                 onClick={onLogout}
-                style={{...styles.profileMenuItem, color: '#f56565'}}
+                style={{ ...styles.profileMenuItem, color: '#f56565' }}
               >
                 <LogOut size={16} />
                 <span>Logout</span>
@@ -262,14 +263,14 @@ const Dashboard = () => {
                 <h3 style={styles.statValue}>{stat.value}</h3>
                 <span style={styles.statChange}>{stat.change} from last month</span>
               </div>
-              <div style={{...styles.statIcon, backgroundColor: stat.color + '20', color: stat.color}}>
+              <div style={{ ...styles.statIcon, backgroundColor: stat.color + '20', color: stat.color }}>
                 {stat.icon}
               </div>
             </div>
           </div>
         ))}
       </div>
-      
+
       <div style={styles.chartsGrid}>
         <div style={styles.chartCard}>
           <h3 style={styles.cardTitle}>Recent Orders</h3>
@@ -302,24 +303,43 @@ const Dashboard = () => {
 };
 
 // Products List Page
-const ProductsList = () => {
-  const [products, setProducts] = useState(dummyProducts);
+const ProductsList = ({ onAdd }) => {
+
+  const [data1, setData1] = useState([])
+
+  useEffect(() => {
+    fetch_data1();
+  }, [])
+
+  const fetch_data1 = async () => {
+    const obj = await axios.get(`http://localhost:3001/Products`);
+    setData1(obj.data)
+  }
+
+  const deletehandle = async (id) => {
+
+    const check = confirm('Are you Confirm to delete this product');
+    if (check) {
+      const obj = await axios.delete(`http://localhost:3001/Products/${id}`);
+      fetch_data1();
+    }
+    return false;
+  }
+
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredProducts = products.filter(p => 
-    p.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   return (
     <div>
       <div style={styles.pageHeader}>
         <h1 style={styles.pageTitle}>Products Management</h1>
-        <button style={styles.primaryButton}>
+        <button style={styles.primaryButton} onClick={onAdd}>
           <Plus size={18} />
           Add New Product
         </button>
+
       </div>
-      
+
       <div style={styles.card}>
         <div style={styles.tableControls}>
           <input
@@ -330,11 +350,11 @@ const ProductsList = () => {
             style={styles.searchInput2}
           />
         </div>
-        
+
         <table style={styles.table}>
           <thead>
             <tr style={styles.tableHeader}>
-              <th style={styles.th}>Image</th>
+              <th style={styles.th}>image</th>
               <th style={styles.th}>Name</th>
               <th style={styles.th}>Category</th>
               <th style={styles.th}>Price</th>
@@ -344,17 +364,17 @@ const ProductsList = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredProducts.map(product => (
-              <tr key={product.id} style={styles.tableRow}>
+            {data1.map((value) => (
+              <tr key={value.id} style={styles.tableRow}>
                 <td style={styles.td}>
-                  <img src={product.image} alt={product.name} style={styles.productImage} />
+                  <img src={value.image} alt={value.name} style={styles.productImage} />
                 </td>
-                <td style={styles.td}>{product.name}</td>
-                <td style={styles.td}>{product.category}</td>
-                <td style={styles.td}>${product.price}</td>
-                <td style={styles.td}>{product.stock}</td>
+                <td style={styles.td}>{value.name}</td>
+                <td style={styles.td}>{value.category}</td>
+                <td style={styles.td}>${value.price}</td>
+                <td style={styles.td}>{value.stock}</td>
                 <td style={styles.td}>
-                  <span style={getStatusStyle(product.status)}>{product.status}</span>
+                  <span style={getStatusStyle(value.status)}>{value.status}</span>
                 </td>
                 <td style={styles.td}>
                   <div style={styles.actionButtons}>
@@ -364,7 +384,7 @@ const ProductsList = () => {
                     <button style={styles.iconBtn} title="Edit">
                       <Edit size={16} />
                     </button>
-                    <button style={styles.iconBtnDanger} title="Delete">
+                    <button style={styles.iconBtnDanger} title="Delete" onClick={() => deletehandle(value.id)}>
                       <Trash2 size={16} />
                     </button>
                   </div>
@@ -399,7 +419,7 @@ const AddProduct = ({ onBack }) => {
     <div>
       <button onClick={onBack} style={styles.backButton}>← Back to Products</button>
       <h1 style={styles.pageTitle}>Add New Product</h1>
-      
+
       <div style={styles.card}>
         <form onSubmit={handleSubmit} style={styles.form}>
           <div style={styles.formRow}>
@@ -408,7 +428,7 @@ const AddProduct = ({ onBack }) => {
               <input
                 type="text"
                 value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 style={styles.input}
                 placeholder="Enter product name"
                 required
@@ -418,7 +438,7 @@ const AddProduct = ({ onBack }) => {
               <label style={styles.label}>Category</label>
               <select
                 value={formData.category}
-                onChange={(e) => setFormData({...formData, category: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                 style={styles.input}
                 required
               >
@@ -430,14 +450,14 @@ const AddProduct = ({ onBack }) => {
               </select>
             </div>
           </div>
-          
+
           <div style={styles.formRow}>
             <div style={styles.formGroup}>
               <label style={styles.label}>Price ($)</label>
               <input
                 type="number"
                 value={formData.price}
-                onChange={(e) => setFormData({...formData, price: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, price: e.target.value })}
                 style={styles.input}
                 placeholder="0.00"
                 required
@@ -448,43 +468,45 @@ const AddProduct = ({ onBack }) => {
               <input
                 type="number"
                 value={formData.stock}
-                onChange={(e) => setFormData({...formData, stock: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, stock: e.target.value })}
                 style={styles.input}
                 placeholder="0"
                 required
               />
             </div>
           </div>
-          
+
           <div style={styles.formGroup}>
             <label style={styles.label}>Description</label>
             <textarea
               value={formData.description}
-              onChange={(e) => setFormData({...formData, description: e.target.value})}
-              style={{...styles.input, minHeight: '100px', resize: 'vertical'}}
+              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              style={{ ...styles.input, minHeight: '100px', resize: 'vertical' }}
               placeholder="Enter product description"
             />
           </div>
-          
+
           <div style={styles.formGroup}>
             <label style={styles.label}>Status</label>
             <select
               value={formData.status}
-              onChange={(e) => setFormData({...formData, status: e.target.value})}
+              onChange={(e) => setFormData({ ...formData, status: e.target.value })}
               style={styles.input}
             >
               <option value="Active">Active</option>
               <option value="Inactive">Inactive</option>
             </select>
           </div>
-          
+
           <div style={styles.formActions}>
             <button type="button" onClick={onBack} style={styles.secondaryButton}>
               Cancel
             </button>
-            <button type="submit" style={styles.primaryButton}>
-              Add Product
+            <button style={styles.primaryButton} onClick={onBack}>
+              <Plus size={18} />
+              Add New Product
             </button>
+
           </div>
         </form>
       </div>
@@ -494,6 +516,18 @@ const AddProduct = ({ onBack }) => {
 
 // Orders List Page
 const OrdersList = () => {
+
+  const [dataorder, setOrder] = useState([])
+
+  useEffect(() => {
+    fetch_order();
+  }, [])
+
+  const fetch_order = async () => {
+    const obj = await axios.get(`http://localhost:3001/Orders`);
+    setOrder(obj.data)
+  }
+
   return (
     <div>
       <h1 style={styles.pageTitle}>Orders Management</h1>
@@ -511,15 +545,15 @@ const OrdersList = () => {
             </tr>
           </thead>
           <tbody>
-            {dummyOrders.map(order => (
-              <tr key={order.id} style={styles.tableRow}>
-                <td style={styles.td}>{order.id}</td>
-                <td style={styles.td}>{order.customer}</td>
-                <td style={styles.td}>{order.date}</td>
-                <td style={styles.td}>{order.items}</td>
-                <td style={styles.td}>${order.total}</td>
+            {dataorder.map((value) => (
+              <tr key={value.id} style={styles.tableRow}>
+                <td style={styles.td}>{value.id}</td>
+                <td style={styles.td}>{value.customer}</td>
+                <td style={styles.td}>{value.date}</td>
+                <td style={styles.td}>{value.items}</td>
+                <td style={styles.td}>${value.total}</td>
                 <td style={styles.td}>
-                  <span style={getStatusStyle(order.status)}>{order.status}</span>
+                  <span style={getStatusStyle(value.status)}>{value.status}</span>
                 </td>
                 <td style={styles.td}>
                   <div style={styles.actionButtons}>
@@ -736,15 +770,15 @@ const getStatusStyle = (status) => {
     fontSize: '12px',
     fontWeight: '500',
   };
-  
+
   if (status === 'Active' || status === 'Delivered') {
-    return {...baseStyle, backgroundColor: '#c6f6d5', color: '#22543d'};
+    return { ...baseStyle, backgroundColor: '#c6f6d5', color: '#22543d' };
   } else if (status === 'Pending') {
-    return {...baseStyle, backgroundColor: '#feebc8', color: '#7c2d12'};
+    return { ...baseStyle, backgroundColor: '#feebc8', color: '#7c2d12' };
   } else if (status === 'Shipped') {
-    return {...baseStyle, backgroundColor: '#bee3f8', color: '#1e4e8c'};
+    return { ...baseStyle, backgroundColor: '#bee3f8', color: '#1e4e8c' };
   } else {
-    return {...baseStyle, backgroundColor: '#fed7d7', color: '#742a2a'};
+    return { ...baseStyle, backgroundColor: '#fed7d7', color: '#742a2a' };
   }
 };
 
@@ -755,11 +789,11 @@ const getRoleStyle = (role) => {
     fontSize: '12px',
     fontWeight: '500',
   };
-  
+
   if (role === 'Admin') {
-    return {...baseStyle, backgroundColor: '#e9d8fd', color: '#44337a'};
+    return { ...baseStyle, backgroundColor: '#e9d8fd', color: '#44337a' };
   } else {
-    return {...baseStyle, backgroundColor: '#e2e8f0', color: '#2d3748'};
+    return { ...baseStyle, backgroundColor: '#e2e8f0', color: '#2d3748' };
   }
 };
 

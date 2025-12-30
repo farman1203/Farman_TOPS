@@ -237,7 +237,7 @@ const Checkout = () => {
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                <button className="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='thankyou.html'">Place Order</button>
+                                                <Link className="btn btn-primary btn-lg py-3 btn-block" to="/thankyou">Place Order</Link>
                                             </div>
                                         </div>
                                     </div>

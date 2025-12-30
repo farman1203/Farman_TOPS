@@ -1,73 +1,49 @@
 {
-    "Products": [
-        {
-            "id": "1",
-            "name": "Tank Top",
-            "category": "Women",
-            "price": "50",
-            "stock": "120",
-            "status": "Active",
-            "image": "images/shoe_1.jpg"
-        },
-        {
-            "id": "2",
-            "name": "Corater Shoes",
-            "category": "Women",
-            "price": "10",
-            "stock": "120",
-            "status": "Active",
-            "image": "images/shoe_1.jpg"
-        },
-        {
-            "id": "3",
-            "name": "Polo Shirt",
-            "category": "Women",
-            "price": "20",
-            "stock": "120",
-            "status": "Active",
-            "image": "images/shoe_1.jpg"
-        }
-    ],
-    "Orders": [
-        {
-            "id": "#ORD-001",
-            "customer": "John Doe",
-            "date": "2024-12-28",
-            "total": "150",
-            "status": "Pending",
-            "items": "3"
-        },
-        {
-            "id": "#ORD-002",
-            "customer": "John Doe",
-            "date": "2024-12-28",
-            "total": "300",
-            "status": "sheteled",
-            "items": "1"
-        },
-        {
-            "id": "#ORD-003",
-            "customer": "Mike Johnson",
-            "date": "'2024-02-20",
-            "total": "95",
-            "status": "Delivered",
-            "items": "5"
-        }
-    ],
-    "Users": [
-        {
-            "id": "1",
-            "name": "John Doe",
-            "email": "john@example.com",
-            "role": "Customer",
-            "orders": "12"
-        },
-        {
-            "id": "2",
-            "name": "abc",
-            "email": "abc@example.com",
-            "role": "Customer",
-            "orders": "5"
-        }
-    ]
+  "Products": [
+    {
+      "id": "3",
+      "name": "Polo Shirt",
+      "category": "Women",
+      "price": "20",
+      "stock": "120",
+      "status": "Active",
+      "image": "images/shoe_1.jpg"
+    }
+  ],
+  "Orders": [
+    {
+      "id": "#ORD-001",
+      "customer": "John Doe",
+      "image": "images/shoe_1.jpg",
+      "products": "Top Up T-Shirt",
+      "price": "$40",
+      "date": "2024-12-28",
+      "total": "150",
+      "status": "Pending",
+      "items": "3"
+    }
+  ],
+  "Users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "role": "Customer",
+      "orders": "12"
+    },
+    {
+      "id": "2",
+      "name": "abc",
+      "email": "abc@example.com",
+      "role": "Customer",
+      "orders": "5"
+    },
+    {
+      "id": "3",
+      "name": "admin ",
+      "email": "admin@example.com",
+      "role": "admin",
+      "orders": "0"
+    }
+  ]
 }

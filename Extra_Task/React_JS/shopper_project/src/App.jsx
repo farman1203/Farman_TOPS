@@ -9,8 +9,10 @@ import Shop_single from './Website/Pages/Shop_single'
 import Cart from './Website/Pages/Cart'
 import Checkout from './Website/Pages/Checkout'
 import Contact from './Website/Pages/Contact'
-import Alogin from './Admin/component/Pages/Alogin'
+import Alogin from './Admin/Pages/Alogin'
 import Login from './Website/Pages/Login'
+import Dashboard from './Admin/Pages/Dashboard'
+import Thankyou from './Website/Pages/Thankyou'
 
 const App = () => {
   return (
@@ -25,9 +27,11 @@ const App = () => {
               <Route path="/checkout" element={<><Header/><Checkout/><Footer/></>}></Route>
               <Route path="/contact" element={<><Header/><Contact/><Footer/></>}></Route>
               <Route path="/login" element={<><Header/><Login/><Footer/></>}></Route>
+              <Route path="/thankyou" element={<><Header/><Thankyou/><Footer/></>}></Route>
 
 
-              <Route path="/alogin" element={<><Header/><Alogin/><Footer/></>}></Route>
+              <Route path="/alogin" element={<><Alogin/></>}></Route>
+              {/* <Route path="/dashboard" element={<><Dashboard/></>}></Route> */}
 
 
           </Routes>
