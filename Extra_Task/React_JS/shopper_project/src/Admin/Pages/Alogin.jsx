@@ -21,14 +21,6 @@ import {
 } from 'lucide-react';
 import axios from 'axios';
 
-// Dummy Data
-const dummyProducts = [
-  { id: 1, name: 'Tank Top', category: 'Women', price: 50, stock: 120, status: 'Active', image: 'https://via.placeholder.com/60' },
-  { id: 2, name: 'Corater Shoes', category: 'Men', price: 75, stock: 45, status: 'Active', image: 'https://via.placeholder.com/60' },
-  { id: 3, name: 'Polo Shirt', category: 'Men', price: 60, stock: 80, status: 'Active', image: 'https://via.placeholder.com/60' },
-  { id: 4, name: 'T-Shirt Mockup', category: 'Women', price: 40, stock: 150, status: 'Active', image: 'https://via.placeholder.com/60' },
-  { id: 5, name: 'Running Shoes', category: 'Children', price: 55, stock: 0, status: 'Out of Stock', image: 'https://via.placeholder.com/60' },
-];
 
 const dummyOrders = [
   { id: '#ORD-001', customer: 'John Doe', date: '2024-12-28', total: 150, status: 'Pending', items: 3 },
@@ -244,12 +236,64 @@ const TopNavbar = ({ onToggleSidebar, showProfileMenu, setShowProfileMenu, onLog
 
 // Dashboard Page
 const Dashboard = () => {
+
+  // states
+  const [orders, setOrders] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [products, setProducts] = useState([]);
+
+  // revenue calculation (TOP me rakho)
+  const totalRevenue = orders.reduce(
+    (sum, order) => sum + Number(order.total || 0),
+    0
+  );
+
+  // stats array (revenue ke BAAD)
   const stats = [
-    { label: 'Total Revenue', value: '$45,231', icon: <DollarSign size={24} />, color: '#7971ea', change: '+12%' },
-    { label: 'Total Orders', value: '356', icon: <ShoppingCart size={24} />, color: '#48bb78', change: '+8%' },
-    { label: 'Total Products', value: '153', icon: <Package size={24} />, color: '#ed8936', change: '+3%' },
-    { label: 'Total Users', value: '2,543', icon: <Users size={24} />, color: '#4299e1', change: '+18%' },
+    {
+      label: "Total Revenue",
+      value: `$${totalRevenue}`,
+      icon: <DollarSign size={24} />,
+      color: "#7971ea",
+    },
+    {
+      label: "Total Orders",
+      value: orders.length,
+      icon: <ShoppingCart size={24} />,
+      color: "#48bb78",
+    },
+    {
+      label: "Total Products",
+      value: products.length,
+      icon: <Package size={24} />,
+      color: "#ed8936",
+    },
+    {
+      label: "Total Users",
+      value: users.length,
+      icon: <Users size={24} />,
+      color: "#4299e1",
+    },
   ];
+
+
+  useEffect(() => {
+    fetchDashboardData();
+  }, []);
+
+  const fetchDashboardData = async () => {
+    try {
+      const ordersRes = await axios.get("http://localhost:3001/Orders");
+      const usersRes = await axios.get("http://localhost:3001/Users");
+      const productsRes = await axios.get("http://localhost:3001/Products");
+
+      setOrders(ordersRes.data);
+      setUsers(usersRes.data);
+      setProducts(productsRes.data);
+    } catch (error) {
+      console.error("Dashboard API Error:", error);
+    }
+  };
 
   return (
     <div>
@@ -284,7 +328,7 @@ const Dashboard = () => {
               </tr>
             </thead>
             <tbody>
-              {dummyOrders.slice(0, 5).map(order => (
+              {orders.slice(0, 5).map(order => (
                 <tr key={order.id} style={styles.tableRow}>
                   <td style={styles.td}>{order.id}</td>
                   <td style={styles.td}>{order.customer}</td>
@@ -576,6 +620,27 @@ const OrdersList = () => {
 
 // Users List Page
 const UsersList = () => {
+
+  const [user, setUsers] = useState([]);
+
+  const fetch_Users = async () => {
+    const obj = await axios.get(`http://localhost:3001/Users`);
+    setUsers(obj.data)
+  }
+
+  useEffect(() => {
+    fetch_Users();
+  }, [])
+
+  const deletehandle = async (id) => {
+   const check = confirm('are you confirm to delete this user')
+    if (check) {
+      const obj = await axios.delete(`http://localhost:3001/Users/${id}`);
+      fetch_Users();
+    }
+    return false;
+  }
+
   return (
     <div>
       <h1 style={styles.pageTitle}>Users Management</h1>
@@ -592,7 +657,7 @@ const UsersList = () => {
             </tr>
           </thead>
           <tbody>
-            {dummyUsers.map(user => (
+            {user.map(user => (
               <tr key={user.id} style={styles.tableRow}>
                 <td style={styles.td}>{user.name}</td>
                 <td style={styles.td}>{user.email}</td>
@@ -609,7 +674,7 @@ const UsersList = () => {
                     <button style={styles.iconBtn} title="Edit">
                       <Edit size={16} />
                     </button>
-                    <button style={styles.iconBtnDanger} title="Delete">
+                    <button style={styles.iconBtnDanger} onClick={() => deletehandle(user.id)} title="Delete">
                       <Trash2 size={16} />
                     </button>
                   </div>

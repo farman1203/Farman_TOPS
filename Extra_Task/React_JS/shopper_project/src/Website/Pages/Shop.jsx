@@ -63,7 +63,7 @@ const Shop = () => {
                                     data1.map((value)=>{
                                         return  <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                                         <div className="block-4 text-center border">
-                                            <figure className="block-4-image">
+                                            <figure className="block-4-image ">
                                                 <Link to="/shop-single"><img src={value.image} alt="Image placeholder" className="img-fluid" /></Link>
                                             </figure>
                                             <div className="block-4-text p-4">
