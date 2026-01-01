@@ -58,9 +58,9 @@ const Alogin = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
 
-  if (!isLoggedIn) {
-    return <LoginPage onLogin={() => setIsLoggedIn(true)} />;
-  }
+  // if (!isLoggedIn) {
+  //   return <LoginPage onLogin={() => setIsLoggedIn(true)} />;
+  // }
 
   const renderPage = () => {
     switch (currentPage) {
@@ -68,8 +68,10 @@ const Alogin = () => {
       case 'products': return <ProductsList onAdd={() => setCurrentPage('add-product')} />;
       case 'add-product': return <AddProduct onBack={() => setCurrentPage('products')} />;
       case 'orders': return <OrdersList />;
-      case 'users': return <UsersList />;
-      case 'categories': return <CategoriesList />;
+      case 'users': return <UsersList onAdd={() => setCurrentPage('add-users')} />;
+      case 'add-users': return <AddUsers onBack={() => setCurrentPage('users')} />;
+      case 'categories': return <CategoriesList onAdd={() => setCurrentPage('add-categories')} />;
+      case 'add-categories': return <AddCategories onBack={() => setCurrentPage('categories')} />;
       case 'reviews': return <ReviewsList />;
       case 'settings': return <Settings />;
       default: return <Dashboard />;
@@ -449,15 +451,33 @@ const AddProduct = ({ onBack }) => {
     category: '',
     price: '',
     stock: '',
+    image: '',
     description: '',
     status: 'Active'
   });
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    fetch_data();
+  }, []);
+
+  const [cate, setCate] = useState([]);
+  const fetch_data = async () => {
+    const obj = await axios.get(`http://localhost:3001/Categories`);
+    setCate(obj.data)
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const obj = await axios.post(`http://localhost:3001/Products`, formData);
+    setFormData({ ...formData, name: "", category: "", price: "", stock: "", image: "", description: "", status: "" });
     alert('Product added successfully!');
     onBack();
   };
+
+  const changeHandel = (e) => {
+    setFormData({ ...formData, id: new Date().getTime().toString(), [e.target.name]: e.target.value });
+    console.log(formData);
+  }
 
   return (
     <div>
@@ -472,7 +492,8 @@ const AddProduct = ({ onBack }) => {
               <input
                 type="text"
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                name="name"
+                onChange={changeHandel}
                 style={styles.input}
                 placeholder="Enter product name"
                 required
@@ -482,15 +503,19 @@ const AddProduct = ({ onBack }) => {
               <label style={styles.label}>Category</label>
               <select
                 value={formData.category}
-                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                onChange={changeHandel}
+                name='category'
                 style={styles.input}
                 required
               >
                 <option value="">Select category</option>
-                <option value="Women">Women</option>
-                <option value="Men">Men</option>
-                <option value="Children">Children</option>
-                <option value="Shoes">Shoes</option>
+                {cate.map((value) => {
+                  return (
+                    <option value={value.id}>
+                      {value.name}
+                    </option>
+                  )
+                })}
               </select>
             </div>
           </div>
@@ -501,7 +526,8 @@ const AddProduct = ({ onBack }) => {
               <input
                 type="number"
                 value={formData.price}
-                onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                name='price'
+                onChange={changeHandel}
                 style={styles.input}
                 placeholder="0.00"
                 required
@@ -512,19 +538,25 @@ const AddProduct = ({ onBack }) => {
               <input
                 type="number"
                 value={formData.stock}
-                onChange={(e) => setFormData({ ...formData, stock: e.target.value })}
+                onChange={changeHandel}
+                name='stock'
                 style={styles.input}
                 placeholder="0"
                 required
               />
             </div>
           </div>
+          <div style={styles.formGroup}>
+            <label style={styles.label}>Image URL</label>
+            <input type='url' onChange={changeHandel} value={formData.image} name='image' placeholder='Enter Image URL' />
+          </div>
 
           <div style={styles.formGroup}>
             <label style={styles.label}>Description</label>
             <textarea
               value={formData.description}
-              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              onChange={changeHandel}
+              name='description'
               style={{ ...styles.input, minHeight: '100px', resize: 'vertical' }}
               placeholder="Enter product description"
             />
@@ -534,7 +566,8 @@ const AddProduct = ({ onBack }) => {
             <label style={styles.label}>Status</label>
             <select
               value={formData.status}
-              onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+              onChange={changeHandel}
+              name='status'
               style={styles.input}
             >
               <option value="Active">Active</option>
@@ -546,7 +579,7 @@ const AddProduct = ({ onBack }) => {
             <button type="button" onClick={onBack} style={styles.secondaryButton}>
               Cancel
             </button>
-            <button style={styles.primaryButton} onClick={onBack}>
+            <button style={styles.primaryButton} type='submit' >
               <Plus size={18} />
               Add New Product
             </button>
@@ -619,7 +652,7 @@ const OrdersList = () => {
 };
 
 // Users List Page
-const UsersList = () => {
+const UsersList = ({ onAdd }) => {
 
   const [user, setUsers] = useState([]);
 
@@ -633,7 +666,7 @@ const UsersList = () => {
   }, [])
 
   const deletehandle = async (id) => {
-   const check = confirm('are you confirm to delete this user')
+    const check = confirm('are you confirm to delete this user')
     if (check) {
       const obj = await axios.delete(`http://localhost:3001/Users/${id}`);
       fetch_Users();
@@ -643,7 +676,13 @@ const UsersList = () => {
 
   return (
     <div>
-      <h1 style={styles.pageTitle}>Users Management</h1>
+      <div style={styles.pageHeader}>
+        <h1 style={styles.pageTitle}>Users Management</h1>
+        <button style={styles.primaryButton} onClick={onAdd}>
+          <Plus size={16} />
+          Add Users
+        </button>
+      </div>
       <div style={styles.card}>
         <table style={styles.table}>
           <thead>
@@ -688,13 +727,116 @@ const UsersList = () => {
   );
 };
 
+
+
+// Add Categories Page
+const AddUsers = ({ onBack }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    products: '',
+    status: 'Active'
+  });
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const obj = await axios.post(`http://localhost:3001/Categories`, formData);
+    setFormData({ ...formData, name: "", email: "", role: "" , joined:""    });
+    alert('Categories added successfully!');
+    onBack();
+  };
+
+  const changeHandel = (e) => {
+    setFormData({ ...formData, id: new Date().getTime().toString(), [e.target.name]: e.target.value });
+    console.log(formData);
+  }
+
+  return (
+    <div>
+      <button onClick={onBack} style={styles.backButton}>← Back to Categories</button>
+      <h1 style={styles.pageTitle}>Add New Users</h1>
+
+      <div style={styles.card}>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <div style={styles.formRow}>
+            <div style={styles.formGroup}>
+              <label style={styles.label}>User Name</label>
+              <input
+                type="text"
+                value={formData.name}
+                name="name"
+                onChange={changeHandel}
+                style={styles.input}
+                placeholder="Enter User name"
+                required
+              />
+            </div>
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Email</label>
+              <input
+                type="text"
+                value={formData.Email}
+                name='products'
+                onChange={changeHandel}
+                style={styles.input}
+                placeholder="Add Email id"
+                required
+              />
+            </div>
+          </div>
+
+          <div style={styles.formGroup}>
+            <label style={styles.label}>Description</label>
+            <textarea
+              value={formData.description}
+              onChange={changeHandel}
+              name='description'
+              style={{ ...styles.input, minHeight: '100px', resize: 'vertical' }}
+              placeholder="Enter product description"
+            />
+          </div>
+
+          <div style={styles.formActions}>
+            <button type="button" onClick={onBack} style={styles.secondaryButton}>
+              Cancel
+            </button>
+            <button style={styles.primaryButton} type='submit' >
+              <Plus size={18} />
+              Add New Categories
+            </button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+
 // Categories List Page
-const CategoriesList = () => {
+const CategoriesList = ({ onAdd }) => {
+
+  useEffect(() => {
+    fetch_data();
+  }, []);
+
+  const [cate, setCate] = useState([]);
+  const fetch_data = async () => {
+    const obj = await axios.get(`http://localhost:3001/Categories`);
+    setCate(obj.data)
+  }
+
+  const deletehandle = async (id) => {
+    const obj = await axios.delete(`http://localhost:3001/Categories/${id}`)
+    alert('deleted');
+  }
+
+
   return (
     <div>
       <div style={styles.pageHeader}>
         <h1 style={styles.pageTitle}>Categories Management</h1>
-        <button style={styles.primaryButton}>
+        <button style={styles.primaryButton} onClick={onAdd}>
           <Plus size={18} />
           Add Category
         </button>
@@ -710,7 +852,7 @@ const CategoriesList = () => {
             </tr>
           </thead>
           <tbody>
-            {dummyCategories.map(category => (
+            {cate.map(category => (
               <tr key={category.id} style={styles.tableRow}>
                 <td style={styles.td}>{category.name}</td>
                 <td style={styles.td}>{category.products}</td>
@@ -722,7 +864,7 @@ const CategoriesList = () => {
                     <button style={styles.iconBtn} title="Edit">
                       <Edit size={16} />
                     </button>
-                    <button style={styles.iconBtnDanger} title="Delete">
+                    <button style={styles.iconBtnDanger} onClick={() => deletehandle(category.id)} title="Delete">
                       <Trash2 size={16} />
                     </button>
                   </div>
@@ -731,6 +873,92 @@ const CategoriesList = () => {
             ))}
           </tbody>
         </table>
+      </div>
+    </div>
+  );
+};
+
+
+
+
+// Add Categories Page
+const AddCategories = ({ onBack }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    products: '',
+    status: 'Active'
+  });
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const obj = await axios.post(`http://localhost:3001/Categories`, formData);
+    setFormData({ ...formData, name: "", products: "", status: "" });
+    alert('Categories added successfully!');
+    onBack();
+  };
+
+  const changeHandel = (e) => {
+    setFormData({ ...formData, id: new Date().getTime().toString(), [e.target.name]: e.target.value });
+    console.log(formData);
+  }
+
+  return (
+    <div>
+      <button onClick={onBack} style={styles.backButton}>← Back to Categories</button>
+      <h1 style={styles.pageTitle}>Add New Categories</h1>
+
+      <div style={styles.card}>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <div style={styles.formRow}>
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Categories Name</label>
+              <input
+                type="text"
+                value={formData.name}
+                name="name"
+                onChange={changeHandel}
+                style={styles.input}
+                placeholder="Enter product name"
+                required
+              />
+            </div>
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Products</label>
+              <input
+                type="text"
+                value={formData.products}
+                name='products'
+                onChange={changeHandel}
+                style={styles.input}
+                placeholder="Add Products"
+                required
+              />
+            </div>
+          </div>
+
+          <div style={styles.formGroup}>
+            <label style={styles.label}>Description</label>
+            <textarea
+              value={formData.description}
+              onChange={changeHandel}
+              name='description'
+              style={{ ...styles.input, minHeight: '100px', resize: 'vertical' }}
+              placeholder="Enter product description"
+            />
+          </div>
+
+          <div style={styles.formActions}>
+            <button type="button" onClick={onBack} style={styles.secondaryButton}>
+              Cancel
+            </button>
+            <button style={styles.primaryButton} type='submit' >
+              <Plus size={18} />
+              Add New Categories
+            </button>
+
+          </div>
+        </form>
       </div>
     </div>
   );

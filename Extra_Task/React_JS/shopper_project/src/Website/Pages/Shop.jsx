@@ -16,6 +16,7 @@ const Shop = () => {
         setData1(obj.data)
     }
 
+    
     return (
         <div>
             <div>
@@ -64,7 +65,7 @@ const Shop = () => {
                                         return  <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                                         <div className="block-4 text-center border">
                                             <figure className="block-4-image ">
-                                                <Link to="/shop-single"><img src={value.image} alt="Image placeholder" className="img-fluid" /></Link>
+                                                <Link  to="/shop-single"><img style={{height:'200px',width:'200px'}} src={value.image} alt="Image placeholder" className="img-fluid" /></Link>
                                             </figure>
                                             <div className="block-4-text p-4">
                                                 <h3><Link to="/shop-single">{value.name}</Link></h3>
