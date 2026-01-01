@@ -729,19 +729,20 @@ const UsersList = ({ onAdd }) => {
 
 
 
-// Add Categories Page
+// Add Users Page
 const AddUsers = ({ onBack }) => {
   const [formData, setFormData] = useState({
     name: '',
     products: '',
+    email: '',
     status: 'Active'
   });
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const obj = await axios.post(`http://localhost:3001/Categories`, formData);
-    setFormData({ ...formData, name: "", email: "", role: "" , joined:""    });
+    const obj = await axios.post(`http://localhost:3001/Users`, formData);
+    setFormData({ ...formData, name: "", email: "", role: "", joined: "" });
     alert('Categories added successfully!');
     onBack();
   };
@@ -753,7 +754,7 @@ const AddUsers = ({ onBack }) => {
 
   return (
     <div>
-      <button onClick={onBack} style={styles.backButton}>← Back to Categories</button>
+      <button onClick={onBack} style={styles.backButton}>← Back to Users</button>
       <h1 style={styles.pageTitle}>Add New Users</h1>
 
       <div style={styles.card}>
@@ -776,7 +777,7 @@ const AddUsers = ({ onBack }) => {
               <input
                 type="text"
                 value={formData.Email}
-                name='products'
+                name='email'
                 onChange={changeHandel}
                 style={styles.input}
                 placeholder="Add Email id"
@@ -786,14 +787,16 @@ const AddUsers = ({ onBack }) => {
           </div>
 
           <div style={styles.formGroup}>
-            <label style={styles.label}>Description</label>
-            <textarea
-              value={formData.description}
-              onChange={changeHandel}
-              name='description'
-              style={{ ...styles.input, minHeight: '100px', resize: 'vertical' }}
-              placeholder="Enter product description"
-            />
+            <label style={styles.label}>Role</label>
+            <input
+                type="text"
+                value={formData.role}
+                name='role'
+                onChange={changeHandel}
+                style={styles.input}
+                placeholder="Add User role"
+                required
+              />
           </div>
 
           <div style={styles.formActions}>
@@ -802,7 +805,7 @@ const AddUsers = ({ onBack }) => {
             </button>
             <button style={styles.primaryButton} type='submit' >
               <Plus size={18} />
-              Add New Categories
+              Add New User
             </button>
 
           </div>

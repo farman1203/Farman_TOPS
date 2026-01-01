@@ -72,11 +72,12 @@
       "joined": "31-12-2025"
     },
     {
-      "id": "3",
-      "name": "admin ",
-      "email": "admin@example.com",
-      "role": "admin",
-      "orders": "0"
+      "id": "1767285221865",
+      "name": "Farman Ansari ",
+      "products": "",
+      "email": "ansarifarman1203@gmail.com",
+      "status": "Active",
+      "role": "Admin"
     }
   ],
   "Categories": [
@@ -91,6 +92,13 @@
       "name": "Men",
       "products": "50",
       "status": "Active"
+    },
+    {
+      "id": "1767284570189",
+      "name": "farman",
+      "products": "farman1203@gmail.com",
+      "status": "Active",
+      "description": "hello"
     }
   ]
 }
