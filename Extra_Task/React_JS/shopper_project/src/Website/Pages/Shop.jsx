@@ -1,29 +1,47 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios  from 'axios';
+import axios from 'axios';
 
 
 const Shop = () => {
 
-    const [data1,setData1] = useState ([])
+    const [products, setProducts] = useState([]);
+    const [category, setCategory] = useState("");
+    const [price, setPrice] = useState(10000);
+    const [size, setSize] = useState("");
 
-    useEffect(()=>{
-        fetch_data1();
-    },[])
 
-    const fetch_data1 =async () => {
-        const obj =await axios.get(`http://localhost:3001/Products`);
-        setData1(obj.data)
-    }
+    useEffect(() => {
+        fetchProducts();
+    }, []);
 
-    
+    const fetchProducts = async () => {
+        const res = await axios.get("http://localhost:3001/Products");
+        setProducts(res.data);
+    };
+
+    // 🔹 UNIQUE CATEGORIES (DYNAMIC)
+  const categories = ["All", ...new Set(products.map(item => item.category))];
+  
+    // 🔹 FILTER LOGIC
+    const filteredProducts = products.filter(item => {
+        return (
+            (category === "All" || item.category === category) &&
+            (size === "" || item.size === size) &&
+            Number(item.price) <= Number(price)
+        );
+    });
+
+
+
+
     return (
         <div>
             <div>
                 <div className="bg-light py-3">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-12 mb-0"><a href="index.html">Home</a> <span className="mx-2 mb-0">/</span> <strong className="text-black">Shop</strong></div>
+                            <div className="col-md-12 mb-0"><Link to="/">Home</Link> <span className="mx-2 mb-0">/</span> <strong className="text-black">Shop</strong></div>
                         </div>
                     </div>
                 </div>
@@ -60,23 +78,23 @@ const Shop = () => {
                                     </div>
                                 </div>
                                 <div className="row mb-5">
-                                   {
-                                    data1.map((value)=>{
-                                        return  <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                                        <div className="block-4 text-center border">
-                                            <figure className="block-4-image ">
-                                                <Link  to="/shop-single"><img style={{height:'200px',width:'200px'}} src={value.image} alt="Image placeholder" className="img-fluid" /></Link>
-                                            </figure>
-                                            <div className="block-4-text p-4">
-                                                <h3><Link to="/shop-single">{value.name}</Link></h3>
-                                                <p className="mb-0">Finding perfect products</p>
-                                                <p className="text-primary font-weight-bold">${value.price}</p>
-                                                <Link to="/cart">Add To Cart</Link>
+                                    {
+                                        filteredProducts.map((value) => {
+                                            return <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                                                <div className="block-4 text-center border">
+                                                    <figure className="block-4-image ">
+                                                        <Link to="/shop-single"><img style={{ height: '200px', width: '200px' }} src={value.image} alt="Image placeholder" className="img-fluid" /></Link>
+                                                    </figure>
+                                                    <div className="block-4-text p-4">
+                                                        <h3><Link to="/shop-single">{value.name}</Link></h3>
+                                                        <p className="mb-0">Finding perfect products</p>
+                                                        <p className="text-primary font-weight-bold">${value.price}</p>
+                                                        <Link to="/cart">Add To Cart</Link>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    })
-                                   }
+                                        })
+                                    }
                                 </div>
                                 <div className="row" data-aos="fade-up">
                                     <div className="col-md-12 text-center">
@@ -98,30 +116,51 @@ const Shop = () => {
                                 <div className="border p-4 rounded mb-4">
                                     <h3 className="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
                                     <ul className="list-unstyled mb-0">
-                                        <li className="mb-1"><a href="#" className="d-flex"><span>Men</span> <span className="text-black ml-auto">(2,220)</span></a></li>
-                                        <li className="mb-1"><a href="#" className="d-flex"><span>Women</span> <span className="text-black ml-auto">(2,550)</span></a></li>
-                                        <li className="mb-1"><a href="#" className="d-flex"><span>Children</span> <span className="text-black ml-auto">(2,124)</span></a></li>
+                                        <li className="mb-1"><a onClick={() => setCategory("Men")} className="d-flex cursor"><span>Men</span> <span className="text-black ml-auto">(2,220)</span></a></li>
+                                        <li className="mb-1"><a onClick={() => setCategory("Women")} className="d-flex"><span>Women</span> <span className="text-black ml-auto">(2,550)</span></a></li>
+                                        <li className="mb-1"><a onClick={() => setCategory("Children")} className="d-flex"><span>Children</span> <span className="text-black ml-auto">(2,124)</span></a></li>
                                     </ul>
                                 </div>
                                 <div className="border p-4 rounded mb-4">
                                     <div className="mb-4">
                                         <h3 className="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
-                                        <div id="slider-range" className="border-primary" />
-                                        <input type="text" name="text" id="amount" className="form-control border-0 pl-0 bg-white" disabled />
+                                        {/* <div id="slider-range" className="border-primary" /> */}
+                                        <input
+                                            type="range"
+                                            min="0"
+                                            max="5000"
+                                            value={price}
+                                            onChange={(e) => setPrice(e.target.value)}
+                                        />
+
+                                        <p>Max Price: ${price}</p>
+
                                     </div>
                                     <div className="mb-4">
                                         <h3 className="mb-3 h6 text-uppercase text-black d-block">Size</h3>
                                         <label htmlFor="s_sm" className="d-flex">
-                                            <input type="checkbox" id="s_sm" className="mr-2 mt-1" /> <span className="text-black">Small (2,319)</span>
+                                            <input type="checkbox" onChange={() => setSize("S")} id="s_sm" className="mr-2 mt-1" /> <span className="text-black">Small (2,319)</span>
                                         </label>
                                         <label htmlFor="s_md" className="d-flex">
-                                            <input type="checkbox" id="s_md" className="mr-2 mt-1" /> <span className="text-black">Medium (1,282)</span>
+                                            <input type="checkbox" onChange={() => setSize("M")} id="s_md" className="mr-2 mt-1" /> <span className="text-black">Medium (1,282)</span>
                                         </label>
                                         <label htmlFor="s_lg" className="d-flex">
-                                            <input type="checkbox" id="s_lg" className="mr-2 mt-1" /> <span className="text-black">Large (1,392)</span>
+                                            <input type="checkbox" onChange={() => setSize("L")} id="s_lg" className="mr-2 mt-1" /> <span className="text-black">Large (1,392)</span>
                                         </label>
                                     </div>
-                                    <div className="mb-4">
+
+                                    {/* RESET */}
+                                    <button
+                                        className="btn btn-danger w-100"
+                                        onClick={() => {
+                                            setCategory("All");
+                                            setPrice(10000);
+                                            setSize("");
+                                        }}
+                                    >
+                                        Reset Filters
+                                    </button>
+                                    {/* <div className="mb-4">
                                         <h3 className="mb-3 h6 text-uppercase text-black d-block">Color</h3>
                                         <a href="#" className="d-flex color-item align-items-center">
                                             <span className="bg-danger color d-inline-block rounded-circle mr-2" /> <span className="text-black">Red (2,429)</span>
@@ -135,7 +174,7 @@ const Shop = () => {
                                         <a href="#" className="d-flex color-item align-items-center">
                                             <span className="bg-primary color d-inline-block rounded-circle mr-2" /> <span className="text-black">Purple (1,075)</span>
                                         </a>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
