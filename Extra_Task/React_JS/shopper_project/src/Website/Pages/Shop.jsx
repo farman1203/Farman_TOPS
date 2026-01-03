@@ -164,7 +164,6 @@ const Shop = () => {
               >
                 Reset Filters
               </button>
-
             </div>
           </div>
         </div>
