@@ -830,8 +830,13 @@ const CategoriesList = ({ onAdd }) => {
   }
 
   const deletehandle = async (id) => {
-    const obj = await axios.delete(`http://localhost:3001/Categories/${id}`)
-    alert('deleted');
+    const check=confirm('Are you sure Delete category')
+    if(check){
+         const obj = await axios.delete(`http://localhost:3001/Categories/${id}`)
+    }
+    else{
+      
+    }
   }
 
 
