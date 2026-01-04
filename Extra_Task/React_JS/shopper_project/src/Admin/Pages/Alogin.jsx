@@ -22,35 +22,6 @@ import {
 import axios from 'axios';
 
 
-const dummyOrders = [
-  { id: '#ORD-001', customer: 'John Doe', date: '2024-12-28', total: 150, status: 'Pending', items: 3 },
-  { id: '#ORD-002', customer: 'Jane Smith', date: '2024-12-27', total: 280, status: 'Shipped', items: 5 },
-  { id: '#ORD-003', customer: 'Mike Johnson', date: '2024-12-27', total: 95, status: 'Delivered', items: 2 },
-  { id: '#ORD-004', customer: 'Sarah Wilson', date: '2024-12-26', total: 420, status: 'Pending', items: 8 },
-  { id: '#ORD-005', customer: 'Tom Brown', date: '2024-12-26', total: 180, status: 'Shipped', items: 4 },
-];
-
-const dummyUsers = [
-  { id: 1, name: 'John Doe', email: 'john@example.com', role: 'Customer', joined: '2024-01-15', orders: 12 },
-  { id: 2, name: 'Jane Smith', email: 'jane@example.com', role: 'Customer', joined: '2024-02-20', orders: 8 },
-  { id: 3, name: 'Admin User', email: 'admin@shoppers.com', role: 'Admin', joined: '2023-12-01', orders: 0 },
-  { id: 4, name: 'Mike Johnson', email: 'mike@example.com', role: 'Customer', joined: '2024-03-10', orders: 15 },
-];
-
-const dummyCategories = [
-  { id: 1, name: 'Women', products: 45, status: 'Active' },
-  { id: 2, name: 'Men', products: 38, status: 'Active' },
-  { id: 3, name: 'Children', products: 22, status: 'Active' },
-  { id: 4, name: 'Shoes', products: 30, status: 'Active' },
-  { id: 5, name: 'Accessories', products: 18, status: 'Active' },
-];
-
-const dummyReviews = [
-  { id: 1, product: 'Tank Top', customer: 'John Doe', rating: 5, comment: 'Great quality!', date: '2024-12-20' },
-  { id: 2, product: 'Corater Shoes', customer: 'Jane Smith', rating: 4, comment: 'Good fit, comfortable.', date: '2024-12-19' },
-  { id: 3, product: 'Polo Shirt', customer: 'Mike Johnson', rating: 5, comment: 'Perfect for summer!', date: '2024-12-18' },
-];
-
 // Main App Component
 const Alogin = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -72,7 +43,7 @@ const Alogin = () => {
       case 'add-users': return <AddUsers onBack={() => setCurrentPage('users')} />;
       case 'categories': return <CategoriesList onAdd={() => setCurrentPage('add-categories')} />;
       case 'add-categories': return <AddCategories onBack={() => setCurrentPage('categories')} />;
-      case 'reviews': return <ReviewsList />;
+      case 'Customer': return <ReviewsList />;
       case 'settings': return <Settings />;
       default: return <Dashboard />;
     }
@@ -158,7 +129,7 @@ const Sidebar = ({ currentPage, setCurrentPage, isOpen }) => {
     { id: 'orders', label: 'Orders', icon: <ShoppingCart size={20} /> },
     { id: 'users', label: 'Users', icon: <Users size={20} /> },
     { id: 'categories', label: 'Categories', icon: <FolderTree size={20} /> },
-    { id: 'reviews', label: 'Reviews', icon: <Star size={20} /> },
+    { id: 'Customer', label: 'Customer', icon: <Star size={20} /> },
     { id: 'settings', label: 'Settings', icon: <Settings size={20} /> },
   ];
 
@@ -973,39 +944,58 @@ const AddCategories = ({ onBack }) => {
 
 // Reviews List Page
 const ReviewsList = () => {
+
+  
+  useEffect(() => {
+    fetch_data();
+  }, []);
+
+  const [cate, setCate] = useState([]);
+  const fetch_data = async () => {
+    const obj = await axios.get(`http://localhost:3001/Customer`);
+    setCate(obj.data)
+  }
+
+  const deletehandle = async (id) => {
+    const check = confirm('Are you sure Delete message')
+    if (check) {
+      const obj = await axios.delete(`http://localhost:3001/Customer/${id}`)
+    }
+    else {
+
+    }
+  }
+
+
   return (
     <div>
-      <h1 style={styles.pageTitle}>Reviews Management</h1>
+      <h1 style={styles.pageTitle}>Customer Management</h1>
       <div style={styles.card}>
         <table style={styles.table}>
           <thead>
             <tr style={styles.tableHeader}>
-              <th style={styles.th}>Product</th>
+              
               <th style={styles.th}>Customer</th>
-              <th style={styles.th}>Rating</th>
+              <th style={styles.th}>email</th>
               <th style={styles.th}>Comment</th>
-              <th style={styles.th}>Date</th>
+             
               <th style={styles.th}>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {dummyReviews.map(review => (
+            {cate.map(review => (
               <tr key={review.id} style={styles.tableRow}>
-                <td style={styles.td}>{review.product}</td>
-                <td style={styles.td}>{review.customer}</td>
-                <td style={styles.td}>
-                  <div style={styles.rating}>
-                    {'⭐'.repeat(review.rating)}
-                  </div>
-                </td>
-                <td style={styles.td}>{review.comment}</td>
-                <td style={styles.td}>{review.date}</td>
+            
+                <td style={styles.td}>{review.fname} {review.lname}</td>
+                <td style={styles.td}>{review.email}</td>
+                <td style={styles.td}>{review.message}</td>
+               
                 <td style={styles.td}>
                   <div style={styles.actionButtons}>
                     <button style={styles.iconBtn} title="View">
                       <Eye size={16} />
                     </button>
-                    <button style={styles.iconBtnDanger} title="Delete">
+                    <button style={styles.iconBtnDanger} title="Delete" onClick={()=> deletehandle(review.id)}>
                       <Trash2 size={16} />
                     </button>
                   </div>

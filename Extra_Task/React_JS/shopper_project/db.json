@@ -118,21 +118,13 @@
       "status": "Active"
     }
   ],
-  
   "Customer": [
     {
-      "id": "1767250801890",
-      "fname": "Men",
-      "lname": "50",
-      "email": "Active",
-      "message" : "heloo..."
-    },
-    {
-    "id": "1767250801890",
-      "fname": "Men",
-      "lname": "50",
-      "email": "Active",
-      "message" : "heloo..."
+      "id": "1767525592384",
+      "fname": "abc",
+      "lname": "xyz",
+      "email": "abc@gmail.com",
+      "message": "hellooo"
     }
   ]
 }
