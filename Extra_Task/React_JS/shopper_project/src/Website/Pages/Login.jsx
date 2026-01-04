@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, ShoppingBag, Mail, Lock, User, Check } from 'lucide-react';
+import { Link, redirect, useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 // Main App Component
 const Login = () => {
+
+    
+
   const [currentPage, setCurrentPage] = useState('login');
+
 
   return (
     <div style={styles.app}>
@@ -109,67 +115,126 @@ const Alert = ({ message, type = 'success', onClose }) => {
   );
 };
 
+
+
+
+
 // Login Page Component
 const LoginPage = ({ onNavigateToRegister }) => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    rememberMe: false
-  });
+
+  const redirect=useNavigate();
+
+  const [obj_cate, setData] = useState({
+        email: "",
+        password: "",
+        rememberMe:false
+    });
+
+      const handleChange = (e) => {
+        setData({ ...obj_cate, [e.target.name]: e.target.value });
+        console.log(obj_cate);
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const obj=await axios.get(`http://localhost:3001/Users?email=${obj_cate.email}`); 
+        //console.log(obj.data);
+        if(obj.data.length>0){
+            if(obj.data[0].password==obj_cate.password)
+            {
+                if(obj.data[0].status=="Unblock")
+                {
+                    //session created
+                    sessionStorage.setItem('s_id',obj.data[0].id);
+                    sessionStorage.setItem('s_name',obj.data[0].name);
+
+                    alert('Login Success ');
+                    redirect('/');
+                }
+                else
+                {
+                    alert('Login Failed Due to Blocked Account');
+                    return false;
+                }
+            }
+            else
+            {
+                alert('Login Failed Due to Wrong Password');
+                return false;
+            }
+        }
+        else
+        {
+            alert('Login Failed Due to Wrong Email');
+            return false;
+        }
+        return false;
+    }
+
+  // const [formData, setFormData] = useState({
+  //   email: '',
+  //   password: '',
+  //   rememberMe: false
+  // });
+
+
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
-  const [alert, setAlert] = useState({ show: false, message: '', type: '' });
+  // const [alert, setAlert] = useState({ show: false, message: '', type: '' });
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
-  };
+  // const handleChange = (e) => {
+  //   const { name, value, type, checked } = e.target;
+  //   setFormData(prev => ({
+  //     ...prev,
+  //     [name]: type === 'checkbox' ? checked : value
+  //   }));
+  //   if (errors[name]) {
+  //     setErrors(prev => ({ ...prev, [name]: '' }));
+  //   }
+  // };
 
-  const validateForm = () => {
-    const newErrors = {};
+  // const validateForm = () => {
+  //   const newErrors = {};
 
-    if (!formData.email) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
-    }
+  //   if (!formData.email) {
+  //     newErrors.email = 'Email is required';
+  //   } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+  //     newErrors.email = 'Email is invalid';
+  //   }
 
-    if (!formData.password) {
-      newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
-    }
+  //   if (!formData.password) {
+  //     newErrors.password = 'Password is required';
+  //   } else if (formData.password.length < 6) {
+  //     newErrors.password = 'Password must be at least 6 characters';
+  //   }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  //   setErrors(newErrors);
+  //   return Object.keys(newErrors).length === 0;
+  // };
 
-  const handleSubmit = () => {
-    if (validateForm()) {
-      console.log('Login Form Data:', formData);
-      setAlert({
-        show: true,
-        message: 'Login successful! Redirecting...',
-        type: 'success'
-      });
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const obj=await axios.get(`http://localhost:3000/?email=${obj_cate.email}`); 
+  //   if (obj.data.length>validateForm()) {
+  //     console.log('Login Form Data:', formData);
+  //     setAlert({
+  //       show: true,
+  //       message: 'Login successful! Redirecting...',
+  //       type: 'success' 
+  //     });
       
-      setTimeout(() => {
-        setAlert({ show: false, message: '', type: '' });
-      }, 2000);
-    } else {
-      setAlert({
-        show: true,
-        message: 'Please fix the errors before submitting',
-        type: 'error'
-      });
-    }
-  };
+  //     setTimeout(() => {
+  //       setAlert({ show: false, message: '', type: '' });
+  //     }, 2000);
+  //     redirect('/');
+  //   } else {
+  //     setAlert({
+  //       show: true,
+  //       message: 'Please fix the errors before submitting',
+  //       type: 'error'
+  //     });
+  //   }
+  // };
 
   return (
     <div style={styles.authContainer}>
@@ -219,7 +284,7 @@ const LoginPage = ({ onNavigateToRegister }) => {
               label="Email Address"
               type="email"
               name="email"
-              value={formData.email}
+              value={obj_cate.email}
               onChange={handleChange}
               placeholder="Enter your email"
               icon={Mail}
@@ -230,7 +295,7 @@ const LoginPage = ({ onNavigateToRegister }) => {
               label="Password"
               type="password"
               name="password"
-              value={formData.password}
+              value={obj_cate.password}
               onChange={handleChange}
               placeholder="Enter your password"
               icon={Lock}
@@ -245,7 +310,7 @@ const LoginPage = ({ onNavigateToRegister }) => {
                 <input
                   type="checkbox"
                   name="rememberMe"
-                  checked={formData.rememberMe}
+                  checked={obj_cate.rememberMe}
                   onChange={handleChange}
                   style={styles.checkbox}
                 />
@@ -289,82 +354,106 @@ const LoginPage = ({ onNavigateToRegister }) => {
   );
 };
 
+
+
 // Register Page Component
 const RegisterPage = ({ onNavigateToLogin }) => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
+
+
+  const [obj_cate,setData]=useState({
+    fullNamename:"",
+    email:"",
+    password:"",
+    confirmPassword:"",
+ });
+
+ const handleChange=(e)=>{
+    setData({...obj_cate,id:new Date().getTime().toString(),status:"Unblock",[e.target.name]:e.target.value});
+    console.log(obj_cate);
+ }
+
+ const handleSubmit = async (e) => {
+        e.preventDefault();
+        const obj = await axios.post(`http://localhost:3001/Users`,obj_cate);
+        setData({...obj_cate,fullName:"",email:"",password:"",conpassword:""});
+        alert('Signup success');
+        return false;
+    }
+
+  // const [formData, setFormData] = useState({
+  //   fullName: '',
+  //   email: '',
+  //   password: '',
+  //   confirmPassword: ''
+  // });
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [alert, setAlert] = useState({ show: false, message: '', type: '' });
+  // const [alert, setAlert] = useState({ show: false, message: '', type: '' });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData(prev => ({
+  //     ...prev,
+  //     [name]: value
+  //   }));
+  //   if (errors[name]) {
+  //     setErrors(prev => ({ ...prev, [name]: '' }));
+  //   }
+  // };
 
-  const validateForm = () => {
-    const newErrors = {};
+  // const validateForm = () => {
+  //   const newErrors = {};
 
-    if (!formData.fullName) {
-      newErrors.fullName = 'Full name is required';
-    } else if (formData.fullName.length < 3) {
-      newErrors.fullName = 'Name must be at least 3 characters';
-    }
+  //   if (!formData.fullName) {
+  //     newErrors.fullName = 'Full name is required';
+  //   } else if (formData.fullName.length < 3) {
+  //     newErrors.fullName = 'Name must be at least 3 characters';
+  //   }
 
-    if (!formData.email) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
-    }
+  //   if (!formData.email) {
+  //     newErrors.email = 'Email is required';
+  //   } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+  //     newErrors.email = 'Email is invalid';
+  //   }
 
-    if (!formData.password) {
-      newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
-    }
+  //   if (!formData.password) {
+  //     newErrors.password = 'Password is required';
+  //   } else if (formData.password.length < 6) {
+  //     newErrors.password = 'Password must be at least 6 characters';
+  //   }
 
-    if (!formData.confirmPassword) {
-      newErrors.confirmPassword = 'Please confirm your password';
-    } else if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
-    }
+  //   if (!formData.confirmPassword) {
+  //     newErrors.confirmPassword = 'Please confirm your password';
+  //   } else if (formData.password !== formData.confirmPassword) {
+  //     newErrors.confirmPassword = 'Passwords do not match';
+  //   }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  //   setErrors(newErrors);
+  //   return Object.keys(newErrors).length === 0;
+  // };
 
-  const handleSubmit = () => {
-    if (validateForm()) {
-      console.log('Register Form Data:', formData);
-      setAlert({
-        show: true,
-        message: 'Account created successfully! Redirecting to login...',
-        type: 'success'
-      });
+  // const handleSubmit = () => {
+  //   if (validateForm()) {
+  //     console.log('Register Form Data:', formData);
+  //     setAlert({
+  //       show: true,
+  //       message: 'Account created successfully! Redirecting to login...',
+  //       type: 'success'
+  //     });
       
-      setTimeout(() => {
-        setAlert({ show: false, message: '', type: '' });
-        onNavigateToLogin();
-      }, 2000);
-    } else {
-      setAlert({
-        show: true,
-        message: 'Please fix the errors before submitting',
-        type: 'error'
-      });
-    }
-  };
+  //     setTimeout(() => {
+  //       setAlert({ show: false, message: '', type: '' });
+  //       onNavigateToLogin();
+  //     }, 2000);
+  //   } else {
+  //     setAlert({
+  //       show: true,
+  //       message: 'Please fix the errors before submitting',
+  //       type: 'error'
+  //     });
+  //   }
+  // };
 
   return (
     <div style={styles.authContainer}>
@@ -414,7 +503,7 @@ const RegisterPage = ({ onNavigateToLogin }) => {
               label="Full Name"
               type="text"
               name="fullName"
-              value={formData.fullName}
+              value={obj_cate.fullName}
               onChange={handleChange}
               placeholder="Enter your full name"
               icon={User}
@@ -425,7 +514,7 @@ const RegisterPage = ({ onNavigateToLogin }) => {
               label="Email Address"
               type="email"
               name="email"
-              value={formData.email}
+              value={obj_cate.email}
               onChange={handleChange}
               placeholder="Enter your email"
               icon={Mail}
@@ -436,7 +525,7 @@ const RegisterPage = ({ onNavigateToLogin }) => {
               label="Password"
               type="password"
               name="password"
-              value={formData.password}
+              value={obj_cate.password}
               onChange={handleChange}
               placeholder="Create a password"
               icon={Lock}
@@ -450,7 +539,7 @@ const RegisterPage = ({ onNavigateToLogin }) => {
               label="Confirm Password"
               type="password"
               name="confirmPassword"
-              value={formData.confirmPassword}
+              value={obj_cate.confirmPassword}
               onChange={handleChange}
               placeholder="Confirm your password"
               icon={Lock}

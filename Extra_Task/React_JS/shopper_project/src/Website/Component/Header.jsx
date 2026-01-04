@@ -47,8 +47,8 @@ const Header = () => {
                                 <NavLink to="/about">About</NavLink>
                             </li>
                             <li><NavLink to="/shop">Shop</NavLink></li>
-                            <li><NavLink to="#">Catalogue</NavLink></li>
-                            <li><NavLink to="#">New Arrivals</NavLink></li>
+                            {/* <li><NavLink to="#">Catalogue</NavLink></li> */}
+                            <li><NavLink to="/cart">Cart</NavLink></li>
                             <li><NavLink to="/contact">Contact</NavLink></li>
                         </ul>
 

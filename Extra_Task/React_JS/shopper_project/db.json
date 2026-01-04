@@ -39,16 +39,6 @@
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS1FeLrq3869krqY8D0ZGELoDKdX7SRilAi59HV88_HlFhjmfKdRVblz8irCxWichKgR-AnfotfM_rjSutGoiz4un26ivh1ul7_W_zpD6h2KpzO96olsexY3Q",
       "description": "shoe ",
       "status": "Active"
-    },
-    {
-      "id": "1767371424101",
-      "name": "Sport Shoes",
-      "category": "1767250801890",
-      "price": "500",
-      "stock": "1",
-      "image": "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADrbWV0YQAAAAAAAAAhaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAAAAAAAOcGl0bQAAAAAAAQAAAB5pbG9jAAAAAEQAAAEAAQAAAAEAAAETAAALzQAAAChpaW5mAAAAAAABAAAAGmluZmUCAAAAAAEAAGF2MDFDb2xvcgAAAABqaXBycAAAAEtpcGNvAAAAFGlzcGUAAAAAAAAApwAAAPoAAAAQcGl4aQAAAAADCAgIAAAADGF2MUOBAAwAAAAAE2NvbHJuY2x4AAIAAgAGgAAAABdpcG1hAAAAAAAAAAEAAQQBAoMEAAAL1W1kYXQSAAoKGB3pvlggQEDQgDK8FxIAAooooUDX/y/3rLeb32UWxGdvM7/mTqXNcpx4zzJ2wgNhbOX43oC06o9ZbMMhy5leN0opick8v2fZw7r2dQtC46Ithy7TXkPtFQC8EiCkAZZqIIJdzZ87/ttl5aDECnOs6ngM3CSxe4KSaodAy9AFW0wW8NkCyQ49zLbKov1Si9vqevot5zt6C1revI+WVa5fSd9mBwOsODsMfPOJVNqRaqWn7Yr9I9JoY7432A8Mtt6FzvaaxGPaf+duErZJkx77lMcTVqDHpArUqc+GG4ED6x6cpLHLZ8CrefRrapOFuiRWz8ME6dwf/676PfbRpJQfGji7LAvdqKviVhFK+/xnngCYgK734VmBfJr2HeImBqQ82RwZvBNCKxpT6e4jsX2BtEtoe7D2vTzgehVKFXP0nLSLN6vAuFDGEshocl4KAQ6PDwH2sgVQHc6gRIQEtm2729S6R2dSS3jgyGSuUTltNjnIgpDlTSCEMNwfqD3loBJ3PBzAZM7aoXt3dqePyvzLe2cl3z2GqPG2sh0sf6CbZu+WYonXhzmTgPzMq1jSvNC8bxThR+BHhx80hveu1xHC1j6Z5DErd0AOl3cLLbwuZZr1ser5aUbEtGjmk7jBdw3u5OTd9R9rFaical/QpohkUAtQNiSvmLObhKFYTpVsfLz7HOm0I3u2P0ttpl/Lpky7uZZPq2Z4x+tAAasw/FoHSkOlBvARjKgYD43SHR/tft4JAruI412V4aaYSMcJ9jLLeZlpITsU4v8/trnhsjJtjYMteIMSAqsPBkcs9fFBrW8VAppVw+Bz5J5qTSU/Twk8lnQqfGK2EKGFvqK3xZo9zCgdyHG3zND3cXsavv0HOOSC4UpbHpIUf1FzFRCBno5Ear0dGwtxw/mu7E1v0dDDQQ1/MHFnIVn72eOmaOAAZEkGN3JxGuidjCJJAHGl1S2DJIGF/AErEvx/N7SnL2R1hjoyWoiTiC9eHi6Z1Up3tsJRmjaeFajQdAbwauWVrCTmsIcU4+fd7ar2lcNP5OYpIjqYvazG4WFbdCSPhiR2EfAdKj1Z652GiPt55AsENTG37o5PMioXZHdEXLFJJVWW74LmmEcyjVsAxwLLf0lC5w3Y5u0BF/PPx9Q50zvi7xhqT6WwFvWCQggaRB/yppZROV83KXM46NGcNjZ8jawDjP5Y0oZ9zV3DaCDER7GN4whllqpxTeHLj+mbF4ZGXIfl0uJ2jcaYI4IfUQUC8uiSsSWIb708gAIOx9GputIL7wGFL02HYdW9LYLXQK20DMarjAxzzHw4gtRbpTcGziBKfOI0UwjGdcoPyaPwJWTPk3/BeDr5dRs/3EUlPgRVkIXvqv53nZuOdnXjEbHpynMwBuaLF8iXpVDACyYCTRzUlEDPYv+XUSS7alUAp9C3ykZ6pl61VHAEGvLBOrvSmeAl2tQZa65l/20wH8snK3kdXaRxgJdfNzM29jSwvDmoZYTXceOl1f7lRI7aP2Fvh2zkxHWr1oVyjd4XIdWBLBbS+THK7HHwnlMhZM42wCxGgySTox9RXlIap29S2dsHq8i7aIuTmGW6emEzJWkB1o9vWmdlxtA8KlUcwQArFNCdI6r8NG6jQvNs1Xmr2c6Uw4Zrh2y9/qPRbq47CHBX4z4E6CUrChGWgzv04zaQ/cdkh9jWen4nLSL+0LYerN2TjP0v9Z/TjpgluLROkemMubXuJz7+ya4MzQ4cmL+SZ3N0ZKdRJdqXLASq9u7ndP0VEiOMesTJ51i0jK8ZGIUSb1cRAxQzCNlEsuHIqI7sLIjqX2k07zLrfzXKYors9UpRum9ZcvVzJ0PwukDxe52PLeUJuZTSQwVDfAUgn0Cf1DR8dJscLnby83zA/g2apN4+LhSPFYPCi/qOlbKbvPbUj7YYz4lfOoUqjQ8CQCZf/iSRyN2BbtLzP/ONMrFXtYykSRvJza1Jimh5HvKMLPWz2HviS4Sk1e9LB0cY574sMD1Epbs5PdsqZ4oiPRiD6LU/iLvY7EUE9zuOgpgkeWkJmYaCMpzspJkdL7Sn67Jxg/lu+Ld6PSdohyZvq6K+oCoy4oKhTDY9vZQowz0zc6SNfNXkfAGdFQtACCdZRorhKleyFtRKveF0YvYL39/gEdTLN/OScsXDLxVLg2fp7YnL64P+aE6Ij+MhmZb/lvz+nqUiun2gydnROM7FPpLIvmfVdFF8YbVzi7HN9LyAdOv4FyP2/2FQP0Kvri1Ehpb34rDzSHlwrH+iefVcr9Nj9Z6phjPP3S47QDNx5I3YFosNtg2doVMPvhU8pAGrRvw5pWjjp7X83ponEwTgrGlFJ8MWMNVGFAC0ZGI+isEexTSVBmQ2Z54SqrTUtBwNTiyZz0+voftAQHNbysKmJbWBv0WaaXWD/xbZaxkbX561vGxKYuE/FRi0I+BvIBeBGZdvuATMTUZHJYi2vfy9Xu3L6IL6iyCUy3gzb+GmANMhjKNdqZI38iok+T38vJdSibdGVb5/WQ9VXau25yL8zQsEJaP6/JhHt461RZuBGapvHaicwfBpUiMD2wPhNmCeUL/NHXt0p5v1HkLKWfnE4raxtPnte+xHAA0b3+QnJxXBhxx/8h1ebuEJVCB/A8BQglKBg8hIZjoK5LejFMSXs4tFT4lxqsd2NtoDCp+X1UC8CPBpnjCqtgTxuXnVVx9Gxr/tDF2Oc8kOTMaYOD1+NmUmeSIgkBfN1PQcDL2sP+VWXmrulE6A+ACs0mxoQehk8uc7LRIhAc4C68KnUsqLWjEamvFR59/ERc24JNcSUcSi3rc4KgmPP2FcbaF/Svyqg2n0t11L85Z8RmYO4Gu7q4fAz1V8H2xBRtEoZ7eUz0RHp4EbvTERXX22/WHV6uX0kKGXNQvNTSGNW25nzox5kswdTdcOuJp7Gn78Jqicq1RpUsXXW8dDl5hbQVMcyJk2uh+idwxQR7ii5ZvSSnyQeabALACB1HGkQlx3v0EHMVHtZdurNcGNfSnPbanD270Pf7u2sfi2H/BCHsH5TsXBSnF5rrKR+5XIWKbneP3hQUm6DlTbIN04LWuVer5gpzezq7mies0xdXiigPYYzREZKPIw6RqNWeyTTbhjhSZ42hIpBC7LaqXYY5CAch2anAUJ9BsZ24j9JQQBipwDStVIkYognKsLEjC2+vpRQltNjSdjo3syN5HQb4EZDtQn9m1fBHnqkvy97d3LcHPYxVHZgs+P7VfBYmeSpJmB46z44wVYoAm7/x0sLNIr+fAJDLNqRGOHiaWlvAxwNGDV5ffMMYa7C6vnKQbKJHW1j1WDlCS3jE7Q/+5K6lQrLOcaylpyLg71hZbdW/ozPXwu2Xbp9xkaRI1ohlWuEZWZxpLPH6QhzqtKhO55++hAsIukRHh3bKdrSlLrTqCTH+/GVrLUo1V/jDiIJfBRsdfpweGjCm47YkryyavWiw0FBz4wJu5gsbVvTEb4Dq2NXxoJhx+33OHCDUXzagoeTRJM1CU0Qb3wP1YAYLzZtZRMfmlQFctIs6SgMOuPu7UPkH0dortgR/j0GIviN30pJWqh09EnXlvShRcqrlA7AgdaZzIxwU4Zcl4dZNRHh2LfYvQbbNJrtuytkfYZvHNX8ilf7mrj1N8GT+S9XGK9GehKYbimVEiqIGUT4Dtnmb/u0UxkfZGg54dlOkwvEVE8IvhzC3OSoL4z1i+scFXW4OtvbmbGppoW85ZGQ1JRRWkAVoFV6+w/rIwJTqSttZoiOji6VIUPQ3EO11yB9SKCVGs8YAccaLL5Z1Ss29VieT1XZ/k6dOWUh3FzIf5UyYg0qNdapm6xfequu44SfBc66B8nUXJV9tjkoVudRGbn8AD8NiRDt8W4Df2ozGm/UDMptPBEHxTG73cPpdD/VxiR61JtC3747aoRNi3toA4S/JYt55fR2itjBK9kS3fM0msAGpJ6RWbR1yzTXj+Hbm9mzAFMaWS0DvBnfSA7fb2JzETRVh8OKjv8/irY1JnU/kAOWE6Odz+39OEzRUA=",
-      "description": "",
-      "status": "Active"
     }
   ],
   "Orders": [
@@ -82,6 +72,8 @@
       "email": "john@example.com",
       "role": "Customer",
       "orders": "12",
+      "password": "123",
+      "status": "Unblock",
       "joined": "31-12-2025"
     },
     {
@@ -91,6 +83,25 @@
       "email": "ansarifarman1203@gmail.com",
       "status": "Active",
       "role": "Admin"
+    },
+    {
+      "id": "1767524229402",
+      "name": "",
+      "email": "farman1203007@gmail.com",
+      "password": "123456",
+      "conpassword": "",
+      "status": "Unblock",
+      "fullName": "farman",
+      "confirmPassword": "123465"
+    },
+    {
+      "id": "1767524523119",
+      "fullNamename": "",
+      "email": "sdsf@gmail.com",
+      "password": "1122",
+      "confirmPassword": "1122",
+      "status": "Unblock",
+      "fullName": "FARMAN"
     }
   ],
   "Categories": [
@@ -105,6 +116,23 @@
       "name": "Women",
       "products": "5",
       "status": "Active"
+    }
+  ],
+  
+  "Customer": [
+    {
+      "id": "1767250801890",
+      "fname": "Men",
+      "lname": "50",
+      "email": "Active",
+      "message" : "heloo..."
+    },
+    {
+    "id": "1767250801890",
+      "fname": "Men",
+      "lname": "50",
+      "email": "Active",
+      "message" : "heloo..."
     }
   ]
 }

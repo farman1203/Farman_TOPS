@@ -1,13 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Contact = () => {
+
+    const [data, setData] = useState({
+        fname: '',
+        lname: '',
+        email: '',
+        message: ''
+    });
+
+    const changeHandel = (e) => {
+        setData({ ...obj_cate, id: new Date().getTime().toString(), [e.target.name]: e.target.value });
+        console.log(obj_cate);
+    }
+
+     const submitHandel = async (e) => {
+        e.preventDefault();
+        const obj = await axios.post(`http://localhost:3001/Customer`,obj_cate);
+        setData({...obj_cate,fname:"",lname:"",email:"",message:""});
+        alert('Message send success');
+        return false;
+    }
+
+
     return (
         <div>
             <div>
                 <div className="bg-light py-3">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-12 mb-0"><a href="index.html">Home</a> <span className="mx-2 mb-0">/</span> <strong className="text-black">Contact</strong></div>
+                            <div className="col-md-12 mb-0"><Link to="/">Home</Link> <span className="mx-2 mb-0">/</span> <strong className="text-black">Contact</strong></div>
                         </div>
                     </div>
                 </div>
@@ -36,12 +59,12 @@ const Contact = () => {
                                                 <input type="email" className="form-control" id="c_email" name="c_email" placeholder />
                                             </div>
                                         </div>
-                                        <div className="form-group row">
+                                        {/* <div className="form-group row">
                                             <div className="col-md-12">
                                                 <label htmlFor="c_subject" className="text-black">Subject </label>
                                                 <input type="text" className="form-control" id="c_subject" name="c_subject" />
                                             </div>
-                                        </div>
+                                        </div> */}
                                         <div className="form-group row">
                                             <div className="col-md-12">
                                                 <label htmlFor="c_message" className="text-black">Message </label>

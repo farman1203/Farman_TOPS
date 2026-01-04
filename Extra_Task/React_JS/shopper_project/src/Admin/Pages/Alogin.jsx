@@ -789,14 +789,14 @@ const AddUsers = ({ onBack }) => {
           <div style={styles.formGroup}>
             <label style={styles.label}>Role</label>
             <input
-                type="text"
-                value={formData.role}
-                name='role'
-                onChange={changeHandel}
-                style={styles.input}
-                placeholder="Add User role"
-                required
-              />
+              type="text"
+              value={formData.role}
+              name='role'
+              onChange={changeHandel}
+              style={styles.input}
+              placeholder="Add User role"
+              required
+            />
           </div>
 
           <div style={styles.formActions}>
@@ -830,15 +830,14 @@ const CategoriesList = ({ onAdd }) => {
   }
 
   const deletehandle = async (id) => {
-    const check=confirm('Are you sure Delete category')
-    if(check){
-         const obj = await axios.delete(`http://localhost:3001/Categories/${id}`)
+    const check = confirm('Are you sure Delete category')
+    if (check) {
+      const obj = await axios.delete(`http://localhost:3001/Categories/${id}`)
     }
-    else{
-      
+    else {
+
     }
   }
-
 
   return (
     <div>
