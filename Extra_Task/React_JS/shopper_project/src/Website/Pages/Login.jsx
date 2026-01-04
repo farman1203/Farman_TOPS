@@ -367,18 +367,37 @@ const RegisterPage = ({ onNavigateToLogin }) => {
     confirmPassword:"",
  });
 
- const handleChange=(e)=>{
-    setData({...obj_cate,id:new Date().getTime().toString(),status:"Unblock",[e.target.name]:e.target.value});
-    console.log(obj_cate);
- }
+//  const handleChange=(e)=>{
+//     setData({...obj_cate,id:new Date().getTime().toString(),status:"Unblock",[e.target.name]:e.target.value});
+//     console.log(obj_cate);
+//  }
 
  const handleSubmit = async (e) => {
-        e.preventDefault();
+  e.preventDefault();
+   if (validateForm()) {
         const obj = await axios.post(`http://localhost:3001/Users`,obj_cate);
         setData({...obj_cate,fullName:"",email:"",password:"",conpassword:""});
-        alert('Signup success');
-        return false;
+      setAlert({
+        show: true,
+        message: 'Account created successfully! Redirecting to login...',
+        type: 'success'
+      });
+      
+      setTimeout(() => {
+        setAlert({ show: false, message: '', type: '' });
+        onNavigateToLogin();
+      }, 2000);
+    } else {
+      setAlert({
+        show: true,
+        message: 'Please fix the errors before submitting',
+        type: 'error'
+      });
     }
+  };
+      
+       
+    
 
   // const [formData, setFormData] = useState({
   //   fullName: '',
@@ -389,49 +408,49 @@ const RegisterPage = ({ onNavigateToLogin }) => {
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  // const [alert, setAlert] = useState({ show: false, message: '', type: '' });
+  const [alert, setAlert] = useState({ show: false, message: '', type: '' });
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData(prev => ({
-  //     ...prev,
-  //     [name]: value
-  //   }));
-  //   if (errors[name]) {
-  //     setErrors(prev => ({ ...prev, [name]: '' }));
-  //   }
-  // };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
+  };
 
-  // const validateForm = () => {
-  //   const newErrors = {};
+  const validateForm = () => {
+    const newErrors = {};
 
-  //   if (!formData.fullName) {
-  //     newErrors.fullName = 'Full name is required';
-  //   } else if (formData.fullName.length < 3) {
-  //     newErrors.fullName = 'Name must be at least 3 characters';
-  //   }
+    if (!obj_cate.fullName) {
+      newErrors.fullName = 'Full name is required';
+    } else if (obj_cate.fullName.length < 3) {
+      newErrors.fullName = 'Name must be at least 3 characters';
+    }
 
-  //   if (!formData.email) {
-  //     newErrors.email = 'Email is required';
-  //   } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-  //     newErrors.email = 'Email is invalid';
-  //   }
+    if (!obj_cate.email) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(obj_cate.email)) {
+      newErrors.email = 'Email is invalid';
+    }
 
-  //   if (!formData.password) {
-  //     newErrors.password = 'Password is required';
-  //   } else if (formData.password.length < 6) {
-  //     newErrors.password = 'Password must be at least 6 characters';
-  //   }
+    if (!obj_cate.password) {
+      newErrors.password = 'Password is required';
+    } else if (obj_cate.password.length < 6) {
+      newErrors.password = 'Password must be at least 6 characters';
+    }
 
-  //   if (!formData.confirmPassword) {
-  //     newErrors.confirmPassword = 'Please confirm your password';
-  //   } else if (formData.password !== formData.confirmPassword) {
-  //     newErrors.confirmPassword = 'Passwords do not match';
-  //   }
+    if (!obj_cate.confirmPassword) {
+      newErrors.confirmPassword = 'Please confirm your password';
+    } else if (obj_cate.password !== obj_cate.confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match';
+    }
 
-  //   setErrors(newErrors);
-  //   return Object.keys(newErrors).length === 0;
-  // };
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   // const handleSubmit = () => {
   //   if (validateForm()) {
