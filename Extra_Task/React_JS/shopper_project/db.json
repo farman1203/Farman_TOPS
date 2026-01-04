@@ -68,7 +68,7 @@
   "Users": [
     {
       "id": "1",
-      "name": "John Doe",
+      "fullName": "John Doe",
       "email": "john@example.com",
       "role": "Customer",
       "orders": "12",
@@ -78,7 +78,7 @@
     },
     {
       "id": "1767285221865",
-      "name": "Farman Ansari ",
+      "fullName": "Farman Ansari ",
       "products": "",
       "email": "ansarifarman1203@gmail.com",
       "status": "Active",
@@ -86,7 +86,6 @@
     },
     {
       "id": "1767524229402",
-      "name": "",
       "email": "farman1203007@gmail.com",
       "password": "123456",
       "conpassword": "",

@@ -669,7 +669,7 @@ const UsersList = ({ onAdd }) => {
           <tbody>
             {user.map(user => (
               <tr key={user.id} style={styles.tableRow}>
-                <td style={styles.td}>{user.name}</td>
+                <td style={styles.td}>{user.fullName}</td>
                 <td style={styles.td}>{user.email}</td>
                 <td style={styles.td}>
                   <span style={getRoleStyle(user.role)}>{user.role}</span>
