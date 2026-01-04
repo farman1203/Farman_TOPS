@@ -361,7 +361,7 @@ const RegisterPage = ({ onNavigateToLogin }) => {
 
 
   const [obj_cate,setData]=useState({
-    fullNamename:"",
+    fullName:"",
     email:"",
     password:"",
     confirmPassword:"",

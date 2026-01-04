@@ -95,13 +95,12 @@
       "confirmPassword": "123465"
     },
     {
-      "id": "1767524523119",
-      "fullNamename": "",
-      "email": "sdsf@gmail.com",
-      "password": "1122",
-      "confirmPassword": "1122",
-      "status": "Unblock",
-      "fullName": "FARMAN"
+      "id": "acee",
+      "fullName": "Farman Ansari",
+      "email": "aa@gmail.com",
+      "password": "123123",
+      "confirmPassword": "123123",
+      "status": "Unblock"
     }
   ],
   "Categories": [
