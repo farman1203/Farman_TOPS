@@ -79,9 +79,9 @@
     {
       "id": "1767285221865",
       "fullName": "Farman Ansari ",
-      "products": "",
+      "password": "123123",
       "email": "ansarifarman1203@gmail.com",
-      "status": "Active",
+      "status": "Unblock",
       "role": "Admin"
     },
     {
@@ -94,9 +94,9 @@
       "confirmPassword": "123465"
     },
     {
-      "id": "acee",
-      "fullName": "Farman Ansari",
-      "email": "aa@gmail.com",
+      "id": "c1ff",
+      "fullName": "abc xyz",
+      "email": "abcxyz@gmail.com",
       "password": "123123",
       "confirmPassword": "123123",
       "status": "Unblock"

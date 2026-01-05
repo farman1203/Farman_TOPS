@@ -945,7 +945,7 @@ const AddCategories = ({ onBack }) => {
 // Reviews List Page
 const ReviewsList = () => {
 
-  
+
   useEffect(() => {
     fetch_data();
   }, []);
@@ -974,28 +974,28 @@ const ReviewsList = () => {
         <table style={styles.table}>
           <thead>
             <tr style={styles.tableHeader}>
-              
+
               <th style={styles.th}>Customer</th>
               <th style={styles.th}>email</th>
               <th style={styles.th}>Comment</th>
-             
+
               <th style={styles.th}>Actions</th>
             </tr>
           </thead>
           <tbody>
             {cate.map(review => (
               <tr key={review.id} style={styles.tableRow}>
-            
+
                 <td style={styles.td}>{review.fname} {review.lname}</td>
                 <td style={styles.td}>{review.email}</td>
                 <td style={styles.td}>{review.message}</td>
-               
+
                 <td style={styles.td}>
                   <div style={styles.actionButtons}>
                     <button style={styles.iconBtn} title="View">
                       <Eye size={16} />
                     </button>
-                    <button style={styles.iconBtnDanger} title="Delete" onClick={()=> deletehandle(review.id)}>
+                    <button style={styles.iconBtnDanger} title="Delete" onClick={() => deletehandle(review.id)}>
                       <Trash2 size={16} />
                     </button>
                   </div>
