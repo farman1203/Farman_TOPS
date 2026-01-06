@@ -92,14 +92,6 @@
       "status": "Unblock",
       "fullName": "farman",
       "confirmPassword": "123465"
-    },
-    {
-      "id": "c1ff",
-      "fullName": "abc xyz",
-      "email": "abcxyz@gmail.com",
-      "password": "123123",
-      "confirmPassword": "123123",
-      "status": "Unblock"
     }
   ],
   "Categories": [
@@ -123,6 +115,17 @@
       "lname": "xyz",
       "email": "abc@gmail.com",
       "message": "hellooo"
+    }
+  ],
+  "Admin": [
+    {
+     "id": "1",
+      "aname": "Admin",
+      "email": "admin@example.com",
+      "role": "admin",
+      "password": "123",
+      "status": "Unblock",
+      "joined": "31-12-2025"
     }
   ]
 }

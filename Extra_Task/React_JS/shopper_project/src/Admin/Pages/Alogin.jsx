@@ -20,18 +20,30 @@ import {
   ShoppingBag
 } from 'lucide-react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 // Main App Component
 const Alogin = () => {
+
+  const [adminName, setAdminName] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentPage, setCurrentPage] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
 
-  // if (!isLoggedIn) {
-  //   return <LoginPage onLogin={() => setIsLoggedIn(true)} />;
-  // }
+  useEffect(() => {
+  const name = sessionStorage.getItem("s_aname");
+  if (name) {
+    setAdminName(name);
+    setIsLoggedIn(true);
+  }
+}, []);
+
+
+  if (!isLoggedIn) {
+    return <LoginPage onLogin={(name) => { setIsLoggedIn(true); setAdminName(name); }} />;
+  }
 
   const renderPage = () => {
     switch (currentPage) {
@@ -58,11 +70,16 @@ const Alogin = () => {
       />
       <div style={styles.mainContent}>
         <TopNavbar
+          adminName={adminName}
           onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
           showProfileMenu={showProfileMenu}
           setShowProfileMenu={setShowProfileMenu}
-          onLogout={() => setIsLoggedIn(false)}
+          onLogout={() => {
+            sessionStorage.clear();
+            setIsLoggedIn(false);
+          }}
         />
+
         <div style={styles.pageContent}>
           {renderPage()}
         </div>
@@ -73,12 +90,41 @@ const Alogin = () => {
 
 // Login Page Component
 const LoginPage = ({ onLogin }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const changeHandler = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onLogin();
+
+    const res = await axios.get(
+      `http://localhost:3001/Admin?email=${formData.email}`
+    );
+
+    if (res.data.length === 0) {
+      alert("Invalid Email");
+      return;
+    }
+
+    if (res.data[0].password !== formData.password) {
+      alert("Wrong Password");
+      return;
+    }
+
+    // ✅ session
+    sessionStorage.setItem("s_aid", res.data[0].id);
+    sessionStorage.setItem("s_aname", res.data[0].name);
+
+    // ✅ parent ko inform
+    onLogin(res.data[0].name);
+    navigate("/alogin");
   };
 
   return (
@@ -88,38 +134,41 @@ const LoginPage = ({ onLogin }) => {
           <h1 style={styles.loginLogo}>Shoppers</h1>
           <p style={styles.loginSubtitle}>Admin Panel</p>
         </div>
+
         <form onSubmit={handleSubmit} style={styles.loginForm}>
           <div style={styles.formGroup}>
-            <label style={styles.label}>Email Address</label>
+            <label>Email</label>
             <input
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              value={formData.email}
+              onChange={changeHandler}
               style={styles.input}
-              placeholder="admin@shoppers.com"
               required
             />
           </div>
+
           <div style={styles.formGroup}>
-            <label style={styles.label}>Password</label>
+            <label>Password</label>
             <input
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              value={formData.password}
+              onChange={changeHandler}
               style={styles.input}
-              placeholder="••••••••"
               required
             />
           </div>
+
           <button type="submit" style={styles.loginButton}>
             Sign In
           </button>
-          <p style={styles.loginHint}>Hint: Click "Sign In" to access the admin panel</p>
         </form>
       </div>
     </div>
   );
 };
+
 
 // Sidebar Component
 const Sidebar = ({ currentPage, setCurrentPage, isOpen }) => {
@@ -160,7 +209,7 @@ const Sidebar = ({ currentPage, setCurrentPage, isOpen }) => {
 };
 
 // Top Navbar Component
-const TopNavbar = ({ onToggleSidebar, showProfileMenu, setShowProfileMenu, onLogout }) => {
+const TopNavbar = ({ adminName, onToggleSidebar, showProfileMenu, setShowProfileMenu, onLogout }) => {
   return (
     <div style={styles.topNavbar}>
       <div style={styles.navLeft}>
@@ -180,25 +229,30 @@ const TopNavbar = ({ onToggleSidebar, showProfileMenu, setShowProfileMenu, onLog
           <span style={styles.badge}>3</span>
         </button>
         <div style={styles.profileSection}>
-          <div
-            onClick={() => setShowProfileMenu(!showProfileMenu)}
-            style={styles.profileTrigger}
-          >
-            <div style={styles.avatar}>A</div>
-            <span style={styles.profileName}>Admin User</span>
-            <ChevronDown size={16} />
-          </div>
+          <TopNavbar
+  adminName={adminName}
+  onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+  showProfileMenu={showProfileMenu}
+  setShowProfileMenu={setShowProfileMenu}
+  onLogout={() => {
+    sessionStorage.clear();
+    setIsLoggedIn(false);
+  }}
+/>
+
+
           {showProfileMenu && (
             <div style={styles.profileMenu}>
               <div style={styles.profileMenuItem}>Profile</div>
               <div style={styles.profileMenuItem}>Settings</div>
               <div
                 onClick={onLogout}
-                style={{ ...styles.profileMenuItem, color: '#f56565' }}
+                style={{ ...styles.profileMenuItem, color: "#f56565" }}
               >
                 <LogOut size={16} />
-                <span>Logout</span>
+                Logout
               </div>
+
             </div>
           )}
         </div>
@@ -253,6 +307,7 @@ const Dashboard = () => {
   useEffect(() => {
     fetchDashboardData();
   }, []);
+
 
   const fetchDashboardData = async () => {
     try {

@@ -76,7 +76,7 @@ const Header = () => {
 
                                             <ul className="dropdown-menu dropdown-menu-end">
                                                 <li>
-                                                    <NavLink className="dropdown-item" to="/profile">
+                                                    <NavLink className="dropdown-item" to="/user_profile">
                                                         Manage Profile
                                                     </NavLink>
                                                 </li>
