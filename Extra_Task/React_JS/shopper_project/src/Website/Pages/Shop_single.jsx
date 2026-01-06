@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 
 const Shop_single = () => {
 
-    
-
 
     return (
         <div>

@@ -1,141 +1,105 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios';
 
 const Cart = () => {
 
     const [data1, setData1] = useState([])
 
     useEffect(() => {
-        fetch_data1();
-    }, [])
+        const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+        setData1(cartData);
+    }, []);
 
-    const fetch_data1 = async () => {
-        const obj = await axios.get(`http://localhost:3001/Orders`);
-        setData1(obj.data)
-    }
+    const removeItem = (id) => {
+        const updatedCart = data1.filter(item => item.id !== id);
+        setData1(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+    };
+
+    const grandTotal = data1.reduce(
+        (sum, item) => sum + item.price * item.qty,
+        0
+    );
 
     return (
         <div>
-            <div>
-                <div className="bg-light py-3">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-12 mb-0"><a href="index.html">Home</a> <span className="mx-2 mb-0">/</span> <strong className="text-black">Cart</strong></div>
-                        </div>
-                    </div>
-                </div>
-                <div className="site-section">
-                    <div className="container">
-                        <div className="row mb-5">
-                            {data1.map((value) => {
-                                return <form className="col-md-12" method="post">
-                                    <div className="site-blocks-table">
-                                        <table className="table table-bordered">
-                                            
-                                                <thead>
-                                                    <tr>
-                                                        <th className="product-thumbnail">Image</th>
-                                                        <th className="product-name">Product</th>
-                                                        <th className="product-price">Price</th>
-                                                        <th className="product-quantity">Quantity</th>
-                                                        <th className="product-total">Total</th>
-                                                        <th className="product-remove">Remove</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td className="product-thumbnail">
-                                                            <img src={value.image} alt="Image" className="img-fluid" />
-                                                        </td>
-                                                        <td className="product-name">
-                                                            <h2 className="h5 text-black">{value.products}</h2>
-                                                        </td>
-                                                        <td>${value.price}</td>
-                                                        <td>
-                                                            <div className="input-group mb-3" style={{ maxWidth: 120 }}>
-                                                                <div className="input-group-prepend">
-                                                                    <button className="btn btn-outline-primary js-btn-minus" type="button">−</button>
-                                                                </div>
-                                                                <input type="text" className="form-control text-center" defaultValue={1} placeholder aria-label="Example text with button addon" aria-describedby="button-addon1" />
-                                                                <div className="input-group-append">
-                                                                    <button className="btn btn-outline-primary js-btn-plus" type="button">+</button>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>{value.price}</td>
-                                                        <td><a href="#" className="btn btn-primary btn-sm">X</a></td>
-                                                    </tr>
-                                                </tbody>
-                                           
-                                        </table>
-                                    </div>
-                                </form>
-                            })}
-                        </div>
-                        <div className="row">
-                            <div className="col-md-6">
-                                <div className="row mb-5">
-                                    <div className="col-md-6 mb-3 mb-md-0">
-                                        <button className="btn btn-primary btn-sm btn-block">Update Cart</button>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <button className="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <label className="text-black h4" htmlFor="coupon">Coupon</label>
-                                        <p>Enter your coupon code if you have one.</p>
-                                    </div>
-                                    <div className="col-md-8 mb-3 mb-md-0">
-                                        <input type="text" className="form-control py-3" id="coupon" placeholder="Coupon Code" />
-                                    </div>
-                                    <div className="col-md-4">
-                                        <button className="btn btn-primary btn-sm">Apply Coupon</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-6 pl-5">
-                                <div className="row justify-content-end">
-                                    <div className="col-md-7">
-                                        <div className="row">
-                                            <div className="col-md-12 text-right border-bottom mb-5">
-                                                <h3 className="text-black h4 text-uppercase">Cart Totals</h3>
-                                            </div>
-                                        </div>
-                                        <div className="row mb-3">
-                                            <div className="col-md-6">
-                                                <span className="text-black">Subtotal</span>
-                                            </div>
-                                            <div className="col-md-6 text-right">
-                                                <strong className="text-black">$230.00</strong>
-                                            </div>
-                                        </div>
-                                        <div className="row mb-5">
-                                            <div className="col-md-6">
-                                                <span className="text-black">Total</span>
-                                            </div>
-                                            <div className="col-md-6 text-right">
-                                                <strong className="text-black">$230.00</strong>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-12">
-                                                <Link className="btn btn-primary btn-lg py-3 btn-block" to="/checkout">Proceed To Checkout</Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div className="bg-light py-3">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12 mb-0">
+                            <Link to="/">Home</Link>
+                            <span className="mx-2 mb-0">/</span>
+                            <strong className="text-black">Cart</strong>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div className="site-section">
+                <div className="container">
 
+                    {data1.length === 0 ? (
+                        <div  className='text-center align-item-center'>
+                        <Link to="/shop" >
+                            <img className='text-center' src="images/shopping.png" height="370px" alt="" />
+                        </Link>
+                        </div>
+                    ) : (
+
+                        <div className="row mb-5">
+                            <div className="col-md-12">
+                                <table className="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th>Qty</th>
+                                            <th>Total</th>
+                                            <th>Remove</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        {data1.map((value) => (
+                                            <tr key={value.id}>
+                                                <td>
+                                                    <img src={value.image} width="60" />
+                                                </td>
+                                                <td>{value.name}</td>
+                                                <td>₹{value.price}</td>
+                                                <td>{value.qty}</td>
+                                                <td>₹{value.price * value.qty}</td>
+                                                <td>
+                                                    <button
+                                                        className="btn btn-danger btn-sm"
+                                                        onClick={() => removeItem(value.id)}
+                                                    >
+                                                        X
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    )}
+
+                    <div className="row">
+                        <div className="col-md-6 offset-md-6 text-right">
+                            <h4>Total: ₹{grandTotal}</h4>
+                            <Link to="/checkout" className="btn btn-primary mt-3">
+                                Proceed To Checkout
+                            </Link>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     )
 }
 
-export default Cart
+export default Cart;

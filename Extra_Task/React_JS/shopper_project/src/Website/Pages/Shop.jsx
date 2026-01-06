@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 
 const Shop = () => {
 
@@ -30,6 +31,8 @@ const Shop = () => {
     );
   };
 
+
+
   // 🔹 FILTER LOGIC (ALL COMBINED)
   const filteredProducts = products.filter(item => {
     const matchCategory =
@@ -44,9 +47,31 @@ const Shop = () => {
     return matchCategory && matchPrice && matchSize;
   });
 
+
+
+  const navigate = useNavigate();
+  const addToCart = (product) => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const index = cart.findIndex(item => item.id === product.id);
+
+    if (index !== -1) {
+      cart[index].qty += 1;
+    } else {
+      cart.push({
+        ...product,
+        qty: 1
+      });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    navigate("/cart"); // ✅ redirect
+  };
+
+
   return (
     <div>
-        
       <div className="bg-light py-3">
         <div className="container">
           <div className="row">
@@ -90,9 +115,13 @@ const Shop = () => {
                         <p className="text-primary font-weight-bold">
                           ₹{value.price}
                         </p>
-                        <Link to="/cart" className="btn btn-sm btn-primary">
+                        <button
+                          className="btn btn-sm btn-primary"
+                          onClick={() => addToCart(value)}
+                        >
                           Add To Cart
-                        </Link>
+                        </button>
+
                       </div>
                     </div>
                   </div>
@@ -110,9 +139,8 @@ const Shop = () => {
                   {categories.map((cat, i) => (
                     <li key={i} className="mb-1">
                       <button
-                        className={`btn btn-link p-0 ${
-                          category === cat ? "text-primary font-weight-bold" : ""
-                        }`}
+                        className={`btn btn-link p-0 ${category === cat ? "text-primary font-weight-bold" : ""
+                          }`}
                         onClick={() => setCategory(cat)}
                       >
                         {cat}
