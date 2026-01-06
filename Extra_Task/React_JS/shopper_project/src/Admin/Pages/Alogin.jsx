@@ -33,12 +33,12 @@ const Alogin = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
 
   useEffect(() => {
-  const name = sessionStorage.getItem("s_aname");
-  if (name) {
-    setAdminName(name);
-    setIsLoggedIn(true);
-  }
-}, []);
+    const name = sessionStorage.getItem("s_aname");
+    if (name) {
+      setAdminName(name);
+      setIsLoggedIn(true);
+    }
+  }, []);
 
 
   if (!isLoggedIn) {
@@ -124,7 +124,7 @@ const LoginPage = ({ onLogin }) => {
 
     // ✅ parent ko inform
     onLogin(res.data[0].name);
-    navigate("/alogin");
+    navigate("/dashboard");
   };
 
   return (
@@ -230,15 +230,15 @@ const TopNavbar = ({ adminName, onToggleSidebar, showProfileMenu, setShowProfile
         </button>
         <div style={styles.profileSection}>
           <TopNavbar
-  adminName={adminName}
-  onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
-  showProfileMenu={showProfileMenu}
-  setShowProfileMenu={setShowProfileMenu}
-  onLogout={() => {
-    sessionStorage.clear();
-    setIsLoggedIn(false);
-  }}
-/>
+            adminName={adminName}
+            onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+            showProfileMenu={showProfileMenu}
+            setShowProfileMenu={setShowProfileMenu}
+            onLogout={() => {
+              sessionStorage.clear();
+              setIsLoggedIn(false);
+            }}
+          />
 
 
           {showProfileMenu && (
