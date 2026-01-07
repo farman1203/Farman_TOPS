@@ -48,6 +48,7 @@ const Alogin = () => {
   const renderPage = () => {
     switch (currentPage) {
       case 'dashboard': return <Dashboard />;
+      case 'top-navbar': return <TopNavbar />;
       case 'products': return <ProductsList onAdd={() => setCurrentPage('add-product')} />;
       case 'add-product': return <AddProduct onBack={() => setCurrentPage('products')} />;
       case 'orders': return <OrdersList />;
@@ -69,16 +70,7 @@ const Alogin = () => {
         isOpen={sidebarOpen}
       />
       <div style={styles.mainContent}>
-        <TopNavbar
-          adminName={adminName}
-          onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
-          showProfileMenu={showProfileMenu}
-          setShowProfileMenu={setShowProfileMenu}
-          onLogout={() => {
-            sessionStorage.clear();
-            setIsLoggedIn(false);
-          }}
-        />
+       
 
         <div style={styles.pageContent}>
           {renderPage()}
@@ -124,7 +116,7 @@ const LoginPage = ({ onLogin }) => {
 
     // ✅ parent ko inform
     onLogin(res.data[0].name);
-    navigate("/dashboard");
+    navigate("/alogin");
   };
 
   return (
@@ -209,57 +201,60 @@ const Sidebar = ({ currentPage, setCurrentPage, isOpen }) => {
 };
 
 // Top Navbar Component
-const TopNavbar = ({ adminName, onToggleSidebar, showProfileMenu, setShowProfileMenu, onLogout }) => {
+const TopNavbar = ({
+  adminName,
+  onToggleSidebar,
+  showProfileMenu,
+  setShowProfileMenu,
+  onLogout
+}) => {
   return (
     <div style={styles.topNavbar}>
+
       <div style={styles.navLeft}>
         <button onClick={onToggleSidebar} style={styles.menuToggle}>☰</button>
-        <div style={styles.searchBar}>
-          <Search size={18} color="#8492a6" />
-          <input
-            type="text"
-            placeholder="Search..."
-            style={styles.searchInput}
-          />
-        </div>
       </div>
+
       <div style={styles.navRight}>
         <button style={styles.iconButton}>
           <Bell size={20} />
-          <span style={styles.badge}>3</span>
         </button>
-        <div style={styles.profileSection}>
-          <TopNavbar
-            adminName={adminName}
-            onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
-            showProfileMenu={showProfileMenu}
-            setShowProfileMenu={setShowProfileMenu}
-            onLogout={() => {
-              sessionStorage.clear();
-              setIsLoggedIn(false);
-            }}
-          />
 
+        <div style={styles.profileSection}>
+
+         
+          <div
+            style={styles.profileTrigger}
+            onClick={() => setShowProfileMenu(!showProfileMenu)}
+          >
+            <div style={styles.avatar}>
+              {adminName?.charAt(0).toUpperCase()}
+            </div>
+
+            <span style={styles.profileName}>{adminName}</span>
+
+            <ChevronDown size={16} />
+          </div>
 
           {showProfileMenu && (
             <div style={styles.profileMenu}>
               <div style={styles.profileMenuItem}>Profile</div>
               <div style={styles.profileMenuItem}>Settings</div>
               <div
+                style={{ ...styles.profileMenuItem, color: "red" }}
                 onClick={onLogout}
-                style={{ ...styles.profileMenuItem, color: "#f56565" }}
               >
-                <LogOut size={16} />
                 Logout
               </div>
-
             </div>
           )}
+
         </div>
       </div>
     </div>
   );
 };
+
 
 // Dashboard Page
 const Dashboard = () => {
