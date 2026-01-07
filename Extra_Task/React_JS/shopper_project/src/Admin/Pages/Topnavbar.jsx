@@ -21,116 +21,57 @@ import {
     ShoppingBag
 } from 'lucide-react';
 import axios from 'axios';
-import TopNavbar from './Topnavbar';
 
-// Dashboard Page
-const Dashboard = () => {
+// Top Navbar Component
+const TopNavbar = ({
+  onToggleSidebar,
+  onLogout
+}) => {
 
-  // states
-  const [orders, setOrders] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [products, setProducts] = useState([]);
-
-  // revenue calculation (TOP me rakho)
-  const totalRevenue = orders.reduce(
-    (sum, order) => sum + Number(order.total || 0),
-    0
-  );
-
-  // stats array (revenue ke BAAD)
-  const stats = [
-    {
-      label: "Total Revenue",
-      value: `$${totalRevenue}`,
-      icon: <DollarSign size={24} />,
-      color: "#7971ea",
-    },
-    {
-      label: "Total Orders",
-      value: orders.length,
-      icon: <ShoppingCart size={24} />,
-      color: "#48bb78",
-    },
-    {
-      label: "Total Products",
-      value: products.length,
-      icon: <Package size={24} />,
-      color: "#ed8936",
-    },
-    {
-      label: "Total Users",
-      value: users.length,
-      icon: <Users size={24} />,
-      color: "#4299e1",
-    },
-  ];
-
-
-  useEffect(() => {
-    fetchDashboardData();
-  }, []);
-
-
-  const fetchDashboardData = async () => {
-    try {
-      const ordersRes = await axios.get("http://localhost:3001/Orders");
-      const usersRes = await axios.get("http://localhost:3001/Users");
-      const productsRes = await axios.get("http://localhost:3001/Products");
-
-      setOrders(ordersRes.data);
-      setUsers(usersRes.data);
-      setProducts(productsRes.data);
-    } catch (error) {
-      console.error("Dashboard API Error:", error);
-    }
-  };
+    const [showProfileMenu, setShowProfileMenu] = useState(false);
+    const [adminName, setAdminName] = useState("");
 
   return (
-    <div>
-        <TopNavbar/>
-      <h1 style={styles.pageTitle}>Dashboard</h1>
-      <div style={styles.statsGrid}>
-        {stats.map((stat, index) => (
-          <div key={index} style={styles.statCard}>
-            <div style={styles.statContent}>
-              <div>
-                <p style={styles.statLabel}>{stat.label}</p>
-                <h3 style={styles.statValue}>{stat.value}</h3>
-                <span style={styles.statChange}>{stat.change} from last month</span>
-              </div>
-              <div style={{ ...styles.statIcon, backgroundColor: stat.color + '20', color: stat.color }}>
-                {stat.icon}
-              </div>
-            </div>
-          </div>
-        ))}
+    <div style={styles.topNavbar}>
+
+      <div style={styles.navLeft}>
+        <button onClick={onToggleSidebar} style={styles.menuToggle}>☰</button>
       </div>
 
-      <div style={styles.chartsGrid}>
-        <div style={styles.chartCard}>
-          <h3 style={styles.cardTitle}>Recent Orders</h3>
-          <table style={styles.table}>
-            <thead>
-              <tr style={styles.tableHeader}>
-                <th style={styles.th}>Order ID</th>
-                <th style={styles.th}>Customer</th>
-                <th style={styles.th}>Total</th>
-                <th style={styles.th}>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders.slice(0, 5).map(order => (
-                <tr key={order.id} style={styles.tableRow}>
-                  <td style={styles.td}>{order.id}</td>
-                  <td style={styles.td}>{order.customer}</td>
-                  <td style={styles.td}>${order.total}</td>
-                  <td style={styles.td}>
-                    <span style={getStatusStyle(order.status)}>{order.status}</span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <div style={styles.navRight}>
+        <button style={styles.iconButton}>
+          <Bell size={20} />
+        </button>
+
+        <div style={styles.profileSection}>
+
+         
+          <div
+            style={styles.profileTrigger}
+            onClick={() => setShowProfileMenu(!showProfileMenu)}
+          >
+            <div style={styles.avatar}>
+              {adminName?.charAt(0).toUpperCase()}
+            </div>
+
+            <span style={styles.profileName}>{adminName}</span>
+
+            <ChevronDown size={16} />
+          </div>
+
+          {showProfileMenu && (
+            <div style={styles.profileMenu}>
+              <div style={styles.profileMenuItem}>Profile</div>
+              <div style={styles.profileMenuItem}>Settings</div>
+              <div
+                style={{ ...styles.profileMenuItem, color: "red" }}
+                onClick={onLogout}
+              >
+                Logout
+              </div>
+            </div>
+          )}
+
         </div>
       </div>
     </div>
@@ -611,4 +552,4 @@ const styles = {
     },
 };
 
-export default Dashboard
+export default TopNavbar
