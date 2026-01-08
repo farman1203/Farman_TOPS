@@ -21,7 +21,7 @@ import {
     ShoppingBag
 } from 'lucide-react';
 import axios from 'axios';
-import TopNavbar from './Topnavbar';
+import TopNavbar from '../Component/Topnavbar';
 
 // Dashboard Page
 const Dashboard = () => {

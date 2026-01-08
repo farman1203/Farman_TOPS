@@ -43,6 +43,10 @@ const Cart = () => {
                         <Link to="/shop" >
                             <img className='text-center' src="images/shopping.png" height="370px" alt="" />
                         </Link>
+                        <div>
+
+                        <Link to="/shop" className='btn btn-primary mt-3'>Browse Items</Link>
+                        </div>
                         </div>
                     ) : (
 
