@@ -22,6 +22,7 @@ import {
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Dashboard from './Dashboard';
+import { toast } from 'react-toastify';
 
 
 // Main App Component
@@ -110,12 +111,12 @@ const LoginPage = ({ onLogin }) => {
     );
 
     if (res.data.length === 0) {
-      alert("Invalid Email");
+      toast.error("Invalid Email");
       return;
     }
 
     if (res.data[0].password !== formData.password) {
-      alert("Wrong Password");
+      toast.error("Wrong Password");
       return;
     }
 
@@ -390,7 +391,7 @@ const AddProduct = ({ onBack }) => {
     e.preventDefault();
     const obj = await axios.post(`http://localhost:3001/Products`, formData);
     setFormData({ ...formData, name: "", category: "", price: "", stock: "", image: "", description: "", status: "" });
-    alert('Product added successfully!');
+    toast.success('Product added successfully!');
     onBack();
   };
 
@@ -431,7 +432,7 @@ const AddProduct = ({ onBack }) => {
                 <option value="">Select category</option>
                 {cate.map((value) => {
                   return (
-                    <option value={value.id}>
+                    <option value={value.name}>
                       {value.name}
                     </option>
                   )

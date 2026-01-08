@@ -17,11 +17,14 @@ import Pagenote404 from './Website/Pages/Pagenote404'
 import UBefore_login from './Website/Pages/UBefore_login'
 import UAfter_login from './Website/Pages/UAfter_login'
 import User_profile from './Website/Pages/User_profile'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
+      <ToastContainer ></ToastContainer>
         <Routes>
           <Route path="/" element={<><Header /><Index /><Footer /></>}></Route>
           <Route path="/about" element={<><Header /><About /><Footer /></>}></Route>
@@ -34,7 +37,7 @@ const App = () => {
           <Route path="*" element={<><Header /><Pagenote404 /><Footer /></>}></Route>
 
           <Route element={<UBefore_login />}>
-            <Route path="/login" element={<><Header /><Login /><Footer /></>}></Route>
+            <Route path="/login" element={<><Header/><Login /></>}></Route>
           </Route>
 
           <Route element={<UAfter_login />}>

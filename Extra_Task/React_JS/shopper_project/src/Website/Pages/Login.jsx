@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Eye, EyeOff, ShoppingBag, Mail, Lock, User, Check } from 'lucide-react';
 import { Link, redirect, useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 // Main App Component
 const Login = () => {
@@ -134,7 +135,9 @@ const LoginPage = ({ onNavigateToRegister }) => {
   }
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
+    if(validateForm()){
     const obj = await axios.get(`http://localhost:3001/Users?email=${obj_cate.email}`);
     //console.log(obj.data);
     if (obj.data.length > 0) {
@@ -145,24 +148,25 @@ const LoginPage = ({ onNavigateToRegister }) => {
           sessionStorage.setItem('s_name', obj.data[0].fullName);
 
 
-          alert('Login Success ');
+          toast.success('Login Success ');
           redirect('/');
         }
         else {
-          alert('Login Failed Due to Blocked Account');
+          toast.error('Login Failed Due to Blocked Account');
           return false;
         }
       }
       else {
-        alert('Login Failed Due to Wrong Password');
+        toast.error('Login Failed Due to Wrong Password');
         return false;
       }
     }
     else {
-      alert('Login Failed Due to Wrong Email');
+      toast.error('Login Failed Due to Wrong Email');
       return false;
     }
     return false;
+  }
   }
 
   // const [formData, setFormData] = useState({
@@ -187,24 +191,24 @@ const LoginPage = ({ onNavigateToRegister }) => {
   //   }
   // };
 
-  // const validateForm = () => {
-  //   const newErrors = {};
+  const validateForm = () => {
+    const newErrors = {};
 
-  //   if (!formData.email) {
-  //     newErrors.email = 'Email is required';
-  //   } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-  //     newErrors.email = 'Email is invalid';
-  //   }
+    if (!obj_cate.email) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(obj_cate.email)) {
+      newErrors.email = 'Email is invalid';
+    }
 
-  //   if (!formData.password) {
-  //     newErrors.password = 'Password is required';
-  //   } else if (formData.password.length < 6) {
-  //     newErrors.password = 'Password must be at least 6 characters';
-  //   }
+    if (!obj_cate.password) {
+      newErrors.password = 'Password is required';
+    } else if (obj_cate.password.length < 6) {
+      newErrors.password = 'Password must be at least 6 characters';
+    }
 
-  //   setErrors(newErrors);
-  //   return Object.keys(newErrors).length === 0;
-  // };
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();

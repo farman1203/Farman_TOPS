@@ -39,6 +39,16 @@
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS1FeLrq3869krqY8D0ZGELoDKdX7SRilAi59HV88_HlFhjmfKdRVblz8irCxWichKgR-AnfotfM_rjSutGoiz4un26ivh1ul7_W_zpD6h2KpzO96olsexY3Q",
       "description": "shoe ",
       "status": "Active"
+    },
+    {
+      "id": "1767880897903",
+      "name": "casual shoes",
+      "category": "casual shoes",
+      "price": "500",
+      "stock": "6",
+      "image": "data:image/avif;base64,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",
+      "description": "",
+      "status": "Active"
     }
   ],
   "Orders": [
@@ -92,6 +102,14 @@
       "status": "Unblock",
       "fullName": "farman",
       "confirmPassword": "123465"
+    },
+    {
+      "id": "ee14",
+      "fullName": "abc abc",
+      "email": "abc@gmail.com",
+      "password": "112233",
+      "confirmPassword": "112233",
+      "status": "Unblock"
     }
   ],
   "Categories": [
@@ -106,6 +124,12 @@
       "name": "Women",
       "products": "5",
       "status": "Active"
+    },
+    {
+      "id": "1767880792196",
+      "name": "casual shoes",
+      "products": "20",
+      "status": "Active"
     }
   ],
   "Customer": [
@@ -119,7 +143,7 @@
   ],
   "Admin": [
     {
-     "id": "1",
+      "id": "1",
       "name": "Admin",
       "email": "admin@example.com",
       "role": "admin",
