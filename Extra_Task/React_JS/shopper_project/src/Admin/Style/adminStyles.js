@@ -1,4 +1,3 @@
-
 const styles = {
   container: {
     display: 'flex',
@@ -435,3 +434,5 @@ const styles = {
     margin: 0,
   },
 };
+
+export default styles;

@@ -120,7 +120,7 @@
   "Admin": [
     {
      "id": "1",
-      "aname": "Admin",
+      "name": "Admin",
       "email": "admin@example.com",
       "role": "admin",
       "password": "123",

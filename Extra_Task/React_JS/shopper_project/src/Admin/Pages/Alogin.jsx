@@ -48,8 +48,6 @@ const Alogin = () => {
 
   const renderPage = () => {
     switch (currentPage) {
-      
-      case 'top-navbar': return <TopNavbar />;
       case 'products': return <ProductsList onAdd={() => setCurrentPage('add-product')} />;
       case 'add-product': return <AddProduct onBack={() => setCurrentPage('products')} />;
       case 'orders': return <OrdersList />;
@@ -72,7 +70,17 @@ const Alogin = () => {
       />
       <div style={styles.mainContent}>
        
-
+  <TopNavbar
+        adminName={adminName}
+        onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+        showProfileMenu={showProfileMenu}
+        setShowProfileMenu={setShowProfileMenu}
+        onLogout={() => {
+          sessionStorage.clear();
+          setIsLoggedIn(false);
+        }}
+      />
+      
         <div style={styles.pageContent}>
           {renderPage()}
         </div>
