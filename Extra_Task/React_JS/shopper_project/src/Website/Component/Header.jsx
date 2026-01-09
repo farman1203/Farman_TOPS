@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Header = () => {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Header = () => {
 
     const userLogout = () => {
         sessionStorage.clear();
-        alert('Logout Successful');
+        toast.info('Logout Successful');
         navigate('/');
     };
 
@@ -97,7 +98,7 @@ const Header = () => {
                                                 className="site-menu-toggle  js-menu-toggle"
                                                 onClick={() => setMobileMenu(!mobileMenu)}
                                             >
-                                                <span className="icon-menu" />
+                                              <span class="icon-menu">-</span>
                                             </button>
                                         </li>
                                     </ul>
@@ -116,7 +117,7 @@ const Header = () => {
                 role="navigation"
             >
                 <div className="container">
-                    <ul className={`site-menu js-clone-nav ${mobileMenu ? 'd-block' : 'd-none'} d-md-block`}>
+                    <ul className={`site-menu js-clone-nav ${mobileMenu ? 'd-none' : 'd-none'} d-md-block`}>
                         <li><NavLink to="/" onClick={() => setMobileMenu(false)}>Home</NavLink></li>
                         <li><NavLink to="/about" onClick={() => setMobileMenu(false)}>About</NavLink></li>
                         <li><NavLink to="/shop" onClick={() => setMobileMenu(false)}>Shop</NavLink></li>

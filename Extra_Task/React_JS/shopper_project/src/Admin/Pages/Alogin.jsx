@@ -664,13 +664,13 @@ const AddUsers = ({ onBack }) => {
     e.preventDefault();
     const obj = await axios.post(`http://localhost:3001/Users`, formData);
     setFormData({ ...formData, name: "", email: "", role: "", joined: "" });
-    alert('Categories added successfully!');
+    toast.success('Categories added successfully!');
     onBack();
   };
 
   const changeHandel = (e) => {
     setFormData({ ...formData, id: new Date().getTime().toString(), [e.target.name]: e.target.value });
-    console.log(formData);
+    // console.log(formData);
   }
 
   return (
@@ -822,7 +822,7 @@ const AddCategories = ({ onBack }) => {
     e.preventDefault();
     const obj = await axios.post(`http://localhost:3001/Categories`, formData);
     setFormData({ ...formData, name: "", products: "", status: "" });
-    alert('Categories added successfully!');
+    toast.success('Categories added successfully!');
     onBack();
   };
 
