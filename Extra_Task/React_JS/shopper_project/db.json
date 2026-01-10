@@ -140,6 +140,15 @@
       "password": "123",
       "status": "Unblock",
       "joined": "31-12-2025"
+    },
+    {
+      "id": "2",
+      "name": "Farman",
+      "email": "farman@example.com",
+      "role": "admin",
+      "password": "123",
+      "status": "Unblock",
+      "joined": "09-01-2026"
     }
   ]
 }

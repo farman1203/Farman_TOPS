@@ -127,6 +127,7 @@ const LoginPage = ({ onLogin }) => {
     // ✅ parent ko inform
     onLogin(res.data[0].name);
     navigate("/alogin");
+    toast.success('login success')
   };
 
   return (
@@ -289,6 +290,9 @@ const ProductsList = ({ onAdd }) => {
     if (check) {
       const obj = await axios.delete(`http://localhost:3001/Products/${id}`);
       fetch_data1();
+      toast.error('product delete succeessfully!!',{
+        position:"bottom-right"
+      });
     }
     return false;
   }

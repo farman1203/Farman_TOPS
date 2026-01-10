@@ -98,12 +98,11 @@ const Header = () => {
                                                 className="site-menu-toggle  js-menu-toggle"
                                                 onClick={() => setMobileMenu(!mobileMenu)}
                                             >
-                                              <span class="icon-menu">-</span>
+                                              <span class="icon-menu"></span>
                                             </button>
                                         </li>
                                     </ul>
                                 )}
-
                             </div>
                         </div>
                     </div>
