@@ -20,7 +20,7 @@ import {
   ShoppingBag
 } from 'lucide-react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { redirect, useNavigate, useParams } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import { toast } from 'react-toastify';
 
@@ -33,6 +33,8 @@ const Alogin = () => {
   const [currentPage, setCurrentPage] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [editProductId, setEditProductId] = useState(null);
+
 
   useEffect(() => {
     const name = sessionStorage.getItem("s_aname");
@@ -49,8 +51,9 @@ const Alogin = () => {
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'products': return <ProductsList onAdd={() => setCurrentPage('add-product')} />;
+      case 'products': return <ProductsList  onAdd={() => setCurrentPage('add-product')} setCurrentPage={setCurrentPage} setEditProductId={setEditProductId} />;
       case 'add-product': return <AddProduct onBack={() => setCurrentPage('products')} />;
+      case 'edit-product': return <EditProduct productId={editProductId} onBack={() => setCurrentPage('products')} />;
       case 'orders': return <OrdersList />;
       case 'users': return <UsersList onAdd={() => setCurrentPage('add-users')} />;
       case 'add-users': return <AddUsers onBack={() => setCurrentPage('users')} />;
@@ -70,18 +73,18 @@ const Alogin = () => {
         isOpen={sidebarOpen}
       />
       <div style={styles.mainContent}>
-       
-  <TopNavbar
-        adminName={adminName}
-        onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
-        showProfileMenu={showProfileMenu}
-        setShowProfileMenu={setShowProfileMenu}
-        onLogout={() => {
-          sessionStorage.clear();
-          setIsLoggedIn(false);
-        }}
-      />
-      
+
+        <TopNavbar
+          adminName={adminName}
+          onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+          showProfileMenu={showProfileMenu}
+          setShowProfileMenu={setShowProfileMenu}
+          onLogout={() => {
+            sessionStorage.clear();
+            setIsLoggedIn(false);
+          }}
+        />
+
         <div style={styles.pageContent}>
           {renderPage()}
         </div>
@@ -233,7 +236,7 @@ const TopNavbar = ({
 
         <div style={styles.profileSection}>
 
-         
+
           <div
             style={styles.profileTrigger}
             onClick={() => setShowProfileMenu(!showProfileMenu)}
@@ -268,10 +271,10 @@ const TopNavbar = ({
 
 
 // Dashboard Page
-<Dashboard/>
+<Dashboard />
 
 // Products List Page
-const ProductsList = ({ onAdd }) => {
+const ProductsList = ({  onAdd, setCurrentPage, setEditProductId  }) => {
 
   const [data1, setData1] = useState([])
 
@@ -284,14 +287,15 @@ const ProductsList = ({ onAdd }) => {
     setData1(obj.data)
   }
 
+  const redirect = useNavigate();
   const deletehandle = async (id) => {
 
     const check = confirm('Are you Confirm to delete this product');
     if (check) {
       const obj = await axios.delete(`http://localhost:3001/Products/${id}`);
       fetch_data1();
-      toast.error('product delete succeessfully!!',{
-        position:"bottom-right"
+      toast.error('product delete succeessfully!!', {
+        position: "bottom-right"
       });
     }
     return false;
@@ -352,9 +356,17 @@ const ProductsList = ({ onAdd }) => {
                     <button style={styles.iconBtn} title="View">
                       <Eye size={16} />
                     </button>
-                    <button style={styles.iconBtn} title="Edit">
+                    <button
+                      style={styles.iconBtn}
+                      title="Edit"
+                      onClick={() => {
+                        setEditProductId(value.id);
+                        setCurrentPage('edit-product');
+                      }}
+                    >
                       <Edit size={16} />
                     </button>
+
                     <button style={styles.iconBtnDanger} title="Delete" onClick={() => deletehandle(value.id)}>
                       <Trash2 size={16} />
                     </button>
@@ -515,6 +527,163 @@ const AddProduct = ({ onBack }) => {
     </div>
   );
 };
+
+// Edit Product Page
+const EditProduct = ({ productId, onBack }) => {
+
+  const [formData, setFormData] = useState({
+    name: '',
+    category: '',
+    price: '',
+    stock: '',
+    image: '',
+    description: '',
+    status: 'Active'
+  });
+
+  const [cate, setCate] = useState([]);
+
+  // 🔹 fetch categories
+  useEffect(() => {
+    fetch_categories();
+    fetch_product();
+  }, []);
+
+  const fetch_categories = async () => {
+    const res = await axios.get(`http://localhost:3001/Categories`);
+    setCate(res.data);
+  };
+
+  // 🔹 fetch single product
+  const fetch_product = async () => {
+    const res = await axios.get(`http://localhost:3001/Products/${productId}`);
+    setFormData(res.data);
+  };
+
+  const changeHandler = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await axios.put(
+      `http://localhost:3001/Products/${productId}`,
+      formData
+    );
+    toast.success("Product updated successfully!");
+    onBack();
+  };
+
+  return (
+    <div>
+      <button onClick={onBack} style={styles.backButton}>← Back to Products</button>
+      <h1 style={styles.pageTitle}>Edit Product</h1>
+
+      <div style={styles.card}>
+        <form onSubmit={handleSubmit} style={styles.form}>
+
+          <div style={styles.formRow}>
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Product Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={changeHandler}
+                style={styles.input}
+              />
+            </div>
+
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Category</label>
+              <select
+                name="category"
+                value={formData.category}
+                onChange={changeHandler}
+                style={styles.input}
+              >
+                <option value="">Select Category</option>
+                {cate.map(c => (
+                  <option key={c.id} value={c.name}>{c.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div style={styles.formRow}>
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Price</label>
+              <input
+                type="number"
+                name="price"
+                value={formData.price}
+                onChange={changeHandler}
+                style={styles.input}
+              />
+            </div>
+
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Stock</label>
+              <input
+                type="number"
+                name="stock"
+                value={formData.stock}
+                onChange={changeHandler}
+                style={styles.input}
+              />
+            </div>
+          </div>
+
+          <div style={styles.formGroup}>
+            <label style={styles.label}>Image URL</label>
+            <input
+              type="text"
+              name="image"
+              value={formData.image}
+              onChange={changeHandler}
+              style={styles.input}
+            />
+          </div>
+
+          <div style={styles.formGroup}>
+            <label style={styles.label}>Description</label>
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={changeHandler}
+              style={{ ...styles.input, minHeight: '100px' }}
+            />
+          </div>
+
+          <div style={styles.formGroup}>
+            <label style={styles.label}>Status</label>
+            <select
+              name="status"
+              value={formData.status}
+              onChange={changeHandler}
+              style={styles.input}
+            >
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+
+          <div style={styles.formActions}>
+            <button type="button" onClick={onBack} style={styles.secondaryButton}>
+              Cancel
+            </button>
+            <button type="submit" style={styles.primaryButton}>
+              Update Product
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  );
+};
+
+
 
 // Orders List Page
 const OrdersList = () => {

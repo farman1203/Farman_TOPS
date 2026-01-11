@@ -19,6 +19,7 @@ import UAfter_login from './Website/Pages/UAfter_login'
 import User_profile from './Website/Pages/User_profile'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import Edit_product from './Admin/Pages/Edit_product'
 
 const App = () => {
   return (
@@ -46,7 +47,8 @@ const App = () => {
 
 
           <Route path="/alogin" element={<><Alogin /></>}></Route>
-          {/* <Route path="/dashboard" element={<><Dashboard/></>}></Route> */}
+          {/* <Route path="/edit_product/" element={<><Edit_product /></>}></Route> */}
+          {/* <Route path="/dashboard" element={<><Dashboard/></>}></Route> */} 
 
 
         </Routes>

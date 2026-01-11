@@ -2,13 +2,14 @@
   "Products": [
     {
       "id": "1",
-      "name": "Polo Shirt",
+      "name": "shoes for men",
       "category": "Women",
-      "price": "399",
+      "price": "499",
       "stock": "120",
       "status": "Active",
       "size": "Medium",
-      "image": "images/shoe_1.jpg"
+      "image": "images/shoe_1.jpg",
+      "description": "shoes for men"
     },
     {
       "id": "2",
