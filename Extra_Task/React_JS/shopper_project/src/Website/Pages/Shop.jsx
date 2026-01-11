@@ -102,7 +102,7 @@ const Shop = () => {
                   <div key={value.id} className="col-sm-6 col-lg-4 mb-4 " data-aos="fade-up">
                     <div className="block-4 text-center border">
                       <figure className="block-4-image">
-                        <button className='btn btn-link' onClick={()=>navigate(`/shop-single/${value.id}`)}>
+                        <button className='btn-link no-border-button' onClick={()=>navigate(`/shop-single/${value.id}`)}>
                           <img
                             src={value.image}
                             alt={value.name}
