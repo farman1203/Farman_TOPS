@@ -7,7 +7,7 @@
       "price": "399",
       "stock": "120",
       "status": "Active",
-      "size": "M",
+      "size": "Medium",
       "image": "images/shoe_1.jpg"
     },
     {
@@ -17,7 +17,7 @@
       "price": "499",
       "stock": "120",
       "status": "Active",
-      "size": "S",
+      "size": "Small",
       "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSs7mEF_Y5U869iUE7JW_alspnHAdAyjbRzRYfZjnOF38FYrtBmDvfwdzGK35yI7gEYmGJf-VpkAaw7VzCa3pAbeBX-9n9CT5NOYOJV63ApL4QktzJbJ2-8mSxtwly_6I9ptSomweM&usqp=CAc"
     },
     {
@@ -28,6 +28,7 @@
       "stock": "1",
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS1FeLrq3869krqY8D0ZGELoDKdX7SRilAi59HV88_HlFhjmfKdRVblz8irCxWichKgR-AnfotfM_rjSutGoiz4un26ivh1ul7_W_zpD6h2KpzO96olsexY3Q",
       "description": "shoe ",
+      "size": "Large",
       "status": "Active"
     },
     {

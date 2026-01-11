@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, redirect, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -50,6 +50,7 @@ const Shop = () => {
 
 
   const navigate = useNavigate();
+  
   const addToCart = (product) => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -101,14 +102,14 @@ const Shop = () => {
                   <div key={value.id} className="col-sm-6 col-lg-4 mb-4 " data-aos="fade-up">
                     <div className="block-4 text-center border">
                       <figure className="block-4-image">
-                        <Link to="/shop-single">
+                        <button className='btn btn-link' onClick={()=>navigate(`/shop-single/${value.id}`)}>
                           <img
                             src={value.image}
                             alt={value.name}
-                            className="img-fluid"
+                            className="img-fluid "
                             style={{ height: "200px", objectFit: "contain" }}
                           />
-                        </Link>
+                        </button>
                       </figure>
                       <div className="block-4-text p-4">
                         <h3>{value.name}</h3>
@@ -168,7 +169,7 @@ const Shop = () => {
               <div className="border p-4 rounded mb-4">
                 <h3 className="mb-3 h6 text-uppercase">Size</h3>
 
-                {["S", "M", "L"].map(sz => (
+                {["Small", "Medium", "Large"].map(sz => (
                   <label key={sz} className="d-flex">
                     <input
                       type="checkbox"

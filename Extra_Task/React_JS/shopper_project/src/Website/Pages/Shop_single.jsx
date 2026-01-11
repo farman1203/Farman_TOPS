@@ -1,8 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios';
+import { Drama } from 'lucide-react';
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 const Shop_single = () => {
 
+    useEffect(()=>{
+        edit_data();
+    })
+
+    const {id}=useParams();
+    const [data,setData] = useState({});
+
+    const edit_data =async () => {
+        const obj= await axios.get(`http://localhost:3001/Products/${id}`);
+        setData(obj.data);
+    }
 
     return (
         <div>
@@ -10,7 +23,7 @@ const Shop_single = () => {
                 <div className="bg-light py-3">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-12 mb-0"><Link to="/">Home</Link> <span className="mx-2 mb-0">/</span> <strong className="text-black">Tank Top T-Shirt</strong></div>
+                            <div className="col-md-12 mb-0"><Link to="/">Home</Link> <span className="mx-2 mb-0">/</span> <strong className="text-black">{data.name}</strong></div>
                         </div>
                     </div>
                 </div>
@@ -18,19 +31,19 @@ const Shop_single = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-6">
-                                <img src="images/cloth_1.jpg" alt="Image" className="img-fluid" />
+                                <img src={data.image} alt="Image" className="img-fluid" />
                             </div>
                             <div className="col-md-6">
-                                <h2 className="text-black">Tank Top T-Shirt</h2>
+                                <h2 className="text-black">{data.name}</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas, distinctio, aperiam, ratione dolore.</p>
                                 <p className="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic magni iste, velit aperiam quis.</p>
-                                <p><strong className="text-primary h4">$50.00</strong></p>
+                                <p><strong className="text-primary h4">${data.price}</strong></p>
                                 <div className="mb-1 d-flex">
                                     <label htmlFor="option-sm" className="d-flex mr-3 mb-3">
-                                        <span className="d-inline-block mr-2" style={{ top: '-2px', position: 'relative' }}><input type="radio" id="option-sm" name="shop-sizes" /></span> <span className="d-inline-block text-black">Small</span>
+                                        <span className="d-inline-block mr-2" style={{ top: '-2px', position: 'relative' }}><input type="radio" id="option-sm" name="shop-sizes" /></span> <span className="d-inline-block text-black">{data.size}</span>
                                     </label>
                                     <label htmlFor="option-md" className="d-flex mr-3 mb-3">
-                                        <span className="d-inline-block mr-2" style={{ top: '-2px', position: 'relative' }}><input type="radio" id="option-md" name="shop-sizes" /></span> <span className="d-inline-block text-black">Medium</span>
+                                        <span className="d-inline-block mr-2" style={{ top: '-2px', position: 'relative' }}><input type="radio" id="option-md" name="shop-sizes" /></span> <span className="d-inline-block text-black">{data.size}</span>
                                     </label>
                                     <label htmlFor="option-lg" className="d-flex mr-3 mb-3">
                                         <span className="d-inline-block mr-2" style={{ top: '-2px', position: 'relative' }}><input type="radio" id="option-lg" name="shop-sizes" /></span> <span className="d-inline-block text-black">Large</span>
