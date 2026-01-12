@@ -34,6 +34,7 @@ const Alogin = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [editProductId, setEditProductId] = useState(null);
+  const [editUserId, setUserId] = useState(null);
 
 
   useEffect(() => {
@@ -55,8 +56,9 @@ const Alogin = () => {
       case 'add-product': return <AddProduct onBack={() => setCurrentPage('products')} />;
       case 'edit-product': return <EditProduct productId={editProductId} onBack={() => setCurrentPage('products')} />;
       case 'orders': return <OrdersList />;
-      case 'users': return <UsersList onAdd={() => setCurrentPage('add-users')} />;
+      case 'users': return <UsersList onAdd={() => setCurrentPage('add-users')}  setCurrentPage={setCurrentPage} setUserId={setUserId} />;
       case 'add-users': return <AddUsers onBack={() => setCurrentPage('users')} />;
+      case 'edit-users': return <EditUsers id={editUserId} onBack={() => setCurrentPage('users')} />;
       case 'categories': return <CategoriesList onAdd={() => setCurrentPage('add-categories')} />;
       case 'add-categories': return <AddCategories onBack={() => setCurrentPage('categories')} />;
       case 'Customer': return <ReviewsList />;
@@ -746,7 +748,7 @@ const OrdersList = () => {
 };
 
 // Users List Page
-const UsersList = ({ onAdd }) => {
+const UsersList = ({ onAdd, setCurrentPage, setUserId }) => {
 
   const [user, setUsers] = useState([]);
 
@@ -804,7 +806,14 @@ const UsersList = ({ onAdd }) => {
                     <button style={styles.iconBtn} title="View">
                       <Eye size={16} />
                     </button>
-                    <button style={styles.iconBtn} title="Edit">
+                      <button
+                      style={styles.iconBtn}
+                      title="Edit"
+                      onClick={() => {
+                        setUserId(user.id);
+                        setCurrentPage('edit-users');
+                      }}
+                    >
                       <Edit size={16} />
                     </button>
                     <button style={styles.iconBtnDanger} onClick={() => deletehandle(user.id)} title="Delete">
@@ -871,6 +880,99 @@ const AddUsers = ({ onBack }) => {
               <input
                 type="text"
                 value={formData.Email}
+                name='email'
+                onChange={changeHandel}
+                style={styles.input}
+                placeholder="Add Email id"
+                required
+              />
+            </div>
+          </div>
+
+          <div style={styles.formGroup}>
+            <label style={styles.label}>Role</label>
+            <input
+              type="text"
+              value={formData.role}
+              name='role'
+              onChange={changeHandel}
+              style={styles.input}
+              placeholder="Add User role"
+              required
+            />
+          </div>
+
+          <div style={styles.formActions}>
+            <button type="button" onClick={onBack} style={styles.secondaryButton}>
+              Cancel
+            </button>
+            <button style={styles.primaryButton} type='submit' >
+              <Plus size={18} />
+              Add New User
+            </button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+// EDIT Users Page
+const EditUsers = ({ id, onBack }) => {
+  const [formData, setFormData] = useState({
+    fullName:'',
+    email: '',
+    role:'',
+    status: 'Active'
+  });
+
+  useEffect(()=>{
+    fetch_edituser();
+  },[])
+
+  const fetch_edituser= async ()=>{
+    const obj = await axios.get(`http://localhost:3001/Users/${id}`);
+    setFormData(obj.data);
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const obj = await axios.put(`http://localhost:3001/Users/${id}`, formData);
+    toast.success('User Updated successfully!');
+    onBack();
+  };
+
+  const changeHandel = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    // console.log(formData);
+  }
+
+  return (
+    <div>
+      <button onClick={onBack} style={styles.backButton}>← Back to Users</button>
+      <h1 style={styles.pageTitle}>Edit Users</h1>
+
+      <div style={styles.card}>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <div style={styles.formRow}>
+            <div style={styles.formGroup}>
+              <label style={styles.label}>User Name</label>
+              <input
+                type="text"
+                value={formData.fullName}
+                name="fullName"
+                onChange={changeHandel}
+                style={styles.input}
+                placeholder="Enter User name"
+                required
+              />
+            </div>
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Email</label>
+              <input
+                type="text"
+                value={formData.email}
                 name='email'
                 onChange={changeHandel}
                 style={styles.input}

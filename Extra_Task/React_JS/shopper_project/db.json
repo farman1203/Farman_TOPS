@@ -72,7 +72,7 @@
       "id": "1",
       "fullName": "John Doe",
       "email": "john@example.com",
-      "role": "Customer",
+      "role": "Admin",
       "orders": "12",
       "password": "123",
       "status": "Unblock",
@@ -93,15 +93,17 @@
       "conpassword": "",
       "status": "Unblock",
       "fullName": "farman",
-      "confirmPassword": "123465"
+      "confirmPassword": "123465",
+      "role": "customer"
     },
     {
       "id": "ee14",
-      "fullName": "abc",
+      "fullName": "abc xyz",
       "email": "abc@gmail.com",
       "password": "112233",
       "confirmPassword": "112233",
-      "status": "Unblock"
+      "status": "Unblock",
+      "role": "customer"
     }
   ],
   "Categories": [
