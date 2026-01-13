@@ -1013,7 +1013,7 @@ const EditUsers = ({ id, onBack }) => {
 
 
 // Categories List Page
-const CategoriesList = ({ onAdd }) => {
+const CategoriesList = ({ onAdd, setCurrentPage, setCategorieId }) => {
 
   useEffect(() => {
     fetch_data();
@@ -1064,7 +1064,14 @@ const CategoriesList = ({ onAdd }) => {
                 </td>
                 <td style={styles.td}>
                   <div style={styles.actionButtons}>
-                    <button style={styles.iconBtn} title="Edit">
+                      <button
+                      style={styles.iconBtn}
+                      title="Edit"
+                      onClick={() => {
+                        setUserId(category.id);
+                        setCurrentPage('edit-users');
+                      }}
+                    >
                       <Edit size={16} />
                     </button>
                     <button style={styles.iconBtnDanger} onClick={() => deletehandle(category.id)} title="Delete">
@@ -1110,6 +1117,87 @@ const AddCategories = ({ onBack }) => {
     <div>
       <button onClick={onBack} style={styles.backButton}>← Back to Categories</button>
       <h1 style={styles.pageTitle}>Add New Categories</h1>
+
+      <div style={styles.card}>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <div style={styles.formRow}>
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Categories Name</label>
+              <input
+                type="text"
+                value={formData.name}
+                name="name"
+                onChange={changeHandel}
+                style={styles.input}
+                placeholder="Enter product name"
+                required
+              />
+            </div>
+            <div style={styles.formGroup}>
+              <label style={styles.label}>Products</label>
+              <input
+                type="text"
+                value={formData.products}
+                name='products'
+                onChange={changeHandel}
+                style={styles.input}
+                placeholder="Add Products"
+                required
+              />
+            </div>
+          </div>
+
+          <div style={styles.formGroup}>
+            <label style={styles.label}>Description</label>
+            <textarea
+              value={formData.description}
+              onChange={changeHandel}
+              name='description'
+              style={{ ...styles.input, minHeight: '100px', resize: 'vertical' }}
+              placeholder="Enter product description"
+            />
+          </div>
+
+          <div style={styles.formActions}>
+            <button type="button" onClick={onBack} style={styles.secondaryButton}>
+              Cancel
+            </button>
+            <button style={styles.primaryButton} type='submit' >
+              <Plus size={18} />
+              Add New Categories
+            </button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+// Edit Categories Page
+const EditCategories = ({ onBack }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    products: '',
+    status: 'Active'
+  });
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const obj = await axios.put(`http://localhost:3001/Categories/${id}`, formData);
+    toast.success('Categories Updated successfully!');
+    onBack();
+  };
+
+  const changeHandel = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log(formData);
+  }
+
+  return (
+    <div>
+      <button onClick={onBack} style={styles.backButton}>← Back to Categories</button>
+      <h1 style={styles.pageTitle}>Edit Categories</h1>
 
       <div style={styles.card}>
         <form onSubmit={handleSubmit} style={styles.form}>
