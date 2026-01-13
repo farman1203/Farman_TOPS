@@ -23,9 +23,9 @@ import axios from 'axios';
 import { redirect, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+const Edit_product = ({ productId }) => {
 
-const Edit_product = () => {
-    const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     name: '',
     category: '',
     price: '',
@@ -35,120 +35,126 @@ const Edit_product = () => {
     status: 'Active'
   });
 
+  const [cate, setCate] = useState([]);
+
+  // 🔹 fetch categories
   useEffect(() => {
-    fetch_data();
+    fetch_categories();
+    fetch_product();
   }, []);
 
-
-  
-  const [cate, setCate] = useState([]);
-  const fetch_data = async () => {
-    const obj = await axios.get(`http://localhost:3001/Categories/${id}`);
-    setCate(obj.data)
-  }
-  
-  const id = useParams();
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const obj = await axios.put(`http://localhost:3001/Products/${id}`, formData);
-    setFormData({ ...formData, name: "", category: "", price: "", stock: "", image: "", description: "", status: "" });
-    toast.success('Product added successfully!');
-    onBack();
+  const fetch_categories = async () => {
+    const res = await axios.get(`http://localhost:3001/Categories`);
+    setCate(res.data);
   };
 
-  const changeHandel = (e) => {
+  // 🔹 fetch single product
+  const fetch_product = async () => {
+    const res = await axios.get(`http://localhost:3001/Products/${productId}`);
+    setFormData(res.data);
+  };
+
+  const changeHandler = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData);
-  }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await axios.put(
+      `http://localhost:3001/Products/${productId}`,
+      formData
+    );
+    toast.success("Product updated successfully!");
+   
+  };
+
   return (
     <div>
-      <button style={styles.backButton}>← Back to Products</button>
-      <h1 style={styles.pageTitle}>Add New Product</h1>
+      <button onClick={onBack} style={styles.backButton}>← Back to Products</button>
+      <h1 style={styles.pageTitle}>Edit Product</h1>
 
       <div style={styles.card}>
-        <form  style={styles.form}>
+        <form onSubmit={handleSubmit} style={styles.form}>
+
           <div style={styles.formRow}>
             <div style={styles.formGroup}>
               <label style={styles.label}>Product Name</label>
               <input
                 type="text"
-                value={formData.name}
                 name="name"
-                onChange={changeHandel}
+                value={formData.name}
+                onChange={changeHandler}
                 style={styles.input}
-                placeholder="Enter product name"
-                required
               />
             </div>
+
             <div style={styles.formGroup}>
               <label style={styles.label}>Category</label>
               <select
+                name="category"
                 value={formData.category}
-                onChange={changeHandel}
-                name='category'
+                onChange={changeHandler}
                 style={styles.input}
-                required
               >
-                <option value="">Select category</option>
-                {cate.map((value) => {
-                  return (
-                    <option value={value.name}>
-                      {value.name}
-                    </option>
-                  )
-                })}
+                <option value="">Select Category</option>
+                {cate.map(c => (
+                  <option key={c.id} value={c.name}>{c.name}</option>
+                ))}
               </select>
             </div>
           </div>
 
           <div style={styles.formRow}>
             <div style={styles.formGroup}>
-              <label style={styles.label}>Price ($)</label>
+              <label style={styles.label}>Price</label>
               <input
                 type="number"
+                name="price"
                 value={formData.price}
-                name='price'
-                onChange={changeHandel}
+                onChange={changeHandler}
                 style={styles.input}
-                placeholder="0.00"
-                required
               />
             </div>
+
             <div style={styles.formGroup}>
-              <label style={styles.label}>Stock Quantity</label>
+              <label style={styles.label}>Stock</label>
               <input
                 type="number"
+                name="stock"
                 value={formData.stock}
-                onChange={changeHandel}
-                name='stock'
+                onChange={changeHandler}
                 style={styles.input}
-                placeholder="0"
-                required
               />
             </div>
           </div>
+
           <div style={styles.formGroup}>
             <label style={styles.label}>Image URL</label>
-            <input type='url' onChange={changeHandel} value={formData.image} name='image' placeholder='Enter Image URL' />
+            <input
+              type="text"
+              name="image"
+              value={formData.image}
+              onChange={changeHandler}
+              style={styles.input}
+            />
           </div>
 
           <div style={styles.formGroup}>
             <label style={styles.label}>Description</label>
             <textarea
+              name="description"
               value={formData.description}
-              onChange={changeHandel}
-              name='description'
-              style={{ ...styles.input, minHeight: '100px', resize: 'vertical' }}
-              placeholder="Enter product description"
+              onChange={changeHandler}
+              style={{ ...styles.input, minHeight: '100px' }}
             />
           </div>
 
           <div style={styles.formGroup}>
             <label style={styles.label}>Status</label>
             <select
+              name="status"
               value={formData.status}
-              onChange={changeHandel}
-              name='status'
+              onChange={changeHandler}
               style={styles.input}
             >
               <option value="Active">Active</option>
@@ -157,20 +163,20 @@ const Edit_product = () => {
           </div>
 
           <div style={styles.formActions}>
-            <button type="button"  style={styles.secondaryButton}>
+            <button type="button" onClick={onBack} style={styles.secondaryButton}>
               Cancel
             </button>
-            <button style={styles.primaryButton} type='submit' onClick={handleSubmit} >
-              <Plus size={18} />
-              Edit Product
+            <button type="submit" style={styles.primaryButton}>
+              Update Product
             </button>
-
           </div>
+
         </form>
       </div>
     </div>
   );
 };
+
 
 // Styles Object
 const styles = {

@@ -1,7 +1,27 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+
 
 const Checkout = () => {
+
+    const navigate = useNavigate();
+    const [cart, setCart] = useState([]);
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    useEffect(() => {
+        if (!user) {
+            navigate("/login");
+            return;
+        }
+
+        const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+        const userCart = cartData.filter(item => item.userId === user.id);
+        setCart(userCart);
+    }, []);
+
+    
+
+
     return (
         <div>
 
@@ -194,23 +214,27 @@ const Checkout = () => {
                                                         <th>Total</th>
                                                     </tr></thead>
                                                 <tbody>
+                                                    {cart.map(item => (
+                                                        <tr key={item.cartId}>
+                                                            <td>
+                                                                {item.name} <strong className="mx-2">x</strong> {item.qty}
+                                                            </td>
+                                                            <td>₹{item.price * item.qty}</td>
+                                                        </tr>
+                                                    ))}
+
                                                     <tr>
-                                                        <td>Top Up T-Shirt <strong className="mx-2">x</strong> 1</td>
-                                                        <td>$250.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Polo Shirt <strong className="mx-2">x</strong>   1</td>
-                                                        <td>$100.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
-                                                        <td className="text-black">$350.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className="text-black font-weight-bold"><strong>Order Total</strong></td>
-                                                        <td className="text-black font-weight-bold"><strong>$350.00</strong></td>
+                                                        <td className="text-black font-weight-bold">
+                                                            <strong>Order Total</strong>
+                                                        </td>
+                                                        <td className="text-black font-weight-bold">
+                                                            <strong>
+                                                                ₹{cart.reduce((sum, i) => sum + i.price * i.qty, 0)}
+                                                            </strong>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
+
                                             </table>
                                             <div className="border p-3 mb-3">
                                                 <h3 className="h6 mb-0"><a className="d-block" data-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Direct Bank Transfer</a></h3>

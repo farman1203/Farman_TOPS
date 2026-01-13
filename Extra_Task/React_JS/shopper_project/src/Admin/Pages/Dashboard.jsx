@@ -137,20 +137,7 @@ const Dashboard = () => {
   );
 };
 
-const getRoleStyle = (role) => {
-  const baseStyle = {
-    padding: '4px 12px',
-    borderRadius: '12px',
-    fontSize: '12px',
-    fontWeight: '500',
-  };
 
-  if (role === 'Admin') {
-    return { ...baseStyle, backgroundColor: '#e9d8fd', color: '#44337a' };
-  } else {
-    return { ...baseStyle, backgroundColor: '#e2e8f0', color: '#2d3748' };
-  }
-};
 
 const getStatusStyle = (status) => {
   const baseStyle = {

@@ -9,6 +9,7 @@ const Login = () => {
 
 
 
+
   const [currentPage, setCurrentPage] = useState('login');
 
 
@@ -137,36 +138,49 @@ const LoginPage = ({ onNavigateToRegister }) => {
   const handleSubmit = async (e) => {
 
     e.preventDefault();
-    if(validateForm()){
-    const obj = await axios.get(`http://localhost:3001/Users?email=${obj_cate.email}`);
-    //console.log(obj.data);
-    if (obj.data.length > 0) {
-      if (obj.data[0].password == obj_cate.password) {
-        if (obj.data[0].status == "Unblock") {
-          //session created
-          sessionStorage.setItem('s_id', obj.data[0].id);
-          sessionStorage.setItem('s_name', obj.data[0].fullName);
+    if (validateForm()) {
+      const obj = await axios.get(`http://localhost:3001/Users?email=${obj_cate.email}`);
+      //console.log(obj.data);
+      if (obj.data.length > 0) {
+        if (obj.data[0].password == obj_cate.password) {
+          if (obj.data[0].status == "Unblock") {
+            //session created
+            const user = obj.data[0];
 
+            // 🔥 ADD THIS (MOST IMPORTANT)
+            localStorage.setItem(
+              "user",
+              JSON.stringify({
+                id: user.id,
+                name: user.fullName,
+                email: user.email
+              })
+            );
 
-          toast.success('Login Success ');
-          redirect('/');
+            // optional (admin / header ke liye)
+            sessionStorage.setItem('s_id', user.id);
+            sessionStorage.setItem('s_name', user.fullName);
+
+            toast.success('Login Success');
+            redirect('/shop'); // ya redirect(-1)
+
+          }
+          else {
+            toast.error('Login Failed Due to Blocked Account');
+            return false;
+          }
         }
         else {
-          toast.error('Login Failed Due to Blocked Account');
+          toast.error('Login Failed Due to Wrong Password');
           return false;
         }
       }
       else {
-        toast.error('Login Failed Due to Wrong Password');
+        toast.error('Login Failed Due to Wrong Email');
         return false;
       }
-    }
-    else {
-      toast.error('Login Failed Due to Wrong Email');
       return false;
     }
-    return false;
-  }
   }
 
   // const [formData, setFormData] = useState({
@@ -363,7 +377,7 @@ const RegisterPage = ({ onNavigateToLogin }) => {
     email: "",
     password: "",
     confirmPassword: "",
-    status:"Unblock"
+    status: "Unblock"
   });
 
   //  const handleChange=(e)=>{

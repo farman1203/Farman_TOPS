@@ -9,10 +9,17 @@ const Header = () => {
     const userId = sessionStorage.getItem('s_id');
     const userName = sessionStorage.getItem('s_name');
 
-    const userLogout = () => {
+    const handleLogout = () => {
+        const userId = sessionStorage.getItem("s_id");
+
+        if (userId) {
+            localStorage.removeItem(`cart_${userId}`);
+        }
+
         sessionStorage.clear();
-        toast.info('Logout Successful');
-        navigate('/');
+        localStorage.removeItem("user");
+
+        window.location.href = "/login";
     };
 
     return (
@@ -82,12 +89,8 @@ const Header = () => {
                                                     </NavLink>
                                                 </li>
                                                 <li>
-                                                    <button
-                                                        className="dropdown-item text-danger"
-                                                        onClick={userLogout}
-                                                    >
-                                                        Logout
-                                                    </button>
+                                                    <button onClick={handleLogout}>Logout</button>
+
                                                 </li>
                                             </ul>
                                         </li>
@@ -98,7 +101,7 @@ const Header = () => {
                                                 className="site-menu-toggle  js-menu-toggle"
                                                 onClick={() => setMobileMenu(!mobileMenu)}
                                             >
-                                              <span class="icon-menu"></span>
+                                                <span class="icon-menu"></span>
                                             </button>
                                         </li>
                                     </ul>

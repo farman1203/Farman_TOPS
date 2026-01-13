@@ -35,6 +35,7 @@ const Alogin = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [editProductId, setEditProductId] = useState(null);
   const [editUserId, setUserId] = useState(null);
+  const [editCategorieId, setCategorieId] = useState(null);
 
 
   useEffect(() => {
@@ -59,8 +60,9 @@ const Alogin = () => {
       case 'users': return <UsersList onAdd={() => setCurrentPage('add-users')}  setCurrentPage={setCurrentPage} setUserId={setUserId} />;
       case 'add-users': return <AddUsers onBack={() => setCurrentPage('users')} />;
       case 'edit-users': return <EditUsers id={editUserId} onBack={() => setCurrentPage('users')} />;
-      case 'categories': return <CategoriesList onAdd={() => setCurrentPage('add-categories')} />;
+      case 'categories': return <CategoriesList onAdd={() => setCurrentPage('edit-users')}  setCurrentPage={setCurrentPage} setCategorieId={setCategorieId} />;
       case 'add-categories': return <AddCategories onBack={() => setCurrentPage('categories')} />;
+      case 'edit-categories': return <EditCategories id={editCategorieId} onBack={() => setCurrentPage('categories')} />;
       case 'Customer': return <ReviewsList />;
       case 'settings': return <Settings />;
       default: return <Dashboard />;
@@ -1013,7 +1015,7 @@ const EditUsers = ({ id, onBack }) => {
 
 
 // Categories List Page
-const CategoriesList = ({ onAdd, setCurrentPage, setCategorieId }) => {
+const CategoriesList = ({  onAdd, setCurrentPage, setCategorieId}) => {
 
   useEffect(() => {
     fetch_data();
@@ -1068,8 +1070,8 @@ const CategoriesList = ({ onAdd, setCurrentPage, setCategorieId }) => {
                       style={styles.iconBtn}
                       title="Edit"
                       onClick={() => {
-                        setUserId(category.id);
-                        setCurrentPage('edit-users');
+                        setCategorieId(category.id);
+                        setCurrentPage('edit-categories');
                       }}
                     >
                       <Edit size={16} />
@@ -1174,12 +1176,21 @@ const AddCategories = ({ onBack }) => {
   );
 };
 // Edit Categories Page
-const EditCategories = ({ onBack }) => {
+const EditCategories = ({ id, onBack }) => {
   const [formData, setFormData] = useState({
     name: '',
     products: '',
     status: 'Active'
   });
+
+  useEffect(()=>{
+    fetch_categories();
+  },[])
+
+  const fetch_categories=async ()=>{
+    const obj= await axios.get(`http://localhost:3001/Categories/${id}`)
+    setFormData(obj.data)
+  }
 
 
   const handleSubmit = async (e) => {
@@ -1245,7 +1256,7 @@ const EditCategories = ({ onBack }) => {
             </button>
             <button style={styles.primaryButton} type='submit' >
               <Plus size={18} />
-              Add New Categories
+              Edit Categories
             </button>
 
           </div>

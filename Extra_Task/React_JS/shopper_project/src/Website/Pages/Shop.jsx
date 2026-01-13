@@ -51,24 +51,31 @@ const Shop = () => {
 
   const navigate = useNavigate();
   
-  const addToCart = (product) => {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+const addToCart = (product) => {
+  const userId = sessionStorage.getItem("s_id");
 
-    const index = cart.findIndex(item => item.id === product.id);
+  console.log("User ID:", userId);
 
-    if (index !== -1) {
-      cart[index].qty += 1;
-    } else {
-      cart.push({
-        ...product,
-        qty: 1
-      });
-    }
+  if (!userId) {
+    alert("Please login first");
+    navigate("/login");
+    return;
+  }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+  const existingCart =
+    JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
 
-    navigate("/cart"); // ✅ redirect
-  };
+  const updatedCart = [...existingCart, product];
+
+  localStorage.setItem(
+    `cart_${userId}`,
+    JSON.stringify(updatedCart)
+  );
+
+  navigate("/cart")
+};
+
+
 
 
   return (
