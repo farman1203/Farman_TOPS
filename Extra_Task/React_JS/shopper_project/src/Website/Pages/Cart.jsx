@@ -31,7 +31,6 @@ const Cart = () => {
             `cart_${userId}`,
             JSON.stringify(updatedCart)
         );
-        
 
         setCartData(updatedCart);
     };

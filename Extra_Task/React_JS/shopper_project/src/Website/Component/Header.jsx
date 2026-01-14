@@ -12,9 +12,6 @@ const Header = () => {
     const handleLogout = () => {
         const userId = sessionStorage.getItem("s_id");
 
-        if (userId) {
-            localStorage.removeItem(`cart_${userId}`);
-        }
 
         sessionStorage.clear();
         localStorage.removeItem("user");
@@ -89,7 +86,7 @@ const Header = () => {
                                                     </NavLink>
                                                 </li>
                                                 <li>
-                                                    <button onClick={handleLogout}>Logout</button>
+                                                    <button className='btn-danger' onClick={handleLogout}>Logout</button>
 
                                                 </li>
                                             </ul>
