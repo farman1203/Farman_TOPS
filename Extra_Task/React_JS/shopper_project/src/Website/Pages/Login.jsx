@@ -249,6 +249,7 @@ const LoginPage = ({ onNavigateToRegister }) => {
   // };
 
   return (
+    <div className='container'>
     <div style={styles.authContainer}>
       <div style={styles.authLeft}>
         <div style={styles.authLeftContent}>
@@ -362,6 +363,7 @@ const LoginPage = ({ onNavigateToRegister }) => {
           </p>
         </div>
       </div>
+    </div>
     </div>
   );
 };
