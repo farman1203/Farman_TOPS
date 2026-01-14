@@ -645,15 +645,18 @@ const GoogleIcon = () => (
 );
 
 // Styles Object
+const isMobile = window.innerWidth <= 768;
 const styles = {
   app: {
     minHeight: '100vh',
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
   },
-  authContainer: {
-    display: 'flex',
-    minHeight: '100vh',
-  },
+ authContainer: {
+  display: 'flex',
+  minHeight: '100vh',
+  flexDirection: isMobile ? 'column' : 'row',
+},
+
   authLeft: {
     flex: '1',
     background: 'linear-gradient(135deg, #7971ea 0%, #5b54d6 100%)',
