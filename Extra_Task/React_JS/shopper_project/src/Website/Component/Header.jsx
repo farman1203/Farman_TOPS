@@ -14,7 +14,7 @@ const Header = () => {
 
 
         sessionStorage.clear();
-        localStorage.removeItem("user");
+        localStorage.removeItem("userId");
 
         window.location.href = "/login";
     };
@@ -98,7 +98,7 @@ const Header = () => {
                                                 className="site-menu-toggle  js-menu-toggle"
                                                 onClick={() => setMobileMenu(!mobileMenu)}
                                             >
-                                                <span class="icon-menu"></span>
+                                                <span className="icon-menu"></span>
                                             </button>
                                         </li>
                                     </ul>

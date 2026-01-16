@@ -36,10 +36,10 @@ const Cart = () => {
     };
 
     // 🔹 GRAND TOTAL
-    const grandTotal = cartData.reduce(
-        (sum, item) => sum + item.price * item.qty,
-        0
-    );
+    const grandTotal = cartData.reduce((sum, item) => {
+        if (!item) return sum;
+        return sum + Number(item.price || 0) * Number(item.qty || 1);
+    }, 0);
 
     // 🔹 CHECKOUT
     const handleCheckout = () => {
@@ -96,7 +96,11 @@ const Cart = () => {
                                             <td>{item.name}</td>
                                             <td>₹{item.price}</td>
                                             <td>{item.qty}</td>
-                                            <td>₹{item.price * item.qty}</td>
+
+                                            <td>
+                                                ₹{(Number(item.price) || 0) * (Number(item.qty) || 1)}
+                                            </td>
+
                                             <td>
                                                 <button
                                                     className="btn btn-danger btn-sm"
@@ -110,19 +114,29 @@ const Cart = () => {
                                 </tbody>
                             </table>
 
-                            <h4>Total: ₹{grandTotal}</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div className="row mb-5">
+                                        <div className="col-md-6 mb-3 mb-md-0">
+                                            <Link href="shop.jsx" className="btn btn-primary btn-sm btn-block">Update Cart</Link>
+                                        </div> <div className="col-md-6">
+                                            <Link to="/shop" className="btn btn-outline-primary btn-sm btn-block">Continue Shopping</Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-8"> </div>
+                                <div className='col-md-3'> <h4>Total: ₹{grandTotal}</h4>
+                                    <Link to="/checkout" className="btn btn-primary mt-3"> Proceed To Checkout </Link>
+                                </div>
 
-                            <button
-                                onClick={handleCheckout}
-                                className="btn btn-primary mt-3"
-                            >
-                                Proceed To Checkout
-                            </button>
+                            </div>
                         </>
                     )}
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
