@@ -52,29 +52,29 @@ Hybrid Inheritance. -->
         obj.multi();
         */
 
-        class abc{
-            constructor(a,b){
-                this.a=a;
-                this.b=b;
+        class abc {
+            constructor(a, b) {
+                this.a = a;
+                this.b = b;
             }
-            sum(){
-               var sum;
-               sum=this.a+this.b;
-               document.writeln(sum)
-                
+            sum() {
+                var sum;
+                sum = this.a + this.b;
+                document.writeln(sum)
+
             }
         }
-        class xyz extends abc{
-            constructor (a,b){
-                super(a,b);
+        class xyz extends abc {
+            constructor(a, b) {
+                super(a, b);
             }
-             multi(){
-                    var multi;
-                    multi=this.a*this.b;
-                    document.write(multi);  
-                }
+            multi() {
+                var multi;
+                multi = this.a * this.b;
+                document.write(multi);
+            }
         }
-       var obj =new xyz(5,10);
+        var obj = new xyz(5, 10);
         obj.sum();
         obj.multi();
     </script>
