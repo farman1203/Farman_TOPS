@@ -725,7 +725,7 @@ const OrdersList = () => {
                 <td style={styles.td}>{value.id}</td>
                 <td style={styles.td}>{value.customer}</td>
                 <td style={styles.td}>{value.date}</td>
-                <td style={styles.td}>{value.items}</td>
+                <td style={styles.td}>{value.items.qty}</td>
                 <td style={styles.td}>${value.total}</td>
                 <td style={styles.td}>
                   <span style={getStatusStyle(value.status)}>{value.status}</span>

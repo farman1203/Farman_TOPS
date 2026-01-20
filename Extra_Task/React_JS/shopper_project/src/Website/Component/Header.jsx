@@ -86,7 +86,7 @@ const Header = () => {
                                                     </NavLink>
                                                 </li>
                                                 <li>
-                                                    <button className='btn-danger' onClick={handleLogout}>Logout</button>
+                                                    <button className='btn-danger ' onClick={handleLogout}>Logout</button>
 
                                                 </li>
                                             </ul>
