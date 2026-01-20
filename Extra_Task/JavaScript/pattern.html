@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="n1" type="number">
+    <button onclick="console.log(pattern());">submit</button>
+
+    <script>
+        function pattern() {
+
+            let n1 = document.getElementById('n1').value;
+            let str = "";
+
+            for (let j = 1; j <= n1; j++) {
+                for (let i = 1; i <= j; i++) {
+                    str += i;
+                }
+                str += "\n";
+            }
+
+            return str;
+        }
+
+
+
+    </script>
+</body>
+
+</html>

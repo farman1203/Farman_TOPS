@@ -50,30 +50,42 @@ const Shop = () => {
 
 
   const navigate = useNavigate();
-  
-const addToCart = (product) => {
-  const userId = sessionStorage.getItem("s_id");
 
-  console.log("User ID:", userId);
+  const addToCart = (product) => {
+    const userId = sessionStorage.getItem("s_id");
 
-  if (!userId) {
-    alert("Please login first");
-    navigate("/login");
-    return;
-  }
+    if (!userId) {
+      alert("Please login first");
+      navigate("/login");
+      return;
+    }
 
-  const existingCart =
-    JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
+    const cartKey = `cart_${userId}`;
+    const existingCart = JSON.parse(localStorage.getItem(cartKey)) || [];
 
-  const updatedCart = [...existingCart, product];
+    const index = existingCart.findIndex(
+      (item) => item.id === product.id
+    );
 
-  localStorage.setItem(
-    `cart_${userId}`,
-    JSON.stringify(updatedCart)
-  );
+    let updatedCart;
 
-  navigate("/cart")
-};
+    if (index !== -1) {
+      // ✅ product already in cart → increase qty
+      updatedCart = [...existingCart];
+      updatedCart[index].qty =
+        (updatedCart[index].qty || 1) + 1;
+    } else {
+      // ✅ new product → add with qty = 1
+      updatedCart = [
+        ...existingCart,
+        { ...product, qty: 1 }
+      ];
+    }
+
+    localStorage.setItem(cartKey, JSON.stringify(updatedCart));
+    navigate("/cart");
+  };
+
 
 
 
@@ -109,7 +121,7 @@ const addToCart = (product) => {
                   <div key={value.id} className="col-sm-6 col-lg-4 mb-4 " data-aos="fade-up">
                     <div className="block-4 text-center border">
                       <figure className="block-4-image">
-                        <button className='btn-link no-border-button' onClick={()=>navigate(`/shop-single/${value.id}`)}>
+                        <button className='btn-link no-border-button' onClick={() => navigate(`/shop-single/${value.id}`)}>
                           <img
                             src={value.image}
                             alt={value.name}

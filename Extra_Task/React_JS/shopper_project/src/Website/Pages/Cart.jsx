@@ -128,7 +128,7 @@ const Cart = () => {
                             <div className="row">
                                 <div className="col-md-8"> </div>
                                 <div className='col-md-3'> <h4>Total: ₹{grandTotal}</h4>
-                                    <Link to="/checkout" className="btn btn-primary mt-3"> Proceed To Checkout </Link>
+                                    <button onClick={handleCheckout} className="btn btn-primary mt-3"> Proceed To Checkout </button>
                                 </div>
 
                             </div>
