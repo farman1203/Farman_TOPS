@@ -463,7 +463,7 @@ const AddProduct = ({ onBack }) => {
 
           <div style={styles.formRow}>
             <div style={styles.formGroup}>
-              <label style={styles.label}>Price ($)</label>
+              <label style={styles.label}>Price (₹)</label>
               <input
                 type="number"
                 value={formData.price}
@@ -726,7 +726,7 @@ const OrdersList = () => {
                 <td style={styles.td}>{value.customer}</td>
                 <td style={styles.td}>{value.date}</td>
                 <td style={styles.td}>{value.items.qty}</td>
-                <td style={styles.td}>${value.total}</td>
+                <td style={styles.td}>₹{value.total}</td>
                 <td style={styles.td}>
                   <span style={getStatusStyle(value.status)}>{value.status}</span>
                 </td>
@@ -881,7 +881,7 @@ const AddUsers = ({ onBack }) => {
               <label style={styles.label}>Email</label>
               <input
                 type="text"
-                value={formData.Email}
+                value={formData.email}
                 name='email'
                 onChange={changeHandel}
                 style={styles.input}

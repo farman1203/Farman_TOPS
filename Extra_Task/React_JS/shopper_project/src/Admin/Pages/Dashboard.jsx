@@ -41,7 +41,7 @@ const Dashboard = () => {
   const stats = [
     {
       label: "Total Revenue",
-      value: `$${totalRevenue}`,
+      value: `₹${totalRevenue}`,
       icon: <DollarSign size={24} />,
       color: "#7971ea",
     },
@@ -123,7 +123,7 @@ const Dashboard = () => {
                 <tr key={order.id} style={styles.tableRow}>
                   <td style={styles.td}>{order.id}</td>
                   <td style={styles.td}>{order.customer}</td>
-                  <td style={styles.td}>${order.total}</td>
+                  <td style={styles.td}>₹{order.total}</td>
                   <td style={styles.td}>
                     <span style={getStatusStyle(order.status)}>{order.status}</span>
                   </td>
