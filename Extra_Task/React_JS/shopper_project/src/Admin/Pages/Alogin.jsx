@@ -188,7 +188,7 @@ const Sidebar = ({ currentPage, setCurrentPage, isOpen }) => {
     { id: 'orders', label: 'Orders', icon: <ShoppingCart size={20} /> },
     { id: 'users', label: 'Users', icon: <Users size={20} /> },
     { id: 'categories', label: 'Categories', icon: <FolderTree size={20} /> },
-    { id: 'Customer', label: 'Customer', icon: <Star size={20} /> },
+    { id: 'Customer', label: 'Feedback', icon: <Star size={20} /> },
     { id: 'settings', label: 'Settings', icon: <Settings size={20} /> },
   ];
 

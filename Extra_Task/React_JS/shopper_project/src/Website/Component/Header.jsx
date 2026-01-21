@@ -16,6 +16,8 @@ const Header = () => {
         sessionStorage.clear();
         localStorage.removeItem("userId");
 
+        toast.error('Logout Successfully');
+        
         window.location.href = "/login";
     };
 
