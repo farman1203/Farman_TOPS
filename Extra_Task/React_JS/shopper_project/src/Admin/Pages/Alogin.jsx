@@ -53,14 +53,14 @@ const Alogin = () => {
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'products': return <ProductsList  onAdd={() => setCurrentPage('add-product')} setCurrentPage={setCurrentPage} setEditProductId={setEditProductId} />;
+      case 'products': return <ProductsList onAdd={() => setCurrentPage('add-product')} setCurrentPage={setCurrentPage} setEditProductId={setEditProductId} />;
       case 'add-product': return <AddProduct onBack={() => setCurrentPage('products')} />;
       case 'edit-product': return <EditProduct productId={editProductId} onBack={() => setCurrentPage('products')} />;
       case 'orders': return <OrdersList />;
-      case 'users': return <UsersList onAdd={() => setCurrentPage('add-users')}  setCurrentPage={setCurrentPage} setUserId={setUserId} />;
+      case 'users': return <UsersList onAdd={() => setCurrentPage('add-users')} setCurrentPage={setCurrentPage} setUserId={setUserId} />;
       case 'add-users': return <AddUsers onBack={() => setCurrentPage('users')} />;
       case 'edit-users': return <EditUsers id={editUserId} onBack={() => setCurrentPage('users')} />;
-      case 'categories': return <CategoriesList onAdd={() => setCurrentPage('edit-users')}  setCurrentPage={setCurrentPage} setCategorieId={setCategorieId} />;
+      case 'categories': return <CategoriesList onAdd={() => setCurrentPage('edit-users')} setCurrentPage={setCurrentPage} setCategorieId={setCategorieId} />;
       case 'add-categories': return <AddCategories onBack={() => setCurrentPage('categories')} />;
       case 'edit-categories': return <EditCategories id={editCategorieId} onBack={() => setCurrentPage('categories')} />;
       case 'Customer': return <ReviewsList />;
@@ -278,7 +278,7 @@ const TopNavbar = ({
 <Dashboard />
 
 // Products List Page
-const ProductsList = ({  onAdd, setCurrentPage, setEditProductId  }) => {
+const ProductsList = ({ onAdd, setCurrentPage, setEditProductId }) => {
 
   const [data1, setData1] = useState([])
 
@@ -808,7 +808,7 @@ const UsersList = ({ onAdd, setCurrentPage, setUserId }) => {
                     <button style={styles.iconBtn} title="View">
                       <Eye size={16} />
                     </button>
-                      <button
+                    <button
                       style={styles.iconBtn}
                       title="Edit"
                       onClick={() => {
@@ -923,17 +923,17 @@ const AddUsers = ({ onBack }) => {
 // EDIT Users Page
 const EditUsers = ({ id, onBack }) => {
   const [formData, setFormData] = useState({
-    fullName:'',
+    fullName: '',
     email: '',
-    role:'',
+    role: '',
     status: 'Active'
   });
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch_edituser();
-  },[])
+  }, [])
 
-  const fetch_edituser= async ()=>{
+  const fetch_edituser = async () => {
     const obj = await axios.get(`http://localhost:3001/Users/${id}`);
     setFormData(obj.data);
   }
@@ -1003,7 +1003,7 @@ const EditUsers = ({ id, onBack }) => {
             </button>
             <button style={styles.primaryButton} type='submit' >
               <Plus size={18} />
-              Add New User
+              Update User
             </button>
 
           </div>
@@ -1015,7 +1015,7 @@ const EditUsers = ({ id, onBack }) => {
 
 
 // Categories List Page
-const CategoriesList = ({  onAdd, setCurrentPage, setCategorieId}) => {
+const CategoriesList = ({ onAdd, setCurrentPage, setCategorieId }) => {
 
   useEffect(() => {
     fetch_data();
@@ -1066,7 +1066,7 @@ const CategoriesList = ({  onAdd, setCurrentPage, setCategorieId}) => {
                 </td>
                 <td style={styles.td}>
                   <div style={styles.actionButtons}>
-                      <button
+                    <button
                       style={styles.iconBtn}
                       title="Edit"
                       onClick={() => {
@@ -1183,12 +1183,12 @@ const EditCategories = ({ id, onBack }) => {
     status: 'Active'
   });
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch_categories();
-  },[])
+  }, [])
 
-  const fetch_categories=async ()=>{
-    const obj= await axios.get(`http://localhost:3001/Categories/${id}`)
+  const fetch_categories = async () => {
+    const obj = await axios.get(`http://localhost:3001/Categories/${id}`)
     setFormData(obj.data)
   }
 

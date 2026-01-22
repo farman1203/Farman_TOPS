@@ -7,50 +7,8 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-        .navbar{
-            position: sticky;
-            top: 0px;
-        }
-        .set {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .nav-item {
-            padding: 10px;
-            margin: 10px;
-        }
-
-
-        .navbar-nav li:hover {
-            background-color: #ee5057;
-        }
-
-        .bimg {
-            background-image: url(https://www.tooplate.com/templates/2095_level/img/bg-img-1.jpg);
-            height: 515px;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-        }
-
-        .form {
-            position: absolute;
-            top: 100px;
-            left: 300px;
-            right: 0px;
-            width: 50%;
-            height: 200px;
-            background-color: white;
-        }
-        .hero{
-            min-height: 115px;
-            clip-path: polygon(0,0, 100%, 0, 50%, 60%);
-        }
-       
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -65,13 +23,13 @@
             <div class="collapse set  navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-dark active" href="#">Home</a>
+                        <a class="nav-link text-dark " href="#section-1">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="#">Portfolio</a>
+                        <a class="nav-link text-dark" href="#section-2">Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="#">Blog</a>
+                        <a class="nav-link text-dark" href="#section-3">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="#">Contact us</a>
@@ -81,51 +39,175 @@
         </div>
     </nav>
 
-    <main class="bimg">
-        <div class="form p-3">
-            <form method="post">
-                <div class="row">
-                   
-                    <div class="col-3">
-                        <input type="text" class="form-control" placeholder="Enter email" name="email">
+    <div id="section-1">
+        <main class="bimg">
+            <div class="form p-3">
+                <form method="post">
+                    <div class="row">
+
+                        <div class="col-3">
+                            <input type="text" class="form-control" placeholder="Enter email" name="email">
+                        </div>
+                        <div class="col-3">
+                            <input type="password" class="form-control" placeholder="Enter password" name="pswd">
+                        </div>
+                        <div class="col-3">
+                            <input type="password" class="form-control" placeholder="Enter password" name="pswd">
+                        </div>
+
                     </div>
-                    <div class="col-3">
-                        <input type="password" class="form-control" placeholder="Enter password" name="pswd">
+                    <div class="row mt-2">
+
+                        <div class="col-3">
+                            <input type="text" class="form-control " placeholder="Enter email" name="email">
+                        </div>
+                        <div class="col-3">
+                            <input type="password" class="form-control" placeholder="Enter password" name="pswd">
+                        </div>
+                        <div class="col-3">
+                            <input type="password" class="form-control" placeholder="Enter password" name="pswd">
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-danger">CHECK AVAIBILITY</button>
+                        </div>
+
                     </div>
-                    <div class="col-3">
-                        <input type="password" class="form-control" placeholder="Enter password" name="pswd">
-                    </div>
-                    
-                </div>
-                <div class="row mt-2">
-                   
-                    <div class="col-3">
-                        <input type="text" class="form-control " placeholder="Enter email" name="email">
-                    </div>
-                    <div class="col-3">
-                        <input type="password" class="form-control" placeholder="Enter password" name="pswd">
-                    </div>
-                    <div class="col-3">
-                        <input type="password" class="form-control" placeholder="Enter password" name="pswd">
-                    </div>
-                    <div class="col-3">
-                       <button class="btn btn-danger">CHECK AVAIBILITY</button>
-                    </div>
-                    
-                </div>
-            </form>
-            <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            
+                </form>
+                <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+
+            </div>
+        </main>
+
+        <div class="bg-danger hero text-light text-center">
+            <h1>We are here to help you?</h1>
+            <p>Subscribe to get our newsletters</p>
+            <button class="btn btn-outlet">Subscribe</button>
 
         </div>
-    </main>
 
-    <div class="bg-danger hero text-light text-center">
-        <h1>We are here to help you?</h1>
-        <p>Subscribe to get our newsletters</p>
-        <button>Subscribe</button>
-       
+        <!-- cards -->
+        <div class="container p-5">
+            <div class="row">
+                <div class="col-md-4 text-centers">
+                    <div class="card" style="width: 100%;">
+                        <i class="fa fa-legal tm-color-primary"></i>
+                        <div class="card-body">
+                            <h5 class="card-title text-danger">
+                                Level HTML Template by Tooplate website</h5>
+                            <p class="card-text text-secondary">You are allowed to download, edit and use this template
+                                for
+                                your business or client websites.</p>
+                            <a href="#" class="text-danger">Continue reading...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-centers">
+                    <div class="card" style="width: 100%;">
+                        <i class="fa fa-plane tm-color-primary"></i>
+                        <div class="card-body">
+                            <h5 class="card-title text-danger">Original Website Template Producer</h5>
+                            <p class="card-text  text-secondary">You are NOT allowed to re-distribute the downloadable
+                                template ZIP file on
+                                any website.</p>
+                            <a href="#" class="text-danger">Continue reading...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-centers">
+                    <div class="card" style="width: 100%;">
+                        <i class="fa-solid fa-life-ring tm-color-primary"></i>
+                        <div class="card-body">
+                            <h5 class="card-title text-danger">
+                                Contact us if you have any question</h5>
+                            <p class="card-text  text-secondary">If you see this template being distributed on any other
+                                site, that is an illegal copy.</p>
+                            <a href="#" class="text-danger">Continue reading...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- section-2 -->
+    <div id="section-2">
+        <div class="row">
+            <div class="col-md-8">
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item p-5 active d-flex">
+                            <div class="card " style="width: 100%;">
+                                <img src="https://www.tooplate.com/templates/2095_level/img/img-01.jpg"
+                                    class="d-block p-2 w-100" alt="...">
+                                <div class="card-body">
+                                    <h3 class="text-uppercase tm-article-title-2">Sed cursus dictum nunc quis molestie
+                                    </h3>
+                                    <p class="text-secondary">Pellentesque quis dui sit amet purus scelerisque eleifend
+                                        sed ut eros. Morbi viverra blandit massa in varius. Sed nec ex eu ex tincidunt
+                                        iaculis. Curabitur eget turpis gravida.</p>
+                                    <a href="#" class="btn btn-danger">GET MORE INFORMATION</a>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 100%;">
+                                <img src="https://www.tooplate.com/templates/2095_level/img/img-02.jpg"
+                                    class="d-block p-2 w-100" alt="...">
+                                <div class="card-body">
+                                    <h3 class="text-uppercase tm-article-title-2">Sed cursus dictum nunc quis molestie
+                                    </h3>
+                                    <p class="text-secondary">Pellentesque quis dui sit amet purus scelerisque eleifend
+                                        sed ut eros. Morbi viverra blandit massa in varius. Sed nec ex eu ex tincidunt
+                                        iaculis. Curabitur eget turpis gravida.</p>
+                                    <a href="#" class="btn btn-danger">VIEW DETAILS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-4 mt-5">
+                <div class="bg-danger w-70 p-2 text-light">
+                    <H2 >Recommended Places</H2>
+                    <p >Enamel pin cliche tilde, kitsch and VHS thundercats</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex m-2">
+                        <img src="https://www.tooplate.com/templates/2095_level/img/tn-img-01.jpg" alt="">
+                        <p class="ms-5 mt-4 text-bold">EUROPE</p>
+                    </div>
+                    <div class="col-md-12 d-flex m-2">
+                        <img src="https://www.tooplate.com/templates/2095_level/img/tn-img-02.jpg" alt="">
+                        <p class="ms-5 mt-4 text-bold">ASIA</p>
+                    </div>
+                    <div class="col-md-12 d-flex m-2">
+                        <img src="https://www.tooplate.com/templates/2095_level/img/tn-img-03.jpg" alt="">
+                        <p class="ms-5 mt-4 text-bold">AFRICA</p>
+                    </div>
+                    <div class="col-md-12 d-flex m-2">
+                        <img src="https://www.tooplate.com/templates/2095_level/img/tn-img-04.jpg" alt="">
+                        <p class="ms-5 mt-4 text-bold">SOUTH AFRICA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- section - 3 -->
+     <div id="section-3">
+            <div class="container row">
+                    
+            </div>
+     </div>
 
 </body>
 

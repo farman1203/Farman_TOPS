@@ -254,6 +254,14 @@
       "confirmPassword": "112233",
       "status": "Unblock",
       "role": "customer"
+    },
+    {
+      "id": "6541",
+      "fullName": "ayan",
+      "email": "ayan0011@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "status": "Unblock"
     }
   ],
   "Categories": [

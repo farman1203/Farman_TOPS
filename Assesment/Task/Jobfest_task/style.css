@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    width: 99.90%;
+}
+.navbar {
+    position: sticky;
+    top: 0px;
+    z-index: 99;
+    background-color: white;
+}
+
+.set {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-item {
+    padding: 10px;
+    margin: 10px;
+}
+
+
+.nav-link.active,
+.nav-link:hover {
+    color: white;
+    background: #ee5057;
+}
+
+.bimg {
+    background-image: url(https://www.tooplate.com/templates/2095_level/img/bg-img-1.jpg);
+    height: 515px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.form {
+    position: absolute;
+    top: 100px;
+    left: 300px;
+    right: 0px;
+    width: 50%;
+    height: 180px;
+    background-color: white;
+}
+
+.hero {
+    min-height: 115px;
+    padding: 25px;
+  clip-path: polygon(0 0, 100% 0%, 100% 80%, 50% 100%, 0 80%);
+}
+
+.tm-color-primary {
+    color: #ee5057;
+    margin-bottom: 20px;
+    font-size: 5em;
+    margin-left: 149px;
+    padding: 10px;
+}
+
+.text-centers {
+    transition: all 0.3s ease;
+    text-align: center;
+    border: none;
+}
+
+.text-centers:hover {
+    transform: scale(1.1);
+}
+#section-2{
+    background-color: #F4F4F4;
+}
+#section-3{
+    background-image: url(https://www.tooplate.com/templates/2095_level/img/bg-img-2.jpg);
+    width: 100%;
+    height: 700px;
+}
