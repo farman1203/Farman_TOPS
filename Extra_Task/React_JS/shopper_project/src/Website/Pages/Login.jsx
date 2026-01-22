@@ -135,6 +135,8 @@ const LoginPage = ({ onNavigateToRegister }) => {
     console.log(obj_cate);
   }
 
+  const navigate = useNavigate()
+
   const handleSubmit = async (e) => {
 
     e.preventDefault();
@@ -359,6 +361,12 @@ const LoginPage = ({ onNavigateToRegister }) => {
               style={styles.switchAuthLink}
             >
               Sign Up
+              </button> <br />
+            <button
+              onClick={()=>navigate("/alogin")}
+              style={styles.switchAuthLink}
+            >
+              Admin Login Here
             </button>
           </p>
         </div>

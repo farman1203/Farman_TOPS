@@ -6,6 +6,7 @@ import Inc_Dec from './Hooks/Inc_Dec'
 import Form_handling from './Form_handling/Form_handling'
 import Localstorage from './Localstorage/localstorage'
 import UseEffect from './Hooks/UseEffect'
+import UseReducer from './Hooks/UseReducer'
 
 const App = () => {
   return (
@@ -15,7 +16,9 @@ const App = () => {
         {/* <Inc_Dec /> */}
         {/* <Form_handling /> */}
         {/* <Localstorage /> */}
-        <UseEffect />
+        {/* <UseEffect /> */}
+
+        <UseReducer/>
     </div>
   )
 }
