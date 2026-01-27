@@ -13,10 +13,10 @@ const Header = () => {
                 <div className="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <NavLink className="nav-link" href="index.html">Home</a>
+                            <NavLink className="nav-link" to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="about.html">About</a>
+                            <NavLink className="nav-link" href="about.html">About</NavLink>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="department.html">Departments
@@ -41,7 +41,6 @@ const Header = () => {
                     <button className="btn btn-info ms-3">Appoinment</button>
                 </div>
             </nav>
-
         </div>
     )
 }
