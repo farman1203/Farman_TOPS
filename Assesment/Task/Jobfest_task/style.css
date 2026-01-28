@@ -1,9 +1,11 @@
-*{
+* {
     box-sizing: border-box;
 }
-body{
+
+body {
     width: 99.90%;
 }
+
 .navbar {
     position: sticky;
     top: 0px;
@@ -50,7 +52,7 @@ body{
 .hero {
     min-height: 115px;
     padding: 25px;
-  clip-path: polygon(0 0, 100% 0%, 100% 80%, 50% 100%, 0 80%);
+    clip-path: polygon(0 0, 100% 0%, 100% 80%, 50% 100%, 0 80%);
 }
 
 .tm-color-primary {
@@ -70,17 +72,19 @@ body{
 .text-centers:hover {
     transform: scale(1.1);
 }
-#section-2{
+
+#section-2 {
     background-color: #F4F4F4;
 }
-#section-3{
+
+#section-3 {
     background-image: url(https://www.tooplate.com/templates/2095_level/img/bg-img-2.jpg);
     width: 100%;
     height: 700px;
 }
 
-@media only screen and (max-width:600px){
-    .form{
+@media only screen and (max-width:600px) {
+    .form {
         display: flex;
         justify-content: center;
         flex-direction: column;
