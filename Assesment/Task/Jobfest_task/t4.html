@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="Enter Mark " id="t1">
+    <input type="number" placeholder="Enter Mark " id="t2">
+    <input type="number" placeholder="Enter Mark " id="t3">
+    <input type="number" placeholder="Enter Mark " id="t4">
+    <input type="number" placeholder="Enter Mark " id="t5">
+
+    <button type="submit" onclick="task()">Submit</button>
+
+    <h1 id="test1"></h1>
+    <h1 id="test2"></h1>
+    <script>
+        function task(){
+
+           var mark1= Number(document.getElementById('t1').value);
+           var mark2= Number(document.getElementById('t2').value);
+           var mark3= Number(document.getElementById('t3').value);
+           var mark4= Number(document.getElementById('t4').value);
+           var mark5= Number(document.getElementById('t5').value);
+            
+            var total= +mark1+mark2+mark3+mark4+mark5;
+            console.log(total)
+
+            var per= (total*100)/500;
+            console.log(per);
+            
+
+            document.getElementById('test1').innerHTML="Total is:"+total;
+            document.getElementById('test2').innerHTML="Percentage is:"+per;
+        }
+    </script>
+
+</body>
+</html>
