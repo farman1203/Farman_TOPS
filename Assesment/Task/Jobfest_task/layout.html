@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mini Practical Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial;
+        }
+
+        body {
+            background: #f4f4f4;
+        }
+
+        /* TIMER */
+        .timer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .navbar {
+            background: #333;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu li a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 22px;
+        }
+
+
+
+        /* PRODUCTS */
+        .title {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .card button {
+            margin-top: 10px;
+            padding: 8px;
+        }
+
+        .cart {
+            text-align: center;
+            margin: 15px;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-box {
+            background: white;
+            width: 300px;
+            padding: 20px;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        .modal-box input {
+            width: 100%;
+            margin: 8px 0;
+            padding: 8px;
+        }
+
+        #error {
+            color: red;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE + NAVBAR TOGGLE */
+        @media (max-width: 768px) {
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                background: #444;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 150px;
+            }
+
+            .menu.show {
+                display: block;
+                height: 100px;
+                width: 100px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .products {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TIMER -->
+    <div class="timer">
+        ⏱ Time Left: <span id="time">15</span> min
+    </div>
+
+    <!-- NAVBAR (NO JS TOGGLE) -->
+    <nav class="navbar">
+        <h2 class="logo">MySite</h2>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <ul class="menu" id="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- PRODUCTS -->
+    <h2 class="title">Products</h2>
+
+    <div class="products">
+        <div class="card">
+            <h3>Product A</h3>
+            <p>₹500</p>
+            <button onclick="addToCart('Product A')">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <h3>Product B</h3>
+            <p>₹700</p>
+            <button onclick="addToCart('Product B')">Add to Cart</button>
+        </div>
+    </div>
+
+    <p class="cart">🛒 Cart Items: <span id="cartCount">0</span></p>
+
+    <button onclick="openmodal()">open modal</button>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+        <div class="modal-box">
+            <h3>Contact Form</h3>
+
+            <input type="text" id="name" placeholder="Enter Name">
+            <input type="email" id="email" placeholder="Enter Email">
+            <input type="number" id="phone" placeholder="Enter phone no">
+
+            <p id="error"></p>
+
+            <button onclick="submitForm()">Submit</button>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>/* TIMER */
+        let time = 15;
+        setInterval(function () {
+            if (time > 0) {
+                time--;
+                document.getElementById("time").innerText = time;
+            }
+        }, 60000);
+
+        /* ADD TO CART */
+        let cart = 0;
+        function addToCart() {
+            cart++;
+            document.getElementById("cartCount").innerText = cart;
+        }
+
+        function openmodal() {
+            document.getElementById('modal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = "none";
+        }
+
+        /* FORM VALIDATION */
+        function submitForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById('phone').value;
+            let error = document.getElementById("error");
+
+            if (name == "" || email == "" || phone == "") {
+                error.innerText = "All fields required";
+            } else {
+                error.innerText = "";
+                alert("Form Submitted");
+                closeModal();
+            }
+        }
+        function toggleMenu() {
+            let menu = document.getElementById("menu");
+
+            if (menu.style.display === "block")
+                menu.style.display = "none";
+            else
+                menu.style.display = "block";
+        }
+
+
+    </script>
+</body>
+
+</html>

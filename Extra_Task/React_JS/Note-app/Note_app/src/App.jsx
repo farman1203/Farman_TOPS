@@ -9,30 +9,30 @@ const App = () => {
   const [task, settask] = useState([]);
 
   const submithandler = (e) => {
-    e.preventDefault()    
+    e.preventDefault()
 
     const copytask = [...task];
     copytask.push({ title, detail })
     settask(copytask);
 
-    
+
     setTitle('')
     setdetail('')
 
-    }
+  }
 
-    const deletenote =(idx) =>{
-      const copytask = [...task];
-      
-      copytask.splice(idx,1)
-      
-      settask(copytask)
+  const deletenote = (idx) => {
+    const copytask = [...task];
+
+    copytask.splice(idx, 1)
+
+    settask(copytask)
 
   }
 
   return (
     <div>
-      
+
       <form className='lg:border-2 m-1' onSubmit={(e) => {
         submithandler(e);
       }}>
@@ -66,7 +66,7 @@ const App = () => {
                 <h3 className='leading-tight text-lg font-bold'>{elem.title}</h3>
                 <p className='mt-2 leading-tight text-xs font-semibold text-gray-600'>{elem.detail}</p>
               </div>
-              <button onClick={()=>{
+              <button onClick={() => {
                 deletenote(idx)
               }} className='w-full cursor-pointer active:scale-95 bg-red-500 py-1 text-xs rounded font-bold text-white'>Delete</button>
             </div>
@@ -74,8 +74,6 @@ const App = () => {
         </div>
       </div>
     </div>
-
-
   )
 }
 
