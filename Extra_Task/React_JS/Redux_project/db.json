@@ -1,0 +1,12 @@
+ {
+
+ "product": [
+        {
+            "id": "01",
+            "name": "john doe",
+            "email": "abc@gmail.com",
+            "image":"",
+            "password": "4554"
+        }
+    ]
+}

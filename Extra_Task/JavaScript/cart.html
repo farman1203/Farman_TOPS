@@ -1,38 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-      <div align="center">
-	
-	<button onclick="plus()">+</button>
-		<h1 id="num">0</h1>
-	<button onclick="minus()">-</button>
-	
-  </div>
-	<hr>
+    <div align="center">
 
-    
+        <button onclick="plus()">+</button>
+        <h1 id="num">0</h1>
+        <button onclick="minus()">-</button>
+
+    </div>
+    <hr>
+
     <script>
-        function plus()
-        {
-            var num=document.getElementById('num').innerHTML;
+        function plus() {
+            var num = document.getElementById('num').innerHTML;
             num++;
-            document.getElementById('num').innerHTML=num;
+            document.getElementById('num').innerHTML = num;
         }
-
-         function minus()
-        {
-            var num=document.getElementById('num').innerHTML;
-            if(num>0)
-            {
-            num--;
-            document.getElementById('num').innerHTML=num;
+        function minus() {
+            var num = document.getElementById('num').innerHTML;
+            if (num > 0) {
+                num--;
+                document.getElementById('num').innerHTML = num;
             }
         }
     </script>
 </body>
+
 </html>
