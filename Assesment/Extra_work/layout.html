@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: aqua;
+            padding: 25px;
+        }
+
+        .hero {
+            display: flex;
+            
+        }
+
+        .hero a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .modal{
+            display: none;
+        }
+
+        .hero a:hover{
+            color:brown;
+        }
+
+        ul li {
+            padding: 15px;
+            list-style: none;
+        }
+
+        .menu-btn {
+            display: none;
+            cursor: pointer;
+            border: none;
+            font-size: 24px;
+            background: none;
+        }
+
+        @media (max-width:600px) {
+            nav {
+                background-color: blueviolet;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero {
+                position: absolute;
+                top: 65px;
+                left: 0;
+                flex-direction: column;
+                background-color: darkgrey;
+                width: 100%;
+                align-items: center;
+                overflow: hidden;
+                max-height: 0;
+                transition: 0.4s ease;
+            }
+
+            .hero li{
+                padding: 20px;
+                text-align: center;
+                width: 100%;
+                border: 1px solid rgb(112, 112, 112);
+            }
+
+            .hero.show{
+                min-height:300px ;
+            }
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h1>Website</h1>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <ul class="hero" id="hero">
+            <li><a href="">Home</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Home</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <button>Open Model</button>
+
+        <div id="modal">
+            <h1>Form</h1>
+            <input type="text" placeholder="enter name">
+            <input type="text" placeholder="enter number">
+        </div>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            let hero = document.getElementById('hero');
+
+            hero.classList.toggle('show');
+        }
+
+        function Openmodal(){
+            document.getElementById('modal').style.display
+        }
+    </script>
+</body>
+
+</html>

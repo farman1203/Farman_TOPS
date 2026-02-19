@@ -35,7 +35,7 @@
         .menu {
             list-style: none;
             display: flex;
-          
+
         }
 
         .menu li a {
@@ -117,20 +117,18 @@
             .menu {
                 display: none;
                 flex-direction: column;
-                padding: 20px;
                 height: auto;
-                border: 2px solid black;
-                background: #444;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                width: 150px;
+            }
+
+            .menu a {
+                display: block;
+                margin: 10px 15px;
+                padding: 10px 0;
+                border-bottom: 1px solid #ccc;
             }
 
             .menu.show {
                 display: block;
-                height: 250px;
-                width: 100px;
             }
 
             .menu-btn {
@@ -245,7 +243,7 @@
         function toggleMenu() {
             let menu = document.getElementById("menu");
 
-            menu.classList.toggle('active');
+            menu.classList.toggle('show');
         }
 
 

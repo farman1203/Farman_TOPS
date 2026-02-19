@@ -1,395 +1,491 @@
-   *{
-	box-sizing:border-box;
-}
-body{
-    margin: 0px;
-    padding: 0px;
-    font-family: Arial, Helvetica, sans-serif;
-}
+   * {
+       box-sizing: border-box;
+   }
 
-.row{
-	display:flex;
-	flex-wrap: nowrap;
-}
-[class*="col-"]{
-    width: 100%;
-}
+   body {
+       margin: 0px;
+       padding: 0px;
+       font-family: Arial, Helvetica, sans-serif;
+   }
 
-@media only screen and (min-width: 768px) {
-	.col-1 {width: 8.33%;}
-	.col-2 {width: 16.66%;}
-	.col-3 {width: 25%;}
-	.col-4 {width: 33.33%;}
-	.col-5 {width: 41.66%;}
-	.col-6 {width: 50%;}
-	.col-7 {width: 58.33%;}
-	.col-8 {width: 66.66%;}
-	.col-9 {width: 75%;}
-	.col-10 {width: 83.33%;}
-	.col-11 {width: 91.66%;}
-	.col-12 {width: 100%;}
-}
+   .row {
+       display: flex;
+       flex-wrap: nowrap;
+   }
 
-.header{
-    background-color: black;
-    color: white;
-    text-align: center;
-    height: 40px;
-    font-size: 12px;
-    padding-top: 1px;
-}
-.navbar{
-    background-image: url(image/nivialogo.jpg);
-    background-repeat: no-repeat;
-    background-position: top left;
-    position: sticky;
-    top: 0;
-    background-size: 100px;
-    background-color: rgb(255, 255, 255);
-    height: 60px;
-    font-size: 13px;
-    display: flex;
-    font-weight: 15px;
-    margin:2px 0px 2px 5px;
-     justify-content: space-between;
-}
-.navbar a{
-    text-decoration: none;
-    color: black;
-    padding: 10px 20px;
-    font-size: 13px;
-    margin-top: 10px;
-    font-weight: 700;
-}   
-.navbar a:hover{
-    color: brown;
-    text-decoration: underline;
-}
+   [class*="col-"] {
+       width: 100%;
+   }
 
-.icon{ 
-    transition-duration: 1s;
-    cursor: pointer;
-    font-size: 18px;
-    padding: 18px ;
-    margin-left: 50px;
-}
-.icon i{
-    padding-right: 10px;
-}
-.icon i:hover{
-    transform: scale(1.2);
-    color: brown;
-}
+   @media only screen and (min-width: 768px) {
+       .col-1 {
+           width: 8.33%;
+       }
 
+       .col-2 {
+           width: 16.66%;
+       }
 
-.nav{
-    margin-left: 125px;
+       .col-3 {
+           width: 25%;
+       }
 
-}
-.img{
-    margin-left: 10px;
-    height: 70px;
-    width: 25%;
-    margin-top: 20px;
-    
-}
-.sport{
-    display: flex;
-    margin-left: 10px;
-    height: 300px;
-    margin-top: 50px;
-}
-.sport img{
-    margin-right: 20px;
-    height: 300px;
-    width: 230px;
-    background-image: linear-gradient(rgb(0, 0, 0, 0.6)),;
-}
+       .col-4 {
+           width: 33.33%;
+       }
 
-.main{
-    margin-top: 150px;
-    margin-left: 30px;
-    
-}
-.main img{
-    margin-top: -30px;
-}
-.main h1 h3 p{
-    text-align: center
-}
-.main img:hover{
-    transform: scaleX(-1);
-}
-.ck{
-    margin-top: 60px;
-    margin-right: 40px;
-    margin-left: 40px;
-    margin-bottom: 100px;
-}
-.midle{
-    background-color: black;
-    margin-bottom: 20px;
-    display: flex;
-    color: white;
-}
-.new{
-    margin-left: 50px;
-}
-.midle button{
-    margin-top: 200px;
-    height: 40px;
-    width: 150px;
-    margin-left: -150px;
-    
-}
-.na img{
-   padding: 10px;
-}
-.team{
-    padding: 20px;
-    margin-left: 180px;
-    margin-right: 20px;
-}
-.team p{
-    font-size: 20px;
-    font-weight: 700;
-    margin-left: 300px;
-    letter-spacing: 3px;
-}
-.team img{
-    border: solid 1px rgb(255, 255, 255);
-    border-radius: 5px;
-    margin-right: 20px;
-    width: 10%;
-    margin-top: 40px;
-    box-shadow: 8px 8px 20px rgb(156, 149, 149);
-}
-.team img:hover{
-    box-shadow: 2px 2px 20px rgb(14, 0, 0);
-}
-.vd{
-    display: flex;
-}
-.vd video{
-    margin:2px;
-}
-.insta{
-   
-    margin-top: 80px;
-    font-weight: 900;
-}
-.footer{
-    background-color: black;
-    color: white;
-    margin-bottom: -10px;
-    
-}
-.footer i{
-    font-size: 30px;
-    margin-left: 30px;
-    margin-top: 30px;
-}
-ul li{
-    list-style-type: none;
-    margin-top: 10px;
-    padding-bottom: 10px;
-    text-align: left;
-    cursor: pointer;
-}
-.footer1{
-    background-color: black;
-    height: auto;
-    margin-top: -10px;
-}
-.footer1 img{
-    margin-left: 20px;
-    margin-top: 10px;
-    
-}
-.footer1 span{
-    color: white;
-    margin-left: 800px;
-    margin-top: -55px;
-}
-.wp{
-    position:fixed;
-    bottom: 15px;
-    right: 15px;
+       .col-5 {
+           width: 41.66%;
+       }
 
-}
+       .col-6 {
+           width: 50%;
+       }
 
-.ashover{
-    position: absolute;
-    top:40px;
-    left: 40px;
-    background-color: white;
-    width: 94%;
-    visibility: hidden;
-    display: flex;
-}
-.all_sport_hover{
-    width: 10%;
-    display: flex;
-    padding-left: 10px;
-}
-.all_sport_hover p{
-    text-align: center;
-}
-.all_sport_hover ul li{
-    color: black;
-    padding: 0px;
+       .col-7 {
+           width: 58.33%;
+       }
 
-}
-.allhover:hover .ashover{
-        visibility: visible;
-}
-.all_sport_hover img{
-    width: 60px;
-    margin-left: 45px;    
-}
-.club{
-    width: 95%;
-    height: auto;
-    display: flex;
-}
-.hamburger {
-  display: none;
-  font-size: 26px;
-  color: black;
-  margin-top: 25px;
-  cursor: pointer;
-  margin-left: 10px;
-  margin-right: 20px;
-}
+       .col-8 {
+           width: 66.66%;
+       }
+
+       .col-9 {
+           width: 75%;
+       }
+
+       .col-10 {
+           width: 83.33%;
+       }
+
+       .col-11 {
+           width: 91.66%;
+       }
+
+       .col-12 {
+           width: 100%;
+       }
+   }
+
+   .header {
+       background-color: black;
+       color: white;
+       text-align: center;
+       height: 40px;
+       font-size: 12px;
+       padding-top: 1px;
+   }
+
+   .navbar {
+       background-image: url(image/nivialogo.jpg);
+       background-repeat: no-repeat;
+       background-position: top left;
+       position: sticky;
+       top: 0;
+       background-size: 100px;
+       background-color: rgb(255, 255, 255);
+       height: 60px;
+       font-size: 13px;
+       display: flex;
+       font-weight: 15px;
+       margin: 2px 0px 2px 5px;
+       justify-content: space-between;
+   }
+
+   .navbar a {
+       text-decoration: none;
+       color: black;
+       padding: 10px 20px;
+       font-size: 13px;
+       margin-top: 10px;
+       font-weight: 700;
+   }
+
+   .navbar a:hover {
+       color: brown;
+       text-decoration: underline;
+   }
+
+   .icon {
+       transition-duration: 1s;
+       cursor: pointer;
+       font-size: 18px;
+       padding: 18px;
+       margin-left: 50px;
+   }
+
+   .icon i {
+       padding-right: 10px;
+   }
+
+   .icon i:hover {
+       transform: scale(1.2);
+       color: brown;
+   }
 
 
+   .nav {
+       margin-left: 125px;
+
+   }
+
+   .img {
+       margin-left: 10px;
+       height: 70px;
+       width: 25%;
+       margin-top: 20px;
+
+   }
+
+   .sport {
+       display: flex;
+       margin-left: 10px;
+       height: 300px;
+       margin-top: 50px;
+   }
+
+   .sport img {
+       margin-right: 20px;
+       height: 300px;
+       width: 230px;
+       background-image: linear-gradient(rgb(0, 0, 0, 0.6)), ;
+   }
+
+   .main {
+       margin-top: 150px;
+       margin-left: 30px;
+
+   }
+
+   .main img {
+       margin-top: -30px;
+   }
+
+   .main h1 h3 p {
+       text-align: center
+   }
+
+   .main img:hover {
+       transform: scaleX(-1);
+   }
+
+   .ck {
+       margin-top: 60px;
+       margin-right: 40px;
+       margin-left: 40px;
+       margin-bottom: 100px;
+   }
+
+   .midle {
+       background-color: black;
+       margin-bottom: 20px;
+       display: flex;
+       color: white;
+   }
+
+   .new {
+       margin-left: 50px;
+   }
+
+   .midle button {
+       margin-top: 200px;
+       height: 40px;
+       width: 150px;
+       margin-left: -150px;
+
+   }
+
+   .na img {
+       padding: 10px;
+   }
+
+   .team {
+       padding: 20px;
+       margin-left: 180px;
+       margin-right: 20px;
+   }
+
+   .team p {
+       font-size: 20px;
+       font-weight: 700;
+       margin-left: 300px;
+       letter-spacing: 3px;
+   }
+
+   .team img {
+       border: solid 1px rgb(255, 255, 255);
+       border-radius: 5px;
+       margin-right: 20px;
+       width: 10%;
+       margin-top: 40px;
+       box-shadow: 8px 8px 20px rgb(156, 149, 149);
+   }
+
+   .team img:hover {
+       box-shadow: 2px 2px 20px rgb(14, 0, 0);
+   }
+
+   .vd {
+       display: flex;
+   }
+
+   .vd video {
+       margin: 2px;
+   }
+
+   .insta {
+
+       margin-top: 80px;
+       font-weight: 900;
+   }
+
+   .footer {
+       background-color: black;
+       color: white;
+       margin-bottom: -10px;
+
+   }
+
+   .footer i {
+       font-size: 30px;
+       margin-left: 30px;
+       margin-top: 30px;
+   }
+
+   ul li {
+       list-style-type: none;
+       margin-top: 10px;
+       padding-bottom: 10px;
+       text-align: left;
+       cursor: pointer;
+   }
+
+   .footer1 {
+       background-color: black;
+       height: auto;
+       margin-top: -10px;
+   }
+
+   .footer1 img {
+       margin-left: 20px;
+       margin-top: 10px;
+
+   }
+
+   .footer1 span {
+       color: white;
+       margin-left: 800px;
+       margin-top: -55px;
+   }
+
+   .wp {
+       position: fixed;
+       bottom: 15px;
+       right: 15px;
+
+   }
+
+   .ashover {
+       position: absolute;
+       top: 40px;
+       left: 40px;
+       background-color: white;
+       width: 94%;
+       visibility: hidden;
+       display: flex;
+   }
+
+   .all_sport_hover {
+       width: 10%;
+       display: flex;
+       padding-left: 10px;
+   }
+
+   .all_sport_hover p {
+       text-align: center;
+   }
+
+   .all_sport_hover ul li {
+       color: black;
+       padding: 0px;
+
+   }
+
+   .allhover:hover .ashover {
+       visibility: visible;
+   }
+
+   .all_sport_hover img {
+       width: 60px;
+       margin-left: 45px;
+   }
+
+   .club {
+       width: 95%;
+       height: auto;
+       display: flex;
+   }
+
+   .hamburger {
+       display: none;
+       font-size: 26px;
+       color: black;
+       margin-top: 25px;
+       cursor: pointer;
+       margin-left: 10px;
+       margin-right: 20px;
+   }
 
 
-                                /* footeball css */
-
-.f1{
-    margin: 30px 10px 20px 80px;
-    display: flex;
-}
-.f1 img{
-    border: solid 0px rgb(224, 221, 221);
-    border-radius: 5px;
-    margin-left: 25px;
-    box-shadow: 8px 8px 18px;
-    width: 110px;
-    transition-duration: 1.5s;
-}
-.f1 img:hover{
-    transform: scale(1.1);
-    
-}
-.f1 p{
-    text-align: center;
-}
-.l1{
-    float: left;
-    width: 33%;
-    padding: 15px 15px;
-}
-.lnch{
-    width: 20%;
-    float: left;
-    padding: 15px 15px;
-}
-.lnch img:hover{
-    transform: scaleX(-1);
-}
-.OFFICIAL{
-    padding: 20px 20px;
-}
-.blogs{
-    margin: 5px 5px 30px 5px;
-}
-.blogs p{
-    background-color: rgb(209, 207, 206);
-    margin-top: -3px;
-    padding: 10px 10px;
-    color: rgb(104, 104, 104);
-}
 
 
-@media  (max-width:600px) {
-    .row{
-        flex-direction: column;
-    }
-    .header{
-        height: 100px;
-        padding: 10px;
-        font-size: 18px;
-    }
-    .text{
-        margin-top: 60px;
-    }
-    .ashover{
-        display: none;
-    }
-    .sport{
-        flex-direction: column;
-        height: auto;
-        align-items: center;
-        padding: 20px;
-    }
-    .text{
-        align-items: center;
-        flex-direction: column;
-        height: auto;
-    }
-    .navbar{
-        flex-direction: column;
-        height: auto;
-        
-    }
-    .team img{
-        height: 200px;
-        flex-direction: column;
-        width: 50%;
-        align-items: center;
-    }
-    ul li{
-        text-align: center;
-    }
-    .footer i{
-        height: 50px;
-    }
-    video{
-        flex-direction: column;
-        height: 300px;
-        width: 50%;
-    }
-    .hamburger {
-    display: block;
-  }
-  .navbar{
-    display: none;
-    text-align: center;
-  }
-  .link {
-    display: none;
-    width: 100%;
-  }
+   /* footeball css */
 
-  .navbar.active {
-    display: block;
-  }
-  .navbar {
-    background-image: none;
-  }
+   .f1 {
+       margin: 30px 10px 20px 80px;
+       display: flex;
+   }
 
-  .navbar a {
-    display: block;
-    text-align: left;
-  }
+   .f1 img {
+       border: solid 0px rgb(224, 221, 221);
+       border-radius: 5px;
+       margin-left: 25px;
+       box-shadow: 8px 8px 18px;
+       width: 110px;
+       transition-duration: 1.5s;
+   }
 
-  .navbar a {
-    display: block;
-    margin: 10px 15px;
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
-  }
-    
-}
+   .f1 img:hover {
+       transform: scale(1.1);
+
+   }
+
+   .f1 p {
+       text-align: center;
+   }
+
+   .l1 {
+       float: left;
+       width: 33%;
+       padding: 15px 15px;
+   }
+
+   .lnch {
+       width: 20%;
+       float: left;
+       padding: 15px 15px;
+   }
+
+   .lnch img:hover {
+       transform: scaleX(-1);
+   }
+
+   .OFFICIAL {
+       padding: 20px 20px;
+   }
+
+   .blogs {
+       margin: 5px 5px 30px 5px;
+   }
+
+   .blogs p {
+       background-color: rgb(209, 207, 206);
+       margin-top: -3px;
+       padding: 10px 10px;
+       color: rgb(104, 104, 104);
+   }
+
+   @media (max-width:600px) {
+       .row {
+           flex-direction: column;
+       }
+
+       .header {
+           height: 100px;
+           padding: 10px;
+           font-size: 18px;
+       }
+
+       .text {
+           margin-top: 60px;
+       }
+
+       .ashover {
+           display: none;
+       }
+
+       .sport {
+           flex-direction: column;
+           height: auto;
+           align-items: center;
+           padding: 20px;
+       }
+
+       .text {
+           align-items: center;
+           flex-direction: column;
+           height: auto;
+       }
+
+       .navbar {
+           flex-direction: column;
+           height: auto;
+
+       }
+
+       .team img {
+           height: 200px;
+           flex-direction: column;
+           width: 50%;
+           align-items: center;
+       }
+
+       ul li {
+           text-align: center;
+       }
+
+       .footer i {
+           height: 50px;
+       }
+
+       video {
+           flex-direction: column;
+           height: 300px;
+           width: 50%;
+       }
+
+       .hamburger {
+           display: block;
+       }
+
+       .navbar {
+           display: none;
+           text-align: center;
+       }
+
+       .link {
+           display: none;
+           width: 100%;
+       }
+
+       .navbar.active {
+           display: block;
+       }
+
+       .navbar {
+           background-image: none;
+       }
+
+       .navbar a {
+           display: block;
+           text-align: left;
+       }
+
+       .navbar a {
+           display: block;
+           margin: 10px 15px;
+           padding: 10px 0;
+           border-bottom: 1px solid #ccc;
+       }
+
+   }
