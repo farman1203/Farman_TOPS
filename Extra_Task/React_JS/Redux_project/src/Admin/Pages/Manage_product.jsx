@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 function Manage_product() {
+    const dispatch = useDispach();
+    useEffect(()=>{
+        dispatch()
+    })
+
     return (
         <div>
             <div className="container-fluid bg-light py-5">
