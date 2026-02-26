@@ -1,6 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import AHeader from './Admin/Component/AFooter'
 import AFooter from './Admin/Component/AHeader'
 // import Admin_login from './Admin/Pages/Admin_login'
@@ -17,6 +20,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+       <ToastContainer></ToastContainer>
         <Routes>
           <Route path="/" element={<><AFooter /><Dashboard /><AHeader/></>}></Route>
           {/* <Route path="/admin-login" element={<><Admin_login /></>}></Route> */}
