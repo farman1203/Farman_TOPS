@@ -34,6 +34,7 @@ function Add_product() {
             toast.error('password field is required')
             return false;
         }
+        return true;
 
     }
         const dispatch = useDispatch();
