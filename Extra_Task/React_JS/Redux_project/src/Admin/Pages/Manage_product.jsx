@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 function Manage_product() {
-    const dispatch = useDispach();
+    const dispatch = useDispatch();
     useEffect(()=>{
-        dispatch()
+      
     })
 
     return (

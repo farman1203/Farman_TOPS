@@ -30,13 +30,13 @@ export const productSlice=createSlice({
          user_arr:[]
     },
     reducers:{
-        
+         
     },
-    //  extraReducers:{
-    //     [get_data.fulfilled]:(state,action)=>{
-    //         state.user_arr=action.payload;
-    //     }
-    // }
+    extraReducers:{
+         [get_data.fulfilled]:(state,action)=>{
+            state.user_arr=action.payload;
+        }
+    }
     
 })
 
