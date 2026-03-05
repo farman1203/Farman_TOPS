@@ -8,7 +8,7 @@ function Manage_product() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(get_data());
-    })
+    }, [])
 
     const { user_arr } = useSelector((state) => state.product)
 
@@ -27,8 +27,8 @@ function Manage_product() {
     })
 
     const edithandle = (id) => {
-        const editdata = user_arr.filter((value) => { return value.id == id });
-        setData(editdata[0])
+        const editdata = user_arr.find((value) => value.id === id);
+        setData(editdata);
     }
 
     const changehandle = (e) => {
@@ -53,11 +53,12 @@ function Manage_product() {
 
 
     const submithandle = (e) => {
-        e.preventdefault();
+        e.preventDefault();
+
         if (validation()) {
             dispatch(update_data(data));
+            toast.success('updated successfully!');
             dispatch(get_data());
-            toast.success('updated successfully!')
         }
     }
 
@@ -84,21 +85,21 @@ function Manage_product() {
                                 {
 
                                     user_arr.map((value) => {
-                                        return(
+                                        return (
                                             <tr>
-                                            <td>{value.id}</td>
-                                            <td>{value.name}</td>
-                                            <td><img src={value.image} width="50px" alt="" /></td>
-                                            <td className='text-center'>
-                                                <button className='btn btn-danger me-2' onClick={()=>{deletehandle(value.id)}}>Delete</button>
-                                                <button className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#myModal" onClick={()=>edithandle(value.id)}>Edit</button>
-                                            </td>
-                                        </tr>
+                                                <td>{value.id}</td>
+                                                <td>{value.name}</td>
+                                                <td><img src={value.image} width="50px" alt="" /></td>
+                                                <td className='text-center'>
+                                                    <button className='btn btn-danger me-2' onClick={() => { deletehandle(value.id) }}>Delete</button>
+                                                    <button className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#myModal" onClick={() => edithandle(value.id)}>Edit</button>
+                                                </td>
+                                            </tr>
                                         )
                                     })
 
                                 }
-                                 <div className="modal" id="myModal">
+                                <div className="modal" id="myModal">
                                     <div className="modal-dialog">
                                         <div className="modal-content">
 
@@ -117,7 +118,7 @@ function Manage_product() {
                                                         <label htmlFor="email">Email:</label>
                                                         <input type="email" value={data.email} onChange={changehandle} className="form-control" id="email" placeholder="Enter email" name="email" />
                                                     </div>
-                                                   
+
                                                     <div className="mb-3">
                                                         <label htmlFor="pwd">Password:</label>
                                                         <input type="password" value={data.password} onChange={changehandle} className="form-control" id="pwd" placeholder="Enter password" name="password" />
