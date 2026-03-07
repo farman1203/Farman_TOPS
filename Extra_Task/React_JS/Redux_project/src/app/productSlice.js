@@ -17,7 +17,7 @@ export const delete_data = createAsyncThunk('delete_data', async (id) => {
     return res.data;
 });
 export const update_data = createAsyncThunk('update_data', async (object) => {
-    const res = await axios.patch(`http://localhost:5001/product/${object.id}`, object);
+    const res = await axios.put(`http://localhost:5001/product/${object.id}`, object);
     console.log(res.data);
     return res.data;
 });

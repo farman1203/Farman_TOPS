@@ -99,6 +99,8 @@ function Manage_product() {
                                     })
 
                                 }
+                                  </tbody>
+                                 </table>
                                 <div className="modal" id="myModal">
                                     <div className="modal-dialog">
                                         <div className="modal-content">
@@ -133,8 +135,8 @@ function Manage_product() {
                                         </div>
                                     </div>
                                 </div>
-                            </tbody>
-                        </table>
+                          
+                       
                     </div>
                 </div>
             </div>
