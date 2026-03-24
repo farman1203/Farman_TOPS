@@ -1,0 +1,18 @@
+{
+  "admin": [
+    {
+      "id": "1",
+      "email": "admin@gmail.com",
+      "password": "123"
+    }
+  ],
+  "user": [
+    {
+      "id": "1oJ85agUma8",
+      "name": "Farman Ansari",
+      "email": "ansarifarman1203@gmail.com",
+      "image": "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADrbWV0YQAAAAAAAAAhaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAAAAAAAOcGl0bQAAAAAAAQAAAB5pbG9jAAAAAEQAAAEAAQAAAAEAAAETAAALzQAAAChpaW5mAAAAAAABAAAAGmluZmUCAAAAAAEAAGF2MDFDb2xvcgAAAABqaXBycAAAAEtpcGNvAAAAFGlzcGUAAAAAAAAApwAAAPoAAAAQcGl4aQAAAAADCAgIAAAADGF2MUOBAAwAAAAAE2NvbHJuY2x4AAIAAgAGgAAAABdpcG1hAAAAAAAAAAEAAQQBAoMEAAAL1W1kYXQSAAoKGB3pvlggQEDQgDK8FxIAAooooUDX/y/3rLeb32UWxGdvM7/mTqXNcpx4zzJ2wgNhbOX43oC06o9ZbMMhy5leN0opick8v2fZw7r2dQtC46Ithy7TXkPtFQC8EiCkAZZqIIJdzZ87/ttl5aDECnOs6ngM3CSxe4KSaodAy9AFW0wW8NkCyQ49zLbKov1Si9vqevot5zt6C1revI+WVa5fSd9mBwOsODsMfPOJVNqRaqWn7Yr9I9JoY7432A8Mtt6FzvaaxGPaf+duErZJkx77lMcTVqDHpArUqc+GG4ED6x6cpLHLZ8CrefRrapOFuiRWz8ME6dwf/676PfbRpJQfGji7LAvdqKviVhFK+/xnngCYgK734VmBfJr2HeImBqQ82RwZvBNCKxpT6e4jsX2BtEtoe7D2vTzgehVKFXP0nLSLN6vAuFDGEshocl4KAQ6PDwH2sgVQHc6gRIQEtm2729S6R2dSS3jgyGSuUTltNjnIgpDlTSCEMNwfqD3loBJ3PBzAZM7aoXt3dqePyvzLe2cl3z2GqPG2sh0sf6CbZu+WYonXhzmTgPzMq1jSvNC8bxThR+BHhx80hveu1xHC1j6Z5DErd0AOl3cLLbwuZZr1ser5aUbEt"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
