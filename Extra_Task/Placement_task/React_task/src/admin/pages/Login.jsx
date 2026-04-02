@@ -31,12 +31,12 @@ const Login = () => {
                 redirect('/dashboard');
             }
             else {
-                toast.success('Login Failed Due to Wrong Password');
+                toast.error('Login Failed Due to Wrong Password');
                 return false;
             }
         }
         else {
-            toast.success('Login Failed Due to Wrong Email');
+            toast.error('Login Failed Due to Wrong Email');
             return false;
         }
         return false;
