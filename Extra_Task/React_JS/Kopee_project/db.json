@@ -30,7 +30,7 @@
     "admin": [
         {
             "id": "01",
-            "emial": "admin1@coffeshop.com",
+            "emial": "admin@coffeshop.com",
             "password": "admin123"
         },
         {

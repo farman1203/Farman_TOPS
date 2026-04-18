@@ -25,7 +25,7 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-      <ToastContainer ></ToastContainer>
+        <ToastContainer ></ToastContainer>
         <Routes>
           <Route path="/" element={<><Header /><Index /><Footer /></>}></Route>
           <Route path="/about" element={<><Header /><About /><Footer /></>}></Route>
@@ -38,7 +38,7 @@ const App = () => {
           <Route path="*" element={<><Header /><Pagenote404 /><Footer /></>}></Route>
 
           <Route element={<UBefore_login />}>
-            <Route path="/login" element={<><Header/><Login /></>}></Route>
+            <Route path="/login" element={<><Header /><Login /></>}></Route>
           </Route>
 
           <Route element={<UAfter_login />}>
@@ -48,8 +48,7 @@ const App = () => {
 
           <Route path="/alogin" element={<><Alogin /></>}></Route>
           {/* <Route path="/edit_product/" element={<><Edit_product /></>}></Route> */}
-          {/* <Route path="/dashboard" element={<><Dashboard/></>}></Route> */} 
-
+          {/* <Route path="/dashboard" element={<><Dashboard/></>}></Route> */}
 
         </Routes>
       </BrowserRouter>

@@ -5,10 +5,31 @@ function Alogin() {
   const [password, setPassword] = useState("admin123");
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
     console.log({ email, password });
     // yahan API / auth logic aayega
+     const obj = await axios.get(`http://localhost:3001/admin?email=${email}`);
+        //console.log(obj.data);
+        if (obj.data.length > 0) {
+            if (obj.data[0].password == obj_cate.password) {
+                //session created
+                sessionStorage.setItem('s_aid', obj.data[0].id);
+                sessionStorage.setItem('s_aname', obj.data[0].name);
+
+                toast.success('Login Success ');
+                redirect('/dashboard');
+            }
+            else {
+                toast.error('Login Failed Due to Wrong Password');
+                return false;
+            }
+        }
+        else {
+            toast.error('Login Failed Due to Wrong Email');
+            return false;
+        }
+        return false;
   };
 
   return (
