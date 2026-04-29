@@ -81,9 +81,6 @@
             .hero.show{
                 min-height:300px ;
             }
-
-
-
         }
     </style>
 </head>
@@ -99,15 +96,17 @@
             <li><a href="">Home</a></li>
             <li><a href="">Home</a></li>
         </ul>
-    </nav>
+    </nav>   
 
     <main>
         <button>Open Model</button>
 
         <div id="modal">
             <h1>Form</h1>
-            <input type="text" placeholder="enter name">
-            <input type="text" placeholder="enter number">
+            <input type="text" id="v1" placeholder="enter name">
+            <input type="text" id="v2" placeholder="enter number">
+            <span id="val"></span>
+            <button onclick="validation()">submit</button>
         </div>
     </main>
 
@@ -120,6 +119,15 @@
 
         function Openmodal(){
             document.getElementById('modal').style.display
+        }
+
+        function validation(){
+             var v1=   document.getElementById('v1').value;
+             var v2=   document.getElementById('v2').value;
+
+             if(v1=="" || v1=="Null"){
+                document.getElementById('val').innerHTML="please enter details";
+             }
         }
     </script>
 </body>
