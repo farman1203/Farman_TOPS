@@ -8,6 +8,18 @@ import Cal from "./Props/cal";
 import "./index.css";
 
 function App() {
+     const arr_obj=[
+        {
+          userid:1,
+          name:"abc"
+        },
+        {
+          userid:2,
+          name:"xyz"
+        }
+      ]
+
+      console.log(arr_obj);
   return (
     <div className="parent">
       {/* <Header/> */}
@@ -25,19 +37,7 @@ function App() {
       {/* <Cal /> */}
 
 
-      const arr_obj=[
-        {
-          userid:1,
-          name:"abc"
-        },
-        {
-          userid:2,
-          name:"xyz"
-        }
-      ]
-
-
-      console.log(arr_obj);
+   
       
     </div>
   );
