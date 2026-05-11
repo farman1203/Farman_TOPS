@@ -33,6 +33,24 @@
 
 
         
+        var a=[1,2,3,2,1];
+        var left=0;
+        var right=a.length-1;
+        
+
+        while(left<right){
+            if(a[left]==a[right]){
+                left++;
+                right--;
+                console.log("palindrome");
+                continue
+            }
+            else{
+                console.log("not palindrome");
+                break
+            }
+        }
+        
         
     </script>
 </body>
