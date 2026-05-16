@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row{
+            display: flex;
+        }
+        
+        nav{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: aqua;
+        }
+        .menu li a{
+            list-style: none;
+            padding: 10px;
+        }
+        li a{
+            text-decoration: none;
+        }
+        .hs{
+            display: none;
+        }
+
+        @media (max-width:600px){
+             .hs{
+                display: block;
+            }
+            .menu{
+                position: absolute;
+                top: 65px;
+                flex-direction: column;
+                background-color: aqua;
+                overflow: hidden;
+                max-height: 0px;
+                text-align: center;
+                width: 100%;
+            }
+             
+            .menu.show{
+                min-height: 500px;
+            }
+            nav{
+                background-color: bisque;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+            <h1>Website</h1>
+            <button class="hs" onclick="show()">❌</button>
+            <ul id="menu" class="menu">
+                <li>
+                    <a href="">home</a>
+                    <a href="">home</a>
+                    <a href="">home</a>
+                    <a href="">home</a>
+                </li>
+            </ul>
+    </nav>
+    <main>
+        <div>
+
+        </div>
+    </main>
+</body>
+    <script>
+        function show(){
+            var menu = document.getElementById('menu');
+
+            menu.classList.toggle('show');
+        }
+    </script>
+
+</html>

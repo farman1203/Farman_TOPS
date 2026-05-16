@@ -3,5 +3,5 @@ let b=20;
 
 
 if(a>b){
-    alert('b is less')
+    alert('a is less')
 }
