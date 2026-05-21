@@ -3,14 +3,19 @@ import { useState } from 'react'
 
 const UseState = () => {
 
-  const [num, setnum] = useState(10);
+  const [data, setData] = useState(0);
 
   return (
     <div>
-      <h1>The Value of num is {num}</h1>
+      <h1>The total : {data}</h1>
       <button onClick={() => {
-        setnum(num + 10)
-      }}>Click</button>
+        setData(data + 1)
+      }}>+</button>
+      <button onClick={() => {
+        setData(data - 1)
+      }}>-</button>
+
+
     </div>
   )
 }

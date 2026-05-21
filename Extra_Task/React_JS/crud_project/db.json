@@ -1,0 +1,10 @@
+{
+  "user": [
+    {
+      "name": "Farman Ansari",
+      "email": "ansarifarman1203@gmail.com",
+      "id": "9VhvwKhWlN0"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -12,13 +12,13 @@ const App = () => {
   return (
     <div>
         {/* <Event /> */}
-        {/* <UseState /> */}
+        <UseState />
         {/* <Inc_Dec /> */}
         {/* <Form_handling /> */}
         {/* <Localstorage /> */}
         {/* <UseEffect /> */}
 
-        <UseReducer/>
+        {/* <UseReducer/> */}
     </div>
   )
 }
