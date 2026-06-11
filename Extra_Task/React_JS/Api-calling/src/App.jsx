@@ -15,7 +15,7 @@ const App = () => {
     <div >
       <button onClick={api} className='m-5 p-2 bg-gray-500 rounded text-2xl text-white'>get data</button>
       <div className='flex flex-wrap gap-10 ml-10'>
-        {data.map(function (elem) {
+        {data.map( (elem)=> {
           return <div>
             <div className='card p-5'>
               <h1 className='font-black'>Author Name:{elem.author}</h1>

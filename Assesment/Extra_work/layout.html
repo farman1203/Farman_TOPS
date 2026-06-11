@@ -6,10 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
+            box-sizing: border-box;
         }
+
+        .row {
+            display: flex;
+        }
+
+        .col-1 {
+            width: 8.33%;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 33.33%;
+        }
+
+        .col-5 {
+            width: 41.66%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
         nav {
             display: flex;
             align-items: center;
@@ -20,7 +74,6 @@
 
         .hero {
             display: flex;
-            
         }
 
         .hero a {
@@ -28,17 +81,26 @@
             color: black;
         }
 
-        .modal{
+        .modal {
             display: none;
-            position: absolute;
-            top: 70px;
-            left: 70px;
-            flex-direction: column;
-            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
         }
 
-        .hero a:hover{
-            color:brown;
+        .modal-box {
+            background: white;
+            width: 300px;
+            padding: 20px;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        .hero a:hover {
+            color: brown;
         }
 
         ul li {
@@ -52,6 +114,24 @@
             border: none;
             font-size: 24px;
             background: none;
+        }
+
+        .box {
+            border: 1px solid black;
+            margin: 20px;
+            padding: 20px;
+            width: 25%;
+
+        }
+
+        .main2 {
+            display: flex;
+            padding: 20px;
+
+        }
+
+        img {
+            width: 100%;
         }
 
         @media (max-width:600px) {
@@ -76,16 +156,31 @@
                 transition: 0.4s ease;
             }
 
-            .hero li{
+            .hero li {
                 padding: 20px;
                 text-align: center;
                 width: 100%;
                 border: 1px solid rgb(112, 112, 112);
             }
 
-            .hero.show{
-                min-height:300px ;
+            .hero.show {
+                min-height: 300px;
             }
+
+            .row {
+                flex-direction: column;
+            }
+
+            .box {
+                width: 100%;
+            }
+
+
+            img {
+                width: 100%;
+            }
+
+
         }
     </style>
 </head>
@@ -101,19 +196,61 @@
             <li><a href="">Home</a></li>
             <li><a href="">Home</a></li>
         </ul>
-    </nav>   
+    </nav>
 
     <main>
         <button onclick="Openmodal()">Open Model</button>
 
         <div id="modal" class="modal">
-            <h1>Form</h1>
-            <input type="text" id="v1" placeholder="enter name">
-            <input type="text" id="v2" placeholder="enter number">
-            <span id="val"></span>
-            <button onclick="validation()">submit</button>
+            <div class="modal-box">
+                <h1>Form</h1>
+                <input type="text" id="v1" placeholder="enter name">
+                <input type="text" id="v2" placeholder="enter number">
+                <span id="val"></span>
+                <button onclick="validation()">submit</button>
+            </div>
         </div>
     </main>
+
+    <div class="row">
+
+        <div class="box">
+            <h1>Hello</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque culpa molestias eum optio minus ab commodi
+                perspiciatis officia perferendis quae. Architecto adipisci eveniet error? Deleniti nisi recusandae
+                aspernatur quas pariatur optio laboriosam, quod laborum?</p>
+        </div>
+        <div class="box">
+            <h1>Hello</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque culpa molestias eum optio minus ab commodi
+                perspiciatis officia perferendis quae. Architecto adipisci eveniet error? Deleniti nisi recusandae
+                aspernatur quas pariatur optio laboriosam, quod laborum?</p>
+        </div>
+        <div class="box">
+            <h1>Hello</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque culpa molestias eum optio minus ab commodi
+                perspiciatis officia perferendis quae. Architecto adipisci eveniet error? Deleniti nisi recusandae
+                aspernatur quas pariatur optio laboriosam, quod laborum?</p>
+        </div>
+        <div class="box">
+            <h1>Hello</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque culpa molestias eum optio minus ab commodi
+                perspiciatis officia perferendis quae. Architecto adipisci eveniet error? Deleniti nisi recusandae
+                aspernatur quas pariatur optio laboriosam, quod laborum?</p>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-6 ">
+            <img src="bakery.jpg" alt="">
+        </div>
+        <div class="col-6">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi saepe libero consequuntur maiores sequi
+                explicabo quis repudiandae, ad vero placeat labore ullam sapiente? Ipsam laborum quisquam voluptates
+                maxime dolorum rem.</p>
+        </div>
+    </div>
 
     <script>
         function toggleMenu() {
@@ -122,20 +259,20 @@
             hero.classList.toggle('show');
         }
 
-        function Openmodal(){
-            document.getElementById('modal').style.display="block";
+        function Openmodal() {
+            document.getElementById('modal').style.display = "block";
         }
-        function Closemodal(){
-            document.getElementById('modal').style.display="none";
+        function Closemodal() {
+            document.getElementById('modal').style.display = "none";
         }
 
-        function validation(){
-             var v1=   document.getElementById('v1').value;
-             var v2=   document.getElementById('v2').value;
+        function validation() {
+            var v1 = document.getElementById('v1').value;
+            var v2 = document.getElementById('v2').value;
 
-             if(v1=="" || v1=="Null"){
-                document.getElementById('val').innerHTML="please enter details";
-             }
+            if (v1 == "" || v1 == "Null") {
+                document.getElementById('val').innerHTML = "please enter details";
+            }
         }
     </script>
 </body>
